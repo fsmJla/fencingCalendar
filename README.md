@@ -2,7 +2,7 @@
 
 Une page HTML statique, aux couleurs du SPUC Escrime (Pessac), qui regroupe, pour la saison en cours, le circuit national FFE, les épreuves de la ligue Nouvelle-Aquitaine, les épreuves de Gironde et les stages. On peut filtrer par arme, catégorie, sexe et type d’épreuve, et afficher la saison en vue « Mensuel » (un mois en calendrier), « Liste » ou « Annuel » (toute la saison sur une page, un mois par colonne). Le jour courant est entouré en rouge. Un bouton « Sombre » / « Clair » dans l’en-tête change le thème (par défaut, celui de l’appareil ; le choix est mémorisé dans le navigateur).
 
-La page est régénérée **chaque lundi** par GitHub Actions et publiée sur GitHub Pages.
+La page est régénérée **chaque jour à 5 h UTC** (6 h ou 7 h en France) par GitHub Actions et publiée sur GitHub Pages.
 
 ## Comment ça marche
 
@@ -70,7 +70,7 @@ python scripts/build_calendar.py --offline  # n’utilise que data/sources/
 
 1. Fusionner la PR dans `main`.
 2. Dans **Settings › Pages**, choisir **Source : GitHub Actions**.
-3. Lancer une première fois **Actions › Calendrier escrime › Run workflow** (ensuite c’est automatique chaque lundi, et à chaque modification sur `main`).
+3. Lancer une première fois **Actions › Calendrier escrime › Run workflow** (ensuite c’est automatique chaque jour, et à chaque modification sur `main`).
 
 La page est alors visible sur <https://fsmjla.github.io/fencingCalendar/>.
 
@@ -127,4 +127,4 @@ Sur le site SportsRegions, la page « Calendrier de la saison » peut afficher l
 | `config.json` | adresses des sources, saison forcée éventuelle |
 | `data/evenements_manuels.json` | ajouts et corrections manuels |
 | `data/sources/` | dernières copies des sources (secours si le site de la ligue est indisponible) |
-| `.github/workflows/calendrier.yml` | génération hebdomadaire et publication sur GitHub Pages |
+| `.github/workflows/calendrier.yml` | génération quotidienne et publication sur GitHub Pages |
