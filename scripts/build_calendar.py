@@ -84,11 +84,20 @@ def iso(d: dt.date) -> str:
 # Téléchargement
 # --------------------------------------------------------------------------
 
-def http_get(url: str, timeout: int = 30) -> bytes:
+def http_get(url: str, timeout: int = 30, tries: int = 3) -> bytes:
+    """GET avec quelques nouvelles tentatives en cas de coupure réseau."""
+    import time
     import requests  # import tardif : inutile en mode hors ligne
-    r = requests.get(url, headers={"User-Agent": UA}, timeout=timeout)
-    r.raise_for_status()
-    return r.content
+    last = None
+    for i in range(tries):
+        try:
+            r = requests.get(url, headers={"User-Agent": UA}, timeout=timeout)
+            r.raise_for_status()
+            return r.content
+        except Exception as e:  # noqa: BLE001
+            last = e
+            time.sleep(2 * (i + 1))
+    raise last
 
 
 def discover_excel_links(pages: list[str]) -> list[str]:
@@ -899,9 +908,17 @@ def fetch_gironde(cfg: dict, start_year: int, offline: bool) -> list[dict]:
     if not offline:
         try:
             body = http_get(url).decode("utf-8", "replace")
-            cache.write_text(body, encoding="utf-8")
         except Exception as e:  # noqa: BLE001
-            log(f"[gironde] page inaccessible ({e}) ; copie locale utilisée si présente")
+            log(f"[gironde] page inaccessible ({e}) ; essai par l’API WordPress publique")
+            slug = url.rstrip("/").rsplit("/", 1)[-1]
+            api = urljoin(url, f"/wp-json/wp/v2/pages?slug={slug}&_fields=content")
+            try:
+                j = json.loads(http_get(api))
+                body = j[0]["content"]["rendered"] if j else None
+            except Exception as e2:  # noqa: BLE001
+                log(f"[gironde] API inaccessible ({e2}) ; copie locale utilisée si présente")
+        if body:
+            cache.write_text(body, encoding="utf-8")
     if body is None and cache.exists():
         body = cache.read_text(encoding="utf-8")
     if body is None:
