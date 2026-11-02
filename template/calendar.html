@@ -23,6 +23,7 @@
   --c-fleuret:#BE185D; --t-fleuret:#FCE3EF;
   --c-multi:#6D28D9; --t-multi:#EAE3FD;
   --c-anim:#0F766E; --t-anim:#D3F3EE;
+  --c-laser:#0E7490; --t-laser:#D5F1F8;
   --lv-na:#0B2545; --lv-fr:#5B6678; --lv-st:#8A5A00; --lv-dep:#7A1F5C; --warn:#F5A524; --warn-text:#1A1405;
   --focus:#2563EB;
 }
@@ -37,6 +38,7 @@
   --c-fleuret:#D03F87; --t-fleuret:#3B1128;
   --c-multi:#8A63E8; --t-multi:#271B52;
   --c-anim:#1F9E92; --t-anim:#0B3733;
+  --c-laser:#1B9AB8; --t-laser:#0A3240;
   --lv-na:#2B4A7A; --lv-fr:#5B6678; --lv-st:#A06A0A; --lv-dep:#9A3A7A; --warn:#F5A524; --warn-text:#1A1405;
   --focus:#7AA7FF; color-scheme:dark;
 }
@@ -51,6 +53,7 @@
   --c-fleuret:#D03F87; --t-fleuret:#3B1128;
   --c-multi:#8A63E8; --t-multi:#271B52;
   --c-anim:#1F9E92; --t-anim:#0B3733;
+  --c-laser:#1B9AB8; --t-laser:#0A3240;
   --lv-na:#2B4A7A; --lv-fr:#5B6678; --lv-st:#A06A0A; --lv-dep:#9A3A7A; --warn:#F5A524; --warn-text:#1A1405;
   --focus:#7AA7FF; color-scheme:dark;
 }
@@ -126,7 +129,7 @@ h2{margin:0;font:700 clamp(22px,3vw,30px)/1.1 "Bricolage Grotesque","Instrument 
 .k-warn{--k:var(--warn);color:var(--warn-text)}
 .c-epee{--c:var(--c-epee);--t:var(--t-epee)} .c-sabre{--c:var(--c-sabre);--t:var(--t-sabre)}
 .c-fleuret{--c:var(--c-fleuret);--t:var(--t-fleuret)} .c-multi{--c:var(--c-multi);--t:var(--t-multi)}
-.c-anim{--c:var(--c-anim);--t:var(--t-anim)}
+.c-anim{--c:var(--c-anim);--t:var(--t-anim)} .c-laser{--c:var(--c-laser);--t:var(--t-laser)}
 
 .list{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
 .lmonth{padding:9px 12px;background:var(--surface2);font:700 16px/1.2 "Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;color:var(--ink)}
@@ -222,7 +225,7 @@ details.notes ul{padding-left:20px;margin:4px 0}
   <div id="view"></div>
 
   <div class="legend" aria-label="Légende">
-    <span><span class="chip k-arm c-epee">Épée</span><span class="chip k-arm c-sabre">Sabre</span><span class="chip k-arm c-fleuret">Fleuret</span><span class="chip k-arm c-multi">Plusieurs armes</span><span class="chip k-arm c-anim">Animateur / éducateur</span></span>
+    <span><span class="chip k-arm c-epee">Épée</span><span class="chip k-arm c-sabre">Sabre</span><span class="chip k-arm c-fleuret">Fleuret</span><span class="chip k-arm c-laser">Sabre laser</span><span class="chip k-arm c-multi">Plusieurs armes</span><span class="chip k-arm c-anim">Animateur / éducateur</span></span>
     <span><span class="chip k-na">NA</span> épreuve Nouvelle-Aquitaine</span>
     <span><span class="chip k-dep">Gironde</span> épreuve départementale</span>
     <span><span class="chip k-fr">France</span> circuit national (grille FFE)</span>
@@ -249,19 +252,20 @@ const DOW = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
 const DS = ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."];
 const ARMS = [
   {k:"EPEE",l:"Épée",c:"var(--c-epee)"},{k:"SABRE",l:"Sabre",c:"var(--c-sabre)"},
-  {k:"FLEURET",l:"Fleuret",c:"var(--c-fleuret)"},{k:"ANIM",l:"Animateur / éducateur",c:"var(--c-anim)"}];
-const ARML = {EPEE:"Épée",SABRE:"Sabre",FLEURET:"Fleuret",ANIM:"Animateur / éducateur"};
-const ARM_ORDER = ["EPEE","SABRE","FLEURET","ANIM"];
-const CATG = [{k:"M13",l:"M13 / M15"},{k:"JEU",l:"M17 / M20"},{k:"SEN",l:"Seniors"},{k:"VET",l:"Vétérans"}];
-const GROUP = {M13:"M13",M17:"JEU",M20:"JEU",SEN:"SEN",VET:"VET"};
-const CATLAB = {M13:"M13/M15",M17:"M17",M20:"M20",SEN:"Seniors",VET:"Vétérans"};
-const CAT_ORDER = ["M13","M17","M20","SEN","VET"];
+  {k:"FLEURET",l:"Fleuret",c:"var(--c-fleuret)"},{k:"LASER",l:"Sabre laser",c:"var(--c-laser)"},
+  {k:"ANIM",l:"Animateur / éducateur",c:"var(--c-anim)"}];
+const ARML = {EPEE:"Épée",SABRE:"Sabre",FLEURET:"Fleuret",LASER:"Sabre laser",ANIM:"Animateur / éducateur"};
+const ARM_ORDER = ["EPEE","SABRE","FLEURET","LASER","ANIM"];
+const CATG = [{k:"M11",l:"M11"},{k:"M13",l:"M13 / M15"},{k:"JEU",l:"M17 / M20"},{k:"SEN",l:"Seniors"},{k:"VET",l:"Vétérans"}];
+const GROUP = {M11:"M11",M13:"M13",M17:"JEU",M20:"JEU",SEN:"SEN",VET:"VET"};
+const CATLAB = {M11:"M11",M13:"M13/M15",M17:"M17",M20:"M20",SEN:"Seniors",VET:"Vétérans"};
+const CAT_ORDER = ["M11","M13","M17","M20","SEN","VET"];
 const LV = [{k:"DEP",l:"Épreuves Gironde"},{k:"NA",l:"Épreuves NA"},{k:"FR",l:"Épreuves France"},{k:"ST",l:"Stages"}];
 const LVCHIP = {DEP:"Gironde",NA:"NA",FR:"France",ST:"Stage"};
 const SEX = [{k:"D",l:"Dames"},{k:"H",l:"Hommes"}];
 
 const DEFAULTS = () => ({
-  arms:["EPEE","SABRE","ANIM"], cats:["M13","JEU","SEN","VET"], sex:["D","H"], lv:["DEP","NA","FR","ST"], q:""
+  arms:["EPEE","SABRE","LASER","ANIM"], cats:["M11","M13","JEU","SEN","VET"], sex:["D","H"], lv:["DEP","NA","FR","ST"], q:""
 });
 const st = {arms:null,cats:null,sex:null,lv:null,q:"",month:0,view:"cal"};
 const SKEY = "escrime-filtres-" + DATA.season;
@@ -449,7 +453,7 @@ const isNarrow = () => window.matchMedia("(max-width: 860px)").matches;
 
 function filterSummary(){
   const arms = ARMS.filter(a => a.k !== "ANIM" && st.arms.has(a.k)).map(a => a.l);
-  const other = (st.cats.size < 4 ? 1 : 0) + (st.sex.size < 2 ? 1 : 0) + (st.lv.size < LV.length ? 1 : 0) + (st.q.trim() ? 1 : 0);
+  const other = (st.cats.size < CATG.length ? 1 : 0) + (st.sex.size < 2 ? 1 : 0) + (st.lv.size < LV.length ? 1 : 0) + (st.q.trim() ? 1 : 0);
   return (arms.join(", ") || "aucune arme") + (other ? " + " + other + " filtre" + (other > 1 ? "s" : "") : "");
 }
 function render(){

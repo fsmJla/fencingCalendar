@@ -10,23 +10,27 @@ La page est régénérée **chaque lundi** par GitHub Actions et publiée sur Gi
 site de la ligue ──► scripts/build_calendar.py ──► dist/index.html ──► GitHub Pages
   (Excel + agenda)         ▲          ▲
                            │          └── template/calendar.html (mise en page, filtres, vues)
-                           └── data/evenements_manuels.json (Gironde, corrections)
+                           └── cdescrime33.fr (Gironde) + data/evenements_manuels.json (corrections)
 ```
 
 Le script `scripts/build_calendar.py` :
 
 1. lit la page <https://www.escrime-nouvelle-aquitaine.fr/events/> et télécharge les fichiers Excel qui y sont liés. Il reconnaît tout seul la **grille FFE** (circuit national, vacances scolaires) et le **calendrier des épreuves Nouvelle-Aquitaine** (épreuves régionales et stages), même si leur nom change en cours de saison ;
 2. lit l’**agenda du site de la ligue** (API de l’extension « The Events Calendar ») et ajoute les épreuves qui ne figurent pas dans les Excel ;
-3. ajoute les épreuves saisies à la main dans `data/evenements_manuels.json` (Gironde) ;
+3. lit le **calendrier du comité de Gironde** (<https://cdescrime33.fr/calendrier/>) et les épreuves saisies à la main dans `data/evenements_manuels.json` ;
 4. fusionne le tout, détecte les doublons et les dates qui divergent entre sources (affichées « À confirmer »), puis écrit `dist/index.html` et `dist/evenements.json`.
 
 Chaque source téléchargée est conservée dans `data/sources/`. Si le site de la ligue est en panne, la dernière copie est utilisée : la page n’est jamais vidée. La saison est détectée automatiquement (à partir d’août, on passe à la saison suivante) ; on peut la forcer avec `"saison": "2026-2027"` dans `config.json`.
 
-Ne sont pas repris : sabre laser, escrime artistique, para-escrime et circuits internationaux (FIE, EFC).
+Ne sont pas repris : escrime artistique, para-escrime et circuits internationaux (FIE, EFC).
 
-## Ajouter une épreuve de Gironde
+## Épreuves de Gironde
 
-Le comité départemental ne publie pas de calendrier exploitable automatiquement. Il suffit d’éditer `data/evenements_manuels.json` (directement sur GitHub, bouton ✏️) :
+Les rencontres départementales sont lues automatiquement sur la page du comité, <https://cdescrime33.fr/calendrier/> (réglage `gironde_page` dans `config.json`). Cette page est un simple texte mis en forme : le script repère les titres de section (« Rencontres départementales d’épée », etc.), puis chaque date et le lieu écrit à côté ou juste en dessous. « 23 ou 30 janvier » est placé au 23 avec la mention « À confirmer ». Les rencontres sont ouvertes à toutes les catégories, de M11 à vétérans. Si le comité change la mise en page et qu’aucune date n’est plus reconnue, les points à vérifier de la page le signalent.
+
+## Ajouter ou corriger une épreuve à la main
+
+Pour une épreuve absente de toutes les sources, éditer `data/evenements_manuels.json` (directement sur GitHub, bouton ✏️) :
 
 ```json
 {
@@ -51,7 +55,7 @@ Le comité départemental ne publie pas de calendrier exploitable automatiquemen
 
 La section `masquer` permet de retirer un événement généré à tort, par exemple `{"debut": "2027-01-23", "titre_contient": "Pau"}`.
 
-Chaque modification sur `main` relance la génération ; la page est à jour une minute plus tard. Pensez à supprimer l’événement d’exemple.
+Chaque modification sur `main` relance la génération ; la page est à jour une minute plus tard.
 
 ## Lancer en local
 
@@ -120,6 +124,6 @@ Sur le site SportsRegions, la page « Calendrier de la saison » peut afficher l
 | `scripts/build_calendar.py` | lecture des sources, fusion, génération de la page |
 | `template/calendar.html` | mise en page, filtres, vues mois et liste (données injectées à la place de `__DATA__`) |
 | `config.json` | adresses des sources, saison forcée éventuelle |
-| `data/evenements_manuels.json` | épreuves de Gironde et corrections manuelles |
+| `data/evenements_manuels.json` | ajouts et corrections manuels |
 | `data/sources/` | dernières copies des sources (secours si le site de la ligue est indisponible) |
 | `.github/workflows/calendrier.yml` | génération hebdomadaire et publication sur GitHub Pages |
