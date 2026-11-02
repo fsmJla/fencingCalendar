@@ -714,7 +714,8 @@ def fetch_tec_events(cfg: dict, season: tuple[dt.date, dt.date], offline: bool) 
         cats_d, cat_text = parse_categories(title)
         venue = ev.get("venue") or {}
         city = clean(venue.get("city") if isinstance(venue, dict) else "")
-        out.append({"s": iso(s), "e": iso(e), "lv": "NA", "arms": arms,
+        lv = "ST" if re.search(r"\bstages?\b", norm(title)) else "NA"
+        out.append({"s": iso(s), "e": iso(e), "lv": lv, "arms": arms,
                     "cats": cats_d or {k: "DH" for k in ("M13", "M17", "M20", "SEN", "VET")},
                     "title": title, "catText": cat_text if cats_d else None,
                     "detail": city, "warn": None, "src": "Agenda du site de la ligue",
@@ -733,14 +734,14 @@ def merge_agenda(na_events: list[dict], agenda: list[dict]) -> list[dict]:
     signale ceux dont la date diffère."""
     added = []
     for ev in agenda:
-        same = [n for n in na_events if n["lv"] == "NA" and set(n["arms"]) & set(ev["arms"]) and overlaps(n, ev)]
+        same = [n for n in na_events if n["lv"] == ev["lv"] and set(n["arms"]) & set(ev["arms"]) and overlaps(n, ev)]
         if same:
             for n in same:
                 n.setdefault("url", ev.get("url"))
             continue
         # même arme, même lieu, autre date → probable changement de date
         city = norm(ev["detail"])
-        moved = [n for n in na_events if n["lv"] == "NA" and set(n["arms"]) & set(ev["arms"])
+        moved = [n for n in na_events if n["lv"] == ev["lv"] and set(n["arms"]) & set(ev["arms"])
                  and city and city in norm(n["title"]) and overlaps(n, ev, slack=45)]
         warn = None
         if moved:
