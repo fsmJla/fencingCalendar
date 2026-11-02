@@ -17,6 +17,7 @@ Usage : python scripts/build_calendar.py [--offline] [--out dist/index.html]
 from __future__ import annotations
 
 import argparse
+import base64
 import datetime as dt
 import html
 import json
@@ -1073,6 +1074,8 @@ def build(offline: bool, out: Path) -> None:
 
     tpl = TEMPLATE.read_text(encoding="utf-8")
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    logo = ROOT / "assets" / "logo-spuc.png"
+    tpl = tpl.replace("__LOGO__", base64.b64encode(logo.read_bytes()).decode("ascii") if logo.exists() else "")
     page = (tpl.replace("__DATA__", payload).replace("__SEASON__", season_label)
             .replace("__PERIOD__", period).replace("__NOTES__", notes_html).replace("__FOOTER__", footer))
     out.parent.mkdir(parents=True, exist_ok=True)
