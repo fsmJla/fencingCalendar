@@ -174,7 +174,7 @@ CACHE_NAMES = {"ffe": "calendrier-ffe-na.xlsx", "na": "calendrier-epreuves-na.xl
 # --------------------------------------------------------------------------
 
 CAT_SEQ = ["M11", "M13", "M15", "M17", "M20", "SEN", "VET"]
-CAT_KEY = {"M11": "M13", "M13": "M13", "M15": "M13", "M17": "M17", "M20": "M20", "SEN": "SEN", "VET": "VET"}
+CAT_KEY = {"M11": "M11", "M13": "M13", "M15": "M13", "M17": "M17", "M20": "M20", "SEN": "SEN", "VET": "VET"}
 CAT_HUMAN = {"M11": "M11", "M13": "M13", "M15": "M15", "M17": "M17", "M20": "M20", "SEN": "Seniors", "VET": "Vétérans"}
 
 
@@ -892,8 +892,9 @@ def parse_gironde_lines(lines: list[str], start_year: int, url: str) -> list[dic
             continue  # Elementor duplique parfois le contenu (mobile / bureau)
         events[key] = {
             "s": iso(s), "e": iso(e), "lv": "DEP", "arms": [weapon],
-            "cats": {"M13": "DH"}, "title": f"Rencontre départementale {wname}" + (f" – {place}" if place else ""),
-            "catText": "Jeunes", "detail": "", "warn": (f"Gironde, {wname} : {warn}" if warn else None),
+            "cats": {k: "DH" for k in ("M11", "M13", "M17", "M20", "SEN", "VET")},
+            "title": f"Rencontre départementale {wname}" + (f" – {place}" if place else ""),
+            "catText": "M11 à Vétérans", "detail": "", "warn": (f"Gironde, {wname} : {warn}" if warn else None),
             "src": "Comité départemental de Gironde", "url": url,
         }
     return list(events.values())

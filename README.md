@@ -26,7 +26,7 @@ Ne sont pas repris : escrime artistique, para-escrime et circuits internationaux
 
 ## Épreuves de Gironde
 
-Les rencontres départementales sont lues automatiquement sur la page du comité, <https://cdescrime33.fr/calendrier/> (réglage `gironde_page` dans `config.json`). Cette page est un simple texte mis en forme : le script repère les titres de section (« Rencontres départementales d’épée », etc.), puis chaque date et le lieu écrit à côté ou juste en dessous. « 23 ou 30 janvier » est placé au 23 avec la mention « À confirmer ». Les rencontres sont classées en catégorie « M13 / M15 » (jeunes), car la page ne précise pas les catégories. Si le comité change la mise en page et qu’aucune date n’est plus reconnue, les points à vérifier de la page le signalent.
+Les rencontres départementales sont lues automatiquement sur la page du comité, <https://cdescrime33.fr/calendrier/> (réglage `gironde_page` dans `config.json`). Cette page est un simple texte mis en forme : le script repère les titres de section (« Rencontres départementales d’épée », etc.), puis chaque date et le lieu écrit à côté ou juste en dessous. « 23 ou 30 janvier » est placé au 23 avec la mention « À confirmer ». Les rencontres sont ouvertes à toutes les catégories, de M11 à vétérans. Si le comité change la mise en page et qu’aucune date n’est plus reconnue, les points à vérifier de la page le signalent.
 
 ## Ajouter ou corriger une épreuve à la main
 

@@ -256,16 +256,16 @@ const ARMS = [
   {k:"ANIM",l:"Animateur / éducateur",c:"var(--c-anim)"}];
 const ARML = {EPEE:"Épée",SABRE:"Sabre",FLEURET:"Fleuret",LASER:"Sabre laser",ANIM:"Animateur / éducateur"};
 const ARM_ORDER = ["EPEE","SABRE","FLEURET","LASER","ANIM"];
-const CATG = [{k:"M13",l:"M13 / M15"},{k:"JEU",l:"M17 / M20"},{k:"SEN",l:"Seniors"},{k:"VET",l:"Vétérans"}];
-const GROUP = {M13:"M13",M17:"JEU",M20:"JEU",SEN:"SEN",VET:"VET"};
-const CATLAB = {M13:"M13/M15",M17:"M17",M20:"M20",SEN:"Seniors",VET:"Vétérans"};
-const CAT_ORDER = ["M13","M17","M20","SEN","VET"];
+const CATG = [{k:"M11",l:"M11"},{k:"M13",l:"M13 / M15"},{k:"JEU",l:"M17 / M20"},{k:"SEN",l:"Seniors"},{k:"VET",l:"Vétérans"}];
+const GROUP = {M11:"M11",M13:"M13",M17:"JEU",M20:"JEU",SEN:"SEN",VET:"VET"};
+const CATLAB = {M11:"M11",M13:"M13/M15",M17:"M17",M20:"M20",SEN:"Seniors",VET:"Vétérans"};
+const CAT_ORDER = ["M11","M13","M17","M20","SEN","VET"];
 const LV = [{k:"DEP",l:"Épreuves Gironde"},{k:"NA",l:"Épreuves NA"},{k:"FR",l:"Épreuves France"},{k:"ST",l:"Stages"}];
 const LVCHIP = {DEP:"Gironde",NA:"NA",FR:"France",ST:"Stage"};
 const SEX = [{k:"D",l:"Dames"},{k:"H",l:"Hommes"}];
 
 const DEFAULTS = () => ({
-  arms:["EPEE","SABRE","LASER","ANIM"], cats:["M13","JEU","SEN","VET"], sex:["D","H"], lv:["DEP","NA","FR","ST"], q:""
+  arms:["EPEE","SABRE","LASER","ANIM"], cats:["M11","M13","JEU","SEN","VET"], sex:["D","H"], lv:["DEP","NA","FR","ST"], q:""
 });
 const st = {arms:null,cats:null,sex:null,lv:null,q:"",month:0,view:"cal"};
 const SKEY = "escrime-filtres-" + DATA.season;
@@ -453,7 +453,7 @@ const isNarrow = () => window.matchMedia("(max-width: 860px)").matches;
 
 function filterSummary(){
   const arms = ARMS.filter(a => a.k !== "ANIM" && st.arms.has(a.k)).map(a => a.l);
-  const other = (st.cats.size < 4 ? 1 : 0) + (st.sex.size < 2 ? 1 : 0) + (st.lv.size < LV.length ? 1 : 0) + (st.q.trim() ? 1 : 0);
+  const other = (st.cats.size < CATG.length ? 1 : 0) + (st.sex.size < 2 ? 1 : 0) + (st.lv.size < LV.length ? 1 : 0) + (st.q.trim() ? 1 : 0);
   return (arms.join(", ") || "aucune arme") + (other ? " + " + other + " filtre" + (other > 1 ? "s" : "") : "");
 }
 function render(){
