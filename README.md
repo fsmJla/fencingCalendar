@@ -1,6 +1,6 @@
 # Calendrier escrime consolidé
 
-Une page HTML statique qui regroupe, pour la saison en cours, le circuit national FFE, les épreuves de la ligue Nouvelle-Aquitaine, les épreuves de Gironde et les stages. On peut filtrer par arme, catégorie, sexe et type d’épreuve, et afficher un mois en calendrier, la saison en liste, ou toute l’année sur une seule page (vue « Année », un mois par colonne). Le jour courant est entouré en rouge.
+Une page HTML statique, aux couleurs du SPUC Escrime (Pessac), qui regroupe, pour la saison en cours, le circuit national FFE, les épreuves de la ligue Nouvelle-Aquitaine, les épreuves de Gironde et les stages. On peut filtrer par arme, catégorie, sexe et type d’épreuve, et afficher la saison en vue « Mensuel » (un mois en calendrier), « Liste » ou « Annuel » (toute la saison sur une page, un mois par colonne). Le jour courant est entouré en rouge. Un bouton « Sombre » / « Clair » dans l’en-tête change le thème (par défaut, celui de l’appareil ; le choix est mémorisé dans le navigateur).
 
 La page est régénérée **chaque lundi** par GitHub Actions et publiée sur GitHub Pages.
 
@@ -123,6 +123,7 @@ Sur le site SportsRegions, la page « Calendrier de la saison » peut afficher l
 | --- | --- |
 | `scripts/build_calendar.py` | lecture des sources, fusion, génération de la page |
 | `template/calendar.html` | mise en page, filtres, vues mois, liste et année, version compacte sur smartphone (données injectées à la place de `__DATA__`) |
+| `assets/logo-spuc.png` | logo du club, intégré à la page (cliquable vers spuc-escrime.com) |
 | `config.json` | adresses des sources, saison forcée éventuelle |
 | `data/evenements_manuels.json` | ajouts et corrections manuels |
 | `data/sources/` | dernières copies des sources (secours si le site de la ligue est indisponible) |
