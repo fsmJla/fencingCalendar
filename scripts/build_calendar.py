@@ -173,15 +173,15 @@ CACHE_NAMES = {"ffe": "calendrier-ffe-na.xlsx", "na": "calendrier-epreuves-na.xl
 # Catégories
 # --------------------------------------------------------------------------
 
-CAT_SEQ = ["M11", "M13", "M15", "M17", "M20", "SEN", "VET"]
-CAT_KEY = {"M11": "M11", "M13": "M13", "M15": "M13", "M17": "M17", "M20": "M20", "SEN": "SEN", "VET": "VET"}
-CAT_HUMAN = {"M11": "M11", "M13": "M13", "M15": "M15", "M17": "M17", "M20": "M20", "SEN": "Seniors", "VET": "Vétérans"}
+CAT_SEQ = ["M9", "M11", "M13", "M15", "M17", "M20", "SEN", "VET"]
+CAT_KEY = {"M9": "M9", "M11": "M11", "M13": "M13", "M15": "M13", "M17": "M17", "M20": "M20", "SEN": "SEN", "VET": "VET"}
+CAT_HUMAN = {"M9": "M9", "M11": "M11", "M13": "M13", "M15": "M15", "M17": "M17", "M20": "M20", "SEN": "Seniors", "VET": "Vétérans"}
 
 
 def cat_tokens(text: str) -> list[str]:
     n = norm(text)
     toks = []
-    for m in re.finditer(r"m\s?(11|13|15|17|20|23)|senior|veteran|cadet|junior|minime|benjamin", n):
+    for m in re.finditer(r"m\s?(9|11|13|15|17|20|23)\b|senior|veteran|cadet|junior|minime|benjamin", n):
         t = m.group(0)
         if t.startswith("m"):
             num = m.group(1)
@@ -208,7 +208,7 @@ def parse_categories(text: str) -> tuple[dict[str, str], str]:
     if not toks:
         return {}, clean(text)
     sel: list[str] = []
-    m = re.search(r"(m\s?\d\d|senior|veteran)[^a]*?\s(a|au)\s+(m\s?\d\d|senior|veteran)", n)
+    m = re.search(r"(m\s?\d{1,2}|senior|veteran)[^a]*?\s(a|au)\s+(m\s?\d{1,2}|senior|veteran)", n)
     if m and len(toks) >= 2:
         a, b = CAT_SEQ.index(toks[0]), CAT_SEQ.index(toks[1])
         sel = CAT_SEQ[min(a, b):max(a, b) + 1]
@@ -892,9 +892,9 @@ def parse_gironde_lines(lines: list[str], start_year: int, url: str) -> list[dic
             continue  # Elementor duplique parfois le contenu (mobile / bureau)
         events[key] = {
             "s": iso(s), "e": iso(e), "lv": "DEP", "arms": [weapon],
-            "cats": {k: "DH" for k in ("M11", "M13", "M17", "M20", "SEN", "VET")},
+            "cats": {k: "DH" for k in ("M9", "M11", "M13", "M17", "M20", "SEN", "VET")},
             "title": f"Rencontre départementale {wname}" + (f" – {place}" if place else ""),
-            "catText": "M11 à Vétérans", "detail": "", "warn": (f"Gironde, {wname} : {warn}" if warn else None),
+            "catText": "M9 à Vétérans", "detail": "", "warn": (f"Gironde, {wname} : {warn}" if warn else None),
             "src": "Comité départemental de Gironde", "url": url,
         }
     return list(events.values())

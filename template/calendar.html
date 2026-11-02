@@ -25,7 +25,7 @@
   --c-anim:#0F766E; --t-anim:#D3F3EE;
   --c-laser:#0E7490; --t-laser:#D5F1F8;
   --lv-na:#0B2545; --lv-fr:#5B6678; --lv-st:#8A5A00; --lv-dep:#7A1F5C; --warn:#F5A524; --warn-text:#1A1405;
-  --focus:#2563EB;
+  --focus:#2563EB; --today:#E11D48;
 }
 @media (prefers-color-scheme:dark){
 :root:not([data-theme="light"]){
@@ -40,7 +40,7 @@
   --c-anim:#1F9E92; --t-anim:#0B3733;
   --c-laser:#1B9AB8; --t-laser:#0A3240;
   --lv-na:#2B4A7A; --lv-fr:#5B6678; --lv-st:#A06A0A; --lv-dep:#9A3A7A; --warn:#F5A524; --warn-text:#1A1405;
-  --focus:#7AA7FF; color-scheme:dark;
+  --focus:#7AA7FF; --today:#FB7185; color-scheme:dark;
 }
 }
 :root[data-theme="dark"]{
@@ -55,7 +55,7 @@
   --c-anim:#1F9E92; --t-anim:#0B3733;
   --c-laser:#1B9AB8; --t-laser:#0A3240;
   --lv-na:#2B4A7A; --lv-fr:#5B6678; --lv-st:#A06A0A; --lv-dep:#9A3A7A; --warn:#F5A524; --warn-text:#1A1405;
-  --focus:#7AA7FF; color-scheme:dark;
+  --focus:#7AA7FF; --today:#FB7185; color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
@@ -114,7 +114,29 @@ h2{margin:0;font:700 clamp(22px,3vw,30px)/1.1 "Bricolage Grotesque","Instrument 
 .day.off{background:var(--surface2);color:var(--faint)}
 .day.vac{background-image:linear-gradient(var(--vac) 0 28px,transparent 28px)}
 .dn{font:700 15px/1 "Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;padding:2px 0}
-.day.today .dn{background:var(--btn-on);color:#fff;border-radius:999px;padding:3px 8px;margin:-2px 0 0 -3px}
+.day.today .dn{background:var(--today);color:#fff;border-radius:999px;padding:3px 8px;margin:-2px 0 0 -3px}
+.day.today{box-shadow:inset 0 0 0 3px var(--today)}
+
+/* vue annuelle : une colonne par mois, lignes alignées sur les jours de la semaine */
+.year-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table.year{border-collapse:collapse;table-layout:fixed;width:100%;min-width:1180px;font-size:11.5px}
+table.year th{position:sticky;top:0;background:var(--head);color:#fff;padding:0;font-weight:600;z-index:1}
+table.year th button{all:unset;display:block;width:100%;box-sizing:border-box;padding:7px 6px;cursor:pointer;text-align:center}
+table.year th button:hover{text-decoration:underline}
+table.year th button:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+table.year td{border:1px solid var(--line);vertical-align:top;padding:2px 3px;height:22px;overflow:hidden}
+table.year tr:first-child td{border-top:0}
+td.yempty{background:var(--surface2)}
+td.yd.we{background:var(--weekend)}
+td.yd.vac{background:var(--vac)}
+td.yd.today{box-shadow:inset 0 0 0 2px var(--today);position:relative}
+td.yd.today .ydn{color:var(--today);font-weight:700}
+.ydn{display:inline-block;min-width:30px;color:var(--muted);font-variant-numeric:tabular-nums}
+td.yd.hol .ydn{color:var(--hol);font-weight:700}
+td.yd.we .ydn{color:var(--text);font-weight:600}
+.ychip{display:block;width:100%;text-align:left;border:0;border-left:3px solid var(--c);background:var(--t);color:var(--text);border-radius:4px;padding:1px 4px;margin:1px 0;font-size:11px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.ychip b{font-weight:700;color:var(--muted);margin-right:3px}
+.ydot{display:inline-block;width:9px;height:9px;border:0;padding:0;margin:0 2px 0 0;border-radius:2px;background:var(--c);vertical-align:middle;cursor:pointer}
 .dinfo{font-size:10.5px;line-height:1.2;text-align:right;color:var(--vac-text);margin-top:1px}
 .dinfo .hol{display:block;color:var(--hol);font-weight:600}
 .day.off .dinfo,.day.off .dinfo .hol{opacity:.6}
@@ -178,6 +200,9 @@ details.notes ul{padding-left:20px;margin:4px 0}
   .panel,.nav,.seg,.arrow,.legend,details.notes,.src,.tools,.mright .count,dialog{display:none!important}
   .wrap{padding:0;max-width:none}
   .bar{break-inside:avoid}
+  .year-wrap{overflow:visible;border:0}
+  table.year{min-width:0;font-size:8px}
+  .ychip{font-size:7.5px}
   @page{size:A4 landscape;margin:10mm}
 }
 </style>
@@ -216,6 +241,7 @@ details.notes ul{padding-left:20px;margin:4px 0}
       <span class="seg only-wide" id="seg">
         <button type="button" data-v="cal" aria-pressed="true">Calendrier</button>
         <button type="button" data-v="list" aria-pressed="false">Liste</button>
+        <button type="button" data-v="year" aria-pressed="false">Année</button>
       </span>
       <button class="link only-wide" id="print" type="button">Imprimer</button>
     </div>
@@ -256,16 +282,16 @@ const ARMS = [
   {k:"ANIM",l:"Animateur / éducateur",c:"var(--c-anim)"}];
 const ARML = {EPEE:"Épée",SABRE:"Sabre",FLEURET:"Fleuret",LASER:"Sabre laser",ANIM:"Animateur / éducateur"};
 const ARM_ORDER = ["EPEE","SABRE","FLEURET","LASER","ANIM"];
-const CATG = [{k:"M11",l:"M11"},{k:"M13",l:"M13 / M15"},{k:"JEU",l:"M17 / M20"},{k:"SEN",l:"Seniors"},{k:"VET",l:"Vétérans"}];
-const GROUP = {M11:"M11",M13:"M13",M17:"JEU",M20:"JEU",SEN:"SEN",VET:"VET"};
-const CATLAB = {M11:"M11",M13:"M13/M15",M17:"M17",M20:"M20",SEN:"Seniors",VET:"Vétérans"};
-const CAT_ORDER = ["M11","M13","M17","M20","SEN","VET"];
+const CATG = [{k:"M9",l:"M9"},{k:"M11",l:"M11"},{k:"M13",l:"M13 / M15"},{k:"JEU",l:"M17 / M20"},{k:"SEN",l:"Seniors"},{k:"VET",l:"Vétérans"}];
+const GROUP = {M9:"M9",M11:"M11",M13:"M13",M17:"JEU",M20:"JEU",SEN:"SEN",VET:"VET"};
+const CATLAB = {M9:"M9",M11:"M11",M13:"M13/M15",M17:"M17",M20:"M20",SEN:"Seniors",VET:"Vétérans"};
+const CAT_ORDER = ["M9","M11","M13","M17","M20","SEN","VET"];
 const LV = [{k:"DEP",l:"Épreuves Gironde"},{k:"NA",l:"Épreuves NA"},{k:"FR",l:"Épreuves France"},{k:"ST",l:"Stages"}];
 const LVCHIP = {DEP:"Gironde",NA:"NA",FR:"France",ST:"Stage"};
 const SEX = [{k:"D",l:"Dames"},{k:"H",l:"Hommes"}];
 
 const DEFAULTS = () => ({
-  arms:["EPEE","SABRE","LASER","ANIM"], cats:["M11","M13","JEU","SEN","VET"], sex:["D","H"], lv:["DEP","NA","FR","ST"], q:""
+  arms:["EPEE","SABRE","LASER","ANIM"], cats:["M9","M11","M13","JEU","SEN","VET"], sex:["D","H"], lv:["DEP","NA","FR","ST"], q:""
 });
 const st = {arms:null,cats:null,sex:null,lv:null,q:"",month:0,view:"cal"};
 const SKEY = "escrime-filtres-" + DATA.season;
@@ -278,7 +304,7 @@ function loadState(){
       const o = JSON.parse(raw);
       for(const k of ["arms","cats","sex","lv"]) if(Array.isArray(o[k])) s[k] = o[k];
       if(typeof o.q === "string") s.q = o.q;
-      if(o.view === "list" || o.view === "cal") st.view = o.view;
+      if(o.view === "list" || o.view === "cal" || o.view === "year") st.view = o.view;
     }
   }catch(e){}
   applyFilters(s);
@@ -416,6 +442,51 @@ function renderCal(items,y,m){
   return html;
 }
 
+const DL = ["L","M","M","J","V","S","D"];
+const LVSHORT = {DEP:"33",NA:"NA",FR:"FR",ST:"Stage"};  // « 33 » : Gironde
+function renderYear(items){
+  const byDay = new Map();
+  items.forEach((it,idx) => {
+    let d = pd(it.s), first = true;
+    const e = pd(it.e);
+    while(d <= e){
+      const k = iso(d);
+      if(!byDay.has(k)) byDay.set(k, []);
+      byDay.get(k).push({it, idx, first});
+      first = false; d = addDays(d,1);
+    }
+  });
+  const offs = MONTHS.map(([y,m]) => mondayIdx(new Date(y,m-1,1)));
+  const rows = Math.max(...MONTHS.map(([y,m],i) => offs[i] + new Date(y,m,0).getDate()));
+  let html = '<div class="year-wrap"><table class="year"><thead><tr>' +
+    MONTHS.map(([y,m],i) => '<th scope="col"><button type="button" class="ym" data-m="'+i+'" title="Voir le mois">'+cap(MN[m-1])+" "+y+"</button></th>").join("") +
+    "</tr></thead><tbody>";
+  for(let r=0; r<rows; r++){
+    const wd = r % 7;
+    html += "<tr>";
+    MONTHS.forEach(([y,m],i) => {
+      const dn = r - offs[i] + 1, nd = new Date(y,m,0).getDate();
+      if(dn < 1 || dn > nd){ html += '<td class="yempty"></td>'; return; }
+      const di = iso(new Date(y,m-1,dn));
+      const cls = ["yd"];
+      if(wd >= 5) cls.push("we");
+      if(DATA.vac[di]) cls.push("vac");
+      if(DATA.hol[di]) cls.push("hol");
+      if(di === todayIso) cls.push("today");
+      const tip = [DATA.hol[di], DATA.vac[di] ? "vacances "+DATA.vac[di] : "", di === todayIso ? "aujourd’hui" : ""].filter(Boolean).join(" · ");
+      const evs = (byDay.get(di) || []).map(o => {
+        const full = o.it.title + (o.it.cat ? " · "+o.it.cat : "") + " (" + o.it.arms.map(a => ARML[a]).join(" + ") + ")";
+        return o.first
+          ? '<button type="button" class="ychip '+colorClass(o.it)+'" data-i="'+o.idx+'" title="'+esc(full)+'">'+(/^(stage|certification)/i.test(o.it.title) ? "" : "<b>"+LVSHORT[o.it.lv]+"</b>")+esc(o.it.title)+"</button>"
+          : '<button type="button" class="ydot '+colorClass(o.it)+'" data-i="'+o.idx+'" title="'+esc(full+" (suite)")+'" aria-label="'+esc(o.it.title+" (suite)")+'"></button>';
+      }).join("");
+      html += '<td class="'+cls.join(" ")+'"'+(tip ? ' title="'+esc(tip)+'"' : "")+'><span class="ydn">'+DL[wd]+" "+dn+"</span>"+evs+"</td>";
+    });
+    html += "</tr>";
+  }
+  return html + "</tbody></table></div>";
+}
+
 function renderList(items, allSeason, y, m){
   const list = allSeason ? items : items.filter(it => {
     const p = it.s.slice(0,7); return p === y+"-"+String(m).padStart(2,"0");
@@ -467,18 +538,22 @@ function render(){
     '<button type="button" class="tab'+(counts[i]?"":" empty")+'" data-m="'+i+'"'+(i===st.month?' aria-current="true"':"")+'>'+
     MS[mm-1].replace(/^./,c=>c.toUpperCase())+" "+yy+'<span class="n">'+counts[i]+"</span></button>").join("") +
     '<button type="button" class="tab" data-m="'+MONTHS.length+'"'+(allSeason?' aria-current="true"':"")+'>Toute la saison<span class="n">'+CUR.length+"</span></button>";
-  document.getElementById("mtitle").textContent = allSeason ? "Toute la saison" : cap(MN[m-1])+" "+y;
+  const yearView = st.view === "year" && !isNarrow();
+  document.querySelector(".nav").style.display = yearView ? "none" : "";
+  document.getElementById("prev").hidden = yearView;
+  document.getElementById("next").hidden = yearView;
+  document.getElementById("mtitle").textContent = yearView ? "Saison "+DATA.season : allSeason ? "Toute la saison" : cap(MN[m-1])+" "+y;
   document.getElementById("prev").disabled = st.month <= 0 || allSeason && false;
   document.getElementById("next").disabled = st.month >= MONTHS.length-1;
   document.getElementById("count").innerHTML = "<b>"+CUR.length+"</b> événement"+(CUR.length>1?"s":"")+" affiché"+(CUR.length>1?"s":"");
   document.querySelectorAll("#seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === st.view)));
   // contenu
-  const asList = allSeason || st.view === "list" || isNarrow();
-  document.getElementById("view").innerHTML = asList ? renderList(CUR, allSeason, y, m) : renderCal(CUR, y, m);
+  const asList = !yearView && (allSeason || st.view === "list" || isNarrow());
+  document.getElementById("view").innerHTML = yearView ? renderYear(CUR) : asList ? renderList(CUR, allSeason, y, m) : renderCal(CUR, y, m);
   // à confirmer : uniquement pour la période affichée
   const ym = y+"-"+String(m).padStart(2,"0");
   let inView;
-  if(allSeason) inView = () => true;
+  if(allSeason || yearView) inView = () => true;
   else if(asList) inView = it => it.s.slice(0,7) === ym;
   else { const wk = monthWeeks(y,m), a = iso(wk[0]), b = iso(addDays(wk[wk.length-1],6)); inView = it => it.e >= a && it.s <= b; }
   const ws = new Set(); CUR.forEach(it => { if(it.warn && inView(it)) ws.add(it.warn); });
@@ -532,7 +607,9 @@ function init(){
     st.view = b.dataset.v; saveState(); render();
   });
   document.getElementById("view").addEventListener("click", e => {
-    const b = e.target.closest(".bar"); if(b) openDlg(Number(b.dataset.i));
+    const ym = e.target.closest(".ym");
+    if(ym){ st.month = Number(ym.dataset.m); st.view = "cal"; saveState(); render(); return; }
+    const b = e.target.closest(".bar,.ychip,.ydot"); if(b) openDlg(Number(b.dataset.i));
   });
   document.getElementById("dlg").addEventListener("click", e => { if(e.target.id === "dlg") e.target.close(); });
   document.getElementById("ftoggle").addEventListener("click", e => {
