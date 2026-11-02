@@ -1,0 +1,8 @@
+{
+  "saison": null,
+  "pages": [
+    "https://www.escrime-nouvelle-aquitaine.fr/events/"
+  ],
+  "excel_urls": [],
+  "events_api": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events"
+}

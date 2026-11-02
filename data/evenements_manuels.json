@@ -1,0 +1,18 @@
+{
+  "_aide": "Épreuves à ajouter à la main (Gironde, ou corrections). niveau : gironde | region | france | stage. armes : epee, sabre, fleuret, animateur. categories : texte libre, ex. 'M11 M13' ou 'M15 à Seniors'. sexe : dames | hommes | (vide = mixte). 'masquer' retire des événements générés (par date de début et/ou morceau de titre).",
+  "evenements": [
+    {
+      "titre": "Exemple – Circuit départemental Gironde",
+      "lieu": "Pessac",
+      "debut": "2026-12-06",
+      "fin": "2026-12-06",
+      "niveau": "gironde",
+      "armes": ["sabre"],
+      "categories": ["M11", "M13"],
+      "detail": "À remplacer par les vraies dates du comité départemental",
+      "a_confirmer": "exemple de saisie, à supprimer",
+      "lien": null
+    }
+  ],
+  "masquer": []
+}
