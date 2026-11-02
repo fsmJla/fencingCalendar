@@ -443,6 +443,8 @@ def fmt_format(text: str) -> str:
     out = re.sub(r"\bm(\d\d)\b", lambda m: "M" + m.group(1), out)
     if re.fullmatch(r"(Individuel|Équipe)s?(\s*\+\s*(Individuel|Équipe)s?)*(\s+M\d\d)?", out):
         return out
+    if "indiv" not in n and not re.search(r"\beq", n):
+        return sentence_case(t)  # « Combat, Chorégraphie, Katas » : tel quel
     return out[0].upper() + out[1:] if out else ""
 
 
@@ -462,7 +464,7 @@ def na_title(raw: str, place: str | None, fmt: str) -> str:
         title = "1/4 de finale H2036 (zone NA + Occitanie)"
     else:
         t = re.sub(r"(?i)[ée]preuve\s+(\d)\s+nouvelle[- ]aquitaine", r"Épreuve \1 NA", t)
-        t = re.sub(r"(?i)[ée]preuve\s+r[ée]gi?onale\s+(\d)", r"Épreuve régionale \1", t)
+        t = re.sub(r"(?i)[ée]preuve\s+r[ée]gi?o?nale\s+(\d)", r"Épreuve régionale \1", t)
         t = re.sub(r"(?i)championnats?\s+nouvelle[- ]aquitaine", lambda m: ("Championnats" if m.group(0).lower().startswith("championnats") else "Championnat") + " NA", t)
         t = re.sub(r"(?i)coupe nouvelle[- ]aquitaine", "Coupe NA", t)
         t = re.sub(r"(?i)^1/8 H2036$", "1/8 de finale H2036", t.strip())
@@ -536,11 +538,17 @@ def parse_na(wb, start_year: int):
                 if not clean(raw):
                     continue
                 arm = WEAPON_WORDS.get(weapon_label)
-                if "laser" in (weapon_label or "") or "artistique" in (weapon_label or ""):
-                    continue  # sabre laser / artistique : non repris
+                is_laser = "laser" in (weapon_label or "")
+                if "artistique" in (weapon_label or ""):
+                    continue  # escrime artistique : non reprise
+                if is_laser:
+                    arm = "LASER"
+                    raw = re.sub(r"(?i)\s*sabre laser\s*", " ", str(raw)).strip()
                 cat_raw = clean(val(r, cols.get("cats", 0)) if cols.get("cats") else "")
                 arms = [arm] if arm else []
-                if "3 armes" in norm(raw):
+                if is_laser:
+                    pass
+                elif "3 armes" in norm(raw):
                     arms = ["EPEE", "SABRE", "FLEURET"]
                 ncat = norm(cat_raw)
                 if "epee" in ncat or "fleuret" in ncat or "sabre" in ncat:
@@ -549,6 +557,9 @@ def parse_na(wb, start_year: int):
                 if not arms:
                     continue
                 dval = val(r, cols["date"])
+                year_fixed = None
+                if isinstance(dval, dt.datetime) and dval.year != season_year_for(dval.month, start_year):
+                    year_fixed = f"{dval:%d/%m/%Y}"  # année erronée dans le fichier, corrigée plus bas
                 fmt = fmt_format(val(r, cols["fmt"]) if cols.get("fmt") else "")
                 dates = parse_fr_dates(dval, start_year)
                 place = pretty_place(clean(ws.cell(r, cols["place"]).value) if cols.get("place") else "")
@@ -557,9 +568,13 @@ def parse_na(wb, start_year: int):
                     place = pretty_place(cand)
                 title = na_title(raw, place, fmt)
                 if not dates:
-                    NOTES.append(f"{title} ({', '.join(a.capitalize() for a in arms).replace('Epee', 'Épée')}) : date « {clean(dval) or 'non renseignée'} » non exploitable, épreuve non placée.")
+                    armnames = {"EPEE": "Épée", "SABRE": "Sabre", "FLEURET": "Fleuret", "LASER": "Sabre laser"}
+                    NOTES.append(f"{title} ({', '.join(armnames[a] for a in arms)}) : date « {clean(dval) or 'non renseignée'} » non exploitable, épreuve non placée.")
                     continue
                 cats, cat_text = parse_categories(cat_raw)
+                if is_laser and cats:
+                    seq = [t for t in CAT_SEQ if t in cat_tokens(cat_raw)]
+                    cat_text = f"{CAT_HUMAN[seq[0]]} à {CAT_HUMAN[seq[-1]]}"
                 details = [fmt] if fmt else []
                 if "attente" in norm(cand):
                     details.append(cand[0].lower() + cand[1:])
@@ -568,9 +583,14 @@ def parse_na(wb, start_year: int):
                     details.append(note)
                 if not place:
                     NOTES.append(f"{title} ({dates[0].day} {MN[dates[0].month - 1]}) : aucun lieu dans le calendrier NA.")
+                warn = None
+                if year_fixed:
+                    warn = (f"{title} : le calendrier NA indique le {year_fixed}, "
+                            f"année corrigée en {dates[0].year}")
                 events.append({"s": iso(dates[0]), "e": iso(dates[1]), "lv": "NA", "arms": arms,
                                "cats": cats, "title": title, "catText": cat_text,
-                               "detail": " · ".join(details), "warn": None, "src": "Calendrier NA"})
+                               "detail": " · ".join(details), "warn": warn, "src": "Calendrier NA",
+                               "_year_fixed": bool(year_fixed)})
 
             elif section and section.startswith("stages") and stage_cols:
                 a = norm(val(r, 1))
@@ -701,8 +721,11 @@ def fetch_tec_events(cfg: dict, season: tuple[dt.date, dt.date], offline: bool) 
     for ev in raw:
         title = html.unescape(re.sub(r"<[^>]+>", "", ev.get("title", ""))).strip()
         cats = [norm(c.get("slug") or c.get("name")) for c in ev.get("categories", [])]
-        arms = [k for w, k in WEAPON_WORDS.items() if any(w in c for c in cats) or norm(title).startswith(w)]
-        if any("laser" in c for c in cats) or "laser" in norm(title) or "artistique" in norm(title):
+        if any("laser" in c for c in cats) or "laser" in norm(title):
+            arms = ["LASER"]
+        else:
+            arms = [k for w, k in WEAPON_WORDS.items() if any(w in c for c in cats) or norm(title).startswith(w)]
+        if "artistique" in norm(title):
             continue
         if not arms:
             continue
@@ -720,8 +743,8 @@ def fetch_tec_events(cfg: dict, season: tuple[dt.date, dt.date], offline: bool) 
         lv = "ST" if re.search(r"\bstages?\b", norm(title)) else "NA"
         out.append({"s": iso(s), "e": iso(e), "lv": lv, "arms": arms,
                     "cats": cats_d or {k: "DH" for k in ("M13", "M17", "M20", "SEN", "VET")},
-                    "title": title, "catText": cat_text if cats_d else None,
-                    "detail": city, "warn": None, "src": "Agenda du site de la ligue",
+                    "title": title, "catText": cat_text if cats_d else "Toutes catégories",
+                    "detail": "" if norm(city) in norm(title) else city, "warn": None, "src": "Agenda du site de la ligue",
                     "url": ev.get("url")})
     return out
 
@@ -740,20 +763,40 @@ def fr_range(a: str, b: str) -> str:
     return f"{left}-{db.day} {MN[db.month - 1]}"
 
 
+def event_kind(title: str) -> str | None:
+    """Nature d’un événement, pour ne rapprocher que des choses comparables."""
+    n = norm(title)
+    if "championnat" in n:
+        return "championnat"
+    if re.search(r"\bstages?\b", n):
+        return "stage"
+    m = re.search(r"(epreuve|regionale)\s+(?:regionale\s+)?(\d)", n)
+    return f"epreuve{m.group(2)}" if m else None
+
+
 def merge_agenda(na_events: list[dict], agenda: list[dict]) -> list[dict]:
     """Ajoute les événements de l’agenda absents du calendrier NA, et
     signale ceux dont la date diffère."""
+    def same_as(ev):
+        return [n for n in na_events if n["lv"] == ev["lv"] and set(n["arms"]) & set(ev["arms"]) and overlaps(n, ev)]
+
+    confirmed: set[int] = set()   # événements NA retrouvés à la même date dans l’agenda
+    for ev in agenda:
+        for n in same_as(ev):
+            confirmed.add(id(n))
+            n.setdefault("url", ev.get("url"))
+            if n.pop("_year_fixed", False):
+                n["warn"] = None  # date confirmée par l’agenda du site
     added = []
     for ev in agenda:
-        same = [n for n in na_events if n["lv"] == ev["lv"] and set(n["arms"]) & set(ev["arms"]) and overlaps(n, ev)]
-        if same:
-            for n in same:
-                n.setdefault("url", ev.get("url"))
+        if same_as(ev):
             continue
-        # même arme, même lieu, autre date → probable changement de date
+        # même arme, même lieu, même nature, autre date → probable changement de date
         city = norm(ev["detail"])
-        moved = [n for n in na_events if n["lv"] == ev["lv"] and set(n["arms"]) & set(ev["arms"])
-                 and city and city in norm(n["title"]) and overlaps(n, ev, slack=45)]
+        moved = [n for n in na_events if id(n) not in confirmed and n["lv"] == ev["lv"]
+                 and set(n["arms"]) & set(ev["arms"])
+                 and city and city in norm(n["title"]) and overlaps(n, ev, slack=45)
+                 and event_kind(n["title"]) and event_kind(n["title"]) == event_kind(ev["title"])]
         warn = None
         if moved:
             m = moved[0]
@@ -877,6 +920,9 @@ def build(offline: bool, out: Path) -> None:
         raise SystemExit("Aucun événement : génération annulée pour ne pas publier une page vide.")
 
     events.sort(key=lambda e: (e["s"], e["lv"], e["title"]))
+    for e in events:
+        if e.pop("_year_fixed", False) and e["warn"]:
+            NOTES.append(e["warn"] + " (non confirmé par l’agenda du site).")
     for i, e in enumerate(events):
         e["id"] = i
         e.setdefault("url", None)
@@ -923,7 +969,8 @@ def render_notes(cfg: dict, src_names: list[str]) -> str:
             "<b>Sources :</b> " + ", ".join(f"« {esc(n)} »" for n in src_names) +
             f", l’<a href=\"{esc(cfg['pages'][0])}\">agenda du site de la ligue</a> et les épreuves de Gironde saisies à la main. La page est régénérée chaque semaine.",
             "<b>Épreuves NA :</b> dates, catégories, format et lieu proposé viennent du calendrier régional. Les cases régionales de la grille FFE (« ER », « Formation »…) ne sont pas reprises pour éviter les doublons.",
-            "<b>Non repris :</b> sabre laser, escrime artistique, para-escrime et circuits internationaux (FIE, EFC, championnats du monde et d’Europe).",
+            "<b>Sabre laser :</b> épreuves du calendrier NA et de l’agenda du site, avec leur propre bouton dans « Armes ».",
+            "<b>Non repris :</b> escrime artistique, para-escrime et circuits internationaux (FIE, EFC, championnats du monde et d’Europe).",
             "<b>Filtres :</b> « M13 / M15 » et « M17 / M20 » regroupent deux catégories. Les événements réservés à un sexe sont suivis de (D) ou (H). Vos filtres sont mémorisés dans votre navigateur.",
         ]),
         "    </ul>",
