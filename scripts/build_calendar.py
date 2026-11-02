@@ -811,6 +811,112 @@ def merge_agenda(na_events: list[dict], agenda: list[dict]) -> list[dict]:
 
 
 # --------------------------------------------------------------------------
+# Calendrier du comité départemental de Gironde (cdescrime33.fr)
+# --------------------------------------------------------------------------
+
+DATE_RE = re.compile(
+    r"\b(\d{1,2})(?:er)?(?:\s*(?:ou|et|/|-|au)\s*(\d{1,2})(?:er)?)?\s+("
+    + "|".join(sorted(MONTHS_FR, key=len, reverse=True)) + r")\.?(?:\s+(20\d\d))?", re.I)
+
+
+def html_to_lines(body: str) -> list[str]:
+    body = re.sub(r"(?is)<(script|style|noscript|svg|nav|header|footer)\b.*?</\1>", " ", body)
+    body = re.sub(r"(?i)<br\s*/?>|</?(p|div|h[1-6]|li|ul|ol|tr|td|th|section|article|figure|figcaption|span class=\"elementor-heading-title)[^>]*>", "\n", body)
+    body = re.sub(r"<[^>]+>", " ", body)
+    lines = [clean(html.unescape(x)) for x in body.split("\n")]
+    return [x for x in lines if x]
+
+
+def strip_accents_keep(s: str) -> str:
+    return unicodedata.normalize("NFD", s).encode("ascii", "ignore").decode()
+
+
+def parse_gironde_lines(lines: list[str], start_year: int, url: str) -> list[dict]:
+    events: "OrderedDict[tuple, dict]" = OrderedDict()
+    weapon = None
+    for i, line in enumerate(lines):
+        n = norm(line)
+        m = DATE_RE.search(strip_accents_keep(line).lower()) if len(line) < 160 else None
+        if not m:
+            # titre de section : « Rencontres départementales d'épée »
+            if len(line) < 90 and not re.search(r"inscri|formulaire|feuille|google", n):
+                found = [k for w, k in WEAPON_WORDS.items() if re.search(rf"\b{w}\b", n)]
+                if len(found) == 1 and "laser" not in n:
+                    weapon = found[0]
+                elif "laser" in n:
+                    weapon = "LASER"
+            continue
+        if not weapon:
+            continue
+        d1, d2, mon, year = m.group(1), m.group(2), MONTHS_FR[m.group(3).lower()], m.group(4)
+        y = int(year) if year else season_year_for(mon, start_year)
+        try:
+            s = dt.date(y, mon, int(d1))
+        except ValueError:
+            continue
+        e = s
+        warn = None
+        sep = norm(line[m.start():m.end()])
+        if d2 and re.search(r"\bou\b", sep):
+            warn = f"date à confirmer ({clean(line[m.start():m.end()])})"
+        elif d2:
+            try:
+                e = dt.date(y, mon, int(d2))
+            except ValueError:
+                pass
+        if "confirmer" in n and not warn:
+            warn = "date à confirmer"
+        # lieu : reste de la ligne, sinon la ligne suivante si elle ressemble à un lieu
+        rest = clean(re.sub(r"(?i)\(?date à confirmer\)?", "", line[m.end():])).strip(" :–-—,.")
+        if not rest and i + 1 < len(lines):
+            nxt = lines[i + 1]
+            nn = norm(nxt)
+            if (len(nxt) < 50 and not DATE_RE.search(strip_accents_keep(nxt).lower())
+                    and not re.search(r"rencontre|inscri|feuille|formulaire|confirmer|epee|fleuret|sabre|categorie", nn)):
+                rest = nxt.strip(" :–-—,.")
+        place = re.sub(r"\s*[—–-]\s*", " – ", rest) if rest else ""
+        if "confirmer" in norm(place):
+            place = ""
+        wname = {"EPEE": "épée", "SABRE": "sabre", "FLEURET": "fleuret", "LASER": "sabre laser"}[weapon]
+        key = (iso(s), weapon)
+        if key in events:
+            continue  # Elementor duplique parfois le contenu (mobile / bureau)
+        events[key] = {
+            "s": iso(s), "e": iso(e), "lv": "DEP", "arms": [weapon],
+            "cats": {"M13": "DH"}, "title": f"Rencontre départementale {wname}" + (f" – {place}" if place else ""),
+            "catText": "Jeunes", "detail": "", "warn": (f"Gironde, {wname} : {warn}" if warn else None),
+            "src": "Comité départemental de Gironde", "url": url,
+        }
+    return list(events.values())
+
+
+def fetch_gironde(cfg: dict, start_year: int, offline: bool) -> list[dict]:
+    url = cfg.get("gironde_page")
+    if not url:
+        return []
+    cache = SOURCES / "calendrier-gironde.html"
+    body = None
+    if not offline:
+        try:
+            body = http_get(url).decode("utf-8", "replace")
+            cache.write_text(body, encoding="utf-8")
+        except Exception as e:  # noqa: BLE001
+            log(f"[gironde] page inaccessible ({e}) ; copie locale utilisée si présente")
+    if body is None and cache.exists():
+        body = cache.read_text(encoding="utf-8")
+    if body is None:
+        log("[gironde] aucune source")
+        return []
+    evs = parse_gironde_lines(html_to_lines(body), start_year, url)
+    for ev in evs:
+        log(f"[gironde]   {ev['s']} {ev['arms'][0]} {ev['title']}")
+    log(f"[gironde] {len(evs)} rencontres départementales")
+    if not evs:
+        NOTES.append("Calendrier de Gironde : aucune date reconnue sur cdescrime33.fr, la mise en page a peut-être changé.")
+    return evs
+
+
+# --------------------------------------------------------------------------
 # Événements manuels (Gironde, corrections)
 # --------------------------------------------------------------------------
 
@@ -912,6 +1018,7 @@ def build(offline: bool, out: Path) -> None:
     season_bounds = (dt.date(start_year, 8, 1), dt.date(start_year + 1, 7, 31))
     agenda = fetch_tec_events(cfg, season_bounds, offline)
     events += merge_agenda(events, agenda)
+    events += fetch_gironde(cfg, start_year, offline)
     manual, hide = load_manual(ROOT / "data" / "evenements_manuels.json")
     events += manual
     events = apply_hide(events, hide)
@@ -943,7 +1050,7 @@ def build(offline: bool, out: Path) -> None:
     now = dt.datetime.now(dt.timezone.utc).astimezone()
     footer = (f"Mis à jour automatiquement le {now.day} {MN[now.month - 1]} {now.year}. "
               f"Sources : <a href=\"{html.escape(cfg['pages'][0])}\">site de la ligue Nouvelle-Aquitaine</a> "
-              f"(grille FFE, calendrier régional, agenda) et saisie manuelle pour la Gironde. "
+              f"(grille FFE, calendrier régional, agenda) et <a href=\"{html.escape(cfg.get('gironde_page') or '')}\">comité de Gironde</a>. "
               f"Lieux NA : propositions du calendrier régional, susceptibles d’évoluer.")
 
     tpl = TEMPLATE.read_text(encoding="utf-8")
@@ -967,7 +1074,7 @@ def render_notes(cfg: dict, src_names: list[str]) -> str:
         "    <h3>Ce que contient ce calendrier</h3>\n    <ul>",
         li([
             "<b>Sources :</b> " + ", ".join(f"« {esc(n)} »" for n in src_names) +
-            f", l’<a href=\"{esc(cfg['pages'][0])}\">agenda du site de la ligue</a> et les épreuves de Gironde saisies à la main. La page est régénérée chaque semaine.",
+            f", l’<a href=\"{esc(cfg['pages'][0])}\">agenda du site de la ligue</a> et le <a href=\"{esc(cfg.get('gironde_page') or '')}\">calendrier du comité de Gironde</a>. La page est régénérée chaque semaine.",
             "<b>Épreuves NA :</b> dates, catégories, format et lieu proposé viennent du calendrier régional. Les cases régionales de la grille FFE (« ER », « Formation »…) ne sont pas reprises pour éviter les doublons.",
             "<b>Sabre laser :</b> épreuves du calendrier NA et de l’agenda du site, avec leur propre bouton dans « Armes ».",
             "<b>Non repris :</b> escrime artistique, para-escrime et circuits internationaux (FIE, EFC, championnats du monde et d’Europe).",
