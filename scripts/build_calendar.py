@@ -714,6 +714,9 @@ def fetch_tec_events(cfg: dict, season: tuple[dt.date, dt.date], offline: bool) 
         cats_d, cat_text = parse_categories(title)
         venue = ev.get("venue") or {}
         city = clean(venue.get("city") if isinstance(venue, dict) else "")
+        if not city:  # « … à Dax », « … (Limoges) »
+            m = re.search(r"(?:\bà\s+|\()([A-ZÉÈ][\w'’ -]+?)\)?\s*$", title)
+            city = m.group(1).strip() if m else ""
         lv = "ST" if re.search(r"\bstages?\b", norm(title)) else "NA"
         out.append({"s": iso(s), "e": iso(e), "lv": lv, "arms": arms,
                     "cats": cats_d or {k: "DH" for k in ("M13", "M17", "M20", "SEN", "VET")},
@@ -727,6 +730,14 @@ def overlaps(a: dict, b: dict, slack: int = 0) -> bool:
     a_s, a_e = dt.date.fromisoformat(a["s"]), dt.date.fromisoformat(a["e"])
     b_s, b_e = dt.date.fromisoformat(b["s"]), dt.date.fromisoformat(b["e"])
     return a_s <= b_e + dt.timedelta(days=slack) and b_s <= a_e + dt.timedelta(days=slack)
+
+
+def fr_range(a: str, b: str) -> str:
+    da, db = dt.date.fromisoformat(a), dt.date.fromisoformat(b)
+    if da == db:
+        return f"{da.day} {MN[da.month - 1]}"
+    left = f"{da.day}" if da.month == db.month else f"{da.day} {MN[da.month - 1]}"
+    return f"{left}-{db.day} {MN[db.month - 1]}"
 
 
 def merge_agenda(na_events: list[dict], agenda: list[dict]) -> list[dict]:
@@ -746,7 +757,8 @@ def merge_agenda(na_events: list[dict], agenda: list[dict]) -> list[dict]:
         warn = None
         if moved:
             m = moved[0]
-            warn = (f"{m['title']} : le calendrier NA indique le {m['s']}, l’agenda du site le {ev['s']}")
+            warn = (f"{m['title']} : calendrier NA = {fr_range(m['s'], m['e'])}, "
+                    f"agenda du site = {fr_range(ev['s'], ev['e'])}")
             m["warn"] = warn
             NOTES.append(warn + ". Les deux dates sont affichées.")
         added.append({**ev, "warn": warn})
