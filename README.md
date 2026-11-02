@@ -122,7 +122,7 @@ Sur le site SportsRegions, la page « Calendrier de la saison » peut afficher l
 | Chemin | Rôle |
 | --- | --- |
 | `scripts/build_calendar.py` | lecture des sources, fusion, génération de la page |
-| `template/calendar.html` | mise en page, filtres, vues mois et liste (données injectées à la place de `__DATA__`) |
+| `template/calendar.html` | mise en page, filtres, vues mois, liste et année, version compacte sur smartphone (données injectées à la place de `__DATA__`) |
 | `config.json` | adresses des sources, saison forcée éventuelle |
 | `data/evenements_manuels.json` | ajouts et corrections manuels |
 | `data/sources/` | dernières copies des sources (secours si le site de la ligue est indisponible) |

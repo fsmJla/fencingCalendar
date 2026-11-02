@@ -183,6 +183,44 @@ details.notes p,details.notes li{font-size:14px;color:var(--text);max-width:80ch
 details.notes ul{padding-left:20px;margin:4px 0}
 .src{margin-top:16px;font-size:12.5px;color:var(--muted)}
 
+/* petits écrans : calendrier compact (pastilles) + liste du jour, et vue annuelle en mini-mois */
+.mcal{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.mcal .mdow{background:var(--head);color:#fff;font-size:12px;font-weight:600;text-align:center;padding:6px 0}
+.mday{all:unset;box-sizing:border-box;min-height:52px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:4px 2px 5px;display:flex;flex-direction:column;align-items:center;gap:4px;background:var(--surface);cursor:pointer}
+.mday:nth-child(7n+1){border-left:0}
+.mday.blank{background:var(--surface2);cursor:default}
+.mday.we{background:var(--weekend)}
+.mday.vac{background:var(--vac)}
+.mday .mdn{font:700 14px/1 "Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;padding:3px 6px;border-radius:999px}
+.mday.hol .mdn{color:var(--hol)}
+.mday.today{box-shadow:inset 0 0 0 2px var(--today)}
+.mday.today .mdn{background:var(--today);color:#fff}
+.mday.sel{box-shadow:inset 0 0 0 2px var(--focus)}
+.mday:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+.mdots{display:flex;flex-wrap:wrap;justify-content:center;gap:3px;max-width:100%}
+.mdots i{width:7px;height:7px;border-radius:50%;background:var(--c);display:block}
+.mdots small{font-size:9.5px;line-height:7px;color:var(--muted)}
+.dayhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:14px 2px 8px}
+.dayhead h3{margin:0;font:700 17px/1.2 "Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;color:var(--ink)}
+.dayitems{display:grid;gap:6px}
+.dayitems .bar{margin:0}
+.mhint{font-size:12.5px;color:var(--muted);margin:10px 2px 8px}
+.ygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.ymini{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.ymini .ym{all:unset;box-sizing:border-box;display:block;width:100%;background:var(--head);color:#fff;font-weight:600;font-size:13px;padding:6px 8px;cursor:pointer}
+.ymini .ym:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+.ymg{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));padding:3px}
+.ymg .yl{font-size:9.5px;color:var(--faint);text-align:center;padding:1px 0}
+.yday{all:unset;box-sizing:border-box;height:24px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;font-size:11px;line-height:1;padding-top:3px;border-radius:4px;color:var(--muted);font-variant-numeric:tabular-nums}
+.yday.we{color:var(--text)}
+.yday.vac{background:var(--vac)}
+.yday.hol{color:var(--hol);font-weight:700}
+.yday.has{cursor:pointer;color:var(--text);font-weight:600}
+.yday.today{box-shadow:inset 0 0 0 2px var(--today);color:var(--today);font-weight:700}
+.yday .mdots{gap:2px;margin-top:3px;flex-wrap:nowrap}
+.yday .mdots i{width:5px;height:5px}
+.yday:focus-visible{outline:2px solid var(--focus);outline-offset:-1px}
+
 .only-wide{display:inline-flex}
 .fbtn{display:none;width:100%;justify-content:space-between;align-items:center;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer;margin-bottom:8px}
 .fbtn #fsum{font-weight:400;color:var(--muted);font-size:13px}
@@ -238,7 +276,7 @@ details.notes ul{padding-left:20px;margin:4px 0}
       <button class="arrow" id="next" type="button" aria-label="Mois suivant">›</button>
     </div>
     <div class="mright">
-      <span class="seg only-wide" id="seg">
+      <span class="seg" id="seg">
         <button type="button" data-v="cal" aria-pressed="true">Calendrier</button>
         <button type="button" data-v="list" aria-pressed="false">Liste</button>
         <button type="button" data-v="year" aria-pressed="false">Année</button>
@@ -293,7 +331,7 @@ const SEX = [{k:"D",l:"Dames"},{k:"H",l:"Hommes"}];
 const DEFAULTS = () => ({
   arms:["EPEE","SABRE","LASER","ANIM"], cats:["M9","M11","M13","JEU","SEN","VET"], sex:["D","H"], lv:["DEP","NA","FR","ST"], q:""
 });
-const st = {arms:null,cats:null,sex:null,lv:null,q:"",month:0,view:"cal"};
+const st = {arms:null,cats:null,sex:null,lv:null,q:"",month:0,view:"cal",sel:null};  // sel : jour choisi (vue mobile)
 const SKEY = "escrime-filtres-" + DATA.season;
 
 function loadState(){
@@ -487,6 +525,77 @@ function renderYear(items){
   return html + "</tbody></table></div>";
 }
 
+function dayMap(items){
+  const byDay = new Map();
+  items.forEach((it,idx) => {
+    for(let d = pd(it.s), e = pd(it.e); d <= e; d = addDays(d,1)){
+      const k = iso(d);
+      if(!byDay.has(k)) byDay.set(k, []);
+      byDay.get(k).push({it, idx});
+    }
+  });
+  return byDay;
+}
+function dotsHTML(list, max, noMore){
+  if(!list || !list.length) return "";
+  return '<span class="mdots">'+list.slice(0,max).map(o => '<i class="'+colorClass(o.it)+'"></i>').join("")+
+    (list.length > max && !noMore ? "<small>+"+(list.length-max)+"</small>" : "")+"</span>";
+}
+function dayClasses(base, d, di, wd){
+  const cls = [base];
+  if(wd >= 5) cls.push("we");
+  if(DATA.vac[di]) cls.push("vac");
+  if(DATA.hol[di]) cls.push("hol");
+  if(di === todayIso) cls.push("today");
+  return cls;
+}
+// mois compact pour smartphone : une pastille par épreuve, la liste du jour touché en dessous
+function renderMini(items,y,m){
+  const byDay = dayMap(items), first = new Date(y,m-1,1), nd = new Date(y,m,0).getDate(), off = mondayIdx(first);
+  let html = '<div class="mcal">'+DL.map(d => '<div class="mdow">'+d+"</div>").join("");
+  for(let i=0;i<off;i++) html += '<span class="mday blank"></span>';
+  for(let dn=1; dn<=nd; dn++){
+    const d = new Date(y,m-1,dn), di = iso(d), wd = mondayIdx(d), evs = byDay.get(di) || [];
+    const cls = dayClasses("mday", d, di, wd);
+    if(di === st.sel) cls.push("sel");
+    const lab = cap(d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}))+(evs.length ? ", "+evs.length+" événement"+(evs.length>1?"s":"") : "");
+    html += '<button type="button" class="'+cls.join(" ")+'" data-d="'+di+'" aria-label="'+esc(lab)+'"'+(di===st.sel?' aria-pressed="true"':"")+'><span class="mdn">'+dn+"</span>"+dotsHTML(evs,4)+"</button>";
+  }
+  const tail = (7 - (off+nd)%7) % 7;
+  for(let i=0;i<tail;i++) html += '<span class="mday blank"></span>';
+  html += "</div>";
+  if(st.sel && st.sel.slice(0,7) === y+"-"+String(m).padStart(2,"0")){
+    const d = pd(st.sel), evs = byDay.get(st.sel) || [];
+    const info = [DATA.hol[st.sel], DATA.vac[st.sel] ? "vacances "+DATA.vac[st.sel] : ""].filter(Boolean).join(" · ");
+    html += '<div class="dayhead"><h3>'+esc(cap(d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"})))+(info ? ' <small style="font-weight:400;color:var(--muted);font-size:13px">'+esc(info)+"</small>" : "")+
+      '</h3><button type="button" class="link" id="allmonth">Tout le mois</button></div>';
+    html += evs.length ? '<div class="dayitems">'+evs.map(o => barHTML(o.it, o.idx, false, "")).join("")+"</div>"
+                       : '<div class="list"><div class="empty-msg">Aucun événement ce jour-là avec ces filtres.</div></div>';
+    return html;
+  }
+  return html + '<p class="mhint">Touchez un jour pour voir ses épreuves.</p>' + renderList(items, false, y, m);
+}
+// saison en mini-mois pour smartphone
+function renderYearMini(items){
+  const byDay = dayMap(items);
+  let html = '<div class="ygrid">';
+  MONTHS.forEach(([y,m],i) => {
+    const off = mondayIdx(new Date(y,m-1,1)), nd = new Date(y,m,0).getDate();
+    html += '<div class="ymini"><button type="button" class="ym" data-m="'+i+'">'+cap(MN[m-1])+" "+y+'</button><div class="ymg">'+DL.map(d => '<span class="yl">'+d+"</span>").join("");
+    for(let k=0;k<off;k++) html += "<span></span>";
+    for(let dn=1; dn<=nd; dn++){
+      const d = new Date(y,m-1,dn), di = iso(d), evs = byDay.get(di) || [];
+      const cls = dayClasses("yday", d, di, mondayIdx(d));
+      if(evs.length) cls.push("has");
+      html += evs.length
+        ? '<button type="button" class="'+cls.join(" ")+'" data-d="'+di+'" data-m="'+i+'" aria-label="'+esc(dn+" "+MN[m-1]+", "+evs.length+" événement"+(evs.length>1?"s":""))+'">'+dn+dotsHTML(evs,3,true)+"</button>"
+        : '<span class="'+cls.join(" ")+'">'+dn+"</span>";
+    }
+    html += "</div></div>";
+  });
+  return html + "</div>";
+}
+
 function renderList(items, allSeason, y, m){
   const list = allSeason ? items : items.filter(it => {
     const p = it.s.slice(0,7); return p === y+"-"+String(m).padStart(2,"0");
@@ -538,7 +647,8 @@ function render(){
     '<button type="button" class="tab'+(counts[i]?"":" empty")+'" data-m="'+i+'"'+(i===st.month?' aria-current="true"':"")+'>'+
     MS[mm-1].replace(/^./,c=>c.toUpperCase())+" "+yy+'<span class="n">'+counts[i]+"</span></button>").join("") +
     '<button type="button" class="tab" data-m="'+MONTHS.length+'"'+(allSeason?' aria-current="true"':"")+'>Toute la saison<span class="n">'+CUR.length+"</span></button>";
-  const yearView = st.view === "year" && !isNarrow();
+  const narrow = isNarrow();
+  const yearView = st.view === "year";
   document.querySelector(".nav").style.display = yearView ? "none" : "";
   document.getElementById("prev").hidden = yearView;
   document.getElementById("next").hidden = yearView;
@@ -548,8 +658,10 @@ function render(){
   document.getElementById("count").innerHTML = "<b>"+CUR.length+"</b> événement"+(CUR.length>1?"s":"")+" affiché"+(CUR.length>1?"s":"");
   document.querySelectorAll("#seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === st.view)));
   // contenu
-  const asList = !yearView && (allSeason || st.view === "list" || isNarrow());
-  document.getElementById("view").innerHTML = yearView ? renderYear(CUR) : asList ? renderList(CUR, allSeason, y, m) : renderCal(CUR, y, m);
+  const asList = !yearView && (allSeason || st.view === "list" || narrow);
+  document.getElementById("view").innerHTML = yearView ? (narrow ? renderYearMini(CUR) : renderYear(CUR))
+    : allSeason || st.view === "list" ? renderList(CUR, allSeason, y, m)
+    : narrow ? renderMini(CUR, y, m) : renderCal(CUR, y, m);
   // à confirmer : uniquement pour la période affichée
   const ym = y+"-"+String(m).padStart(2,"0");
   let inView;
@@ -598,17 +710,22 @@ function init(){
   document.getElementById("reset").addEventListener("click", () => { applyFilters(DEFAULTS()); saveState(); renderFilters(); render(); });
   document.getElementById("tabs").addEventListener("click", e => {
     const t = e.target.closest(".tab"); if(!t) return;
-    st.month = Number(t.dataset.m); render();
+    st.month = Number(t.dataset.m); st.sel = null; render();
   });
-  document.getElementById("prev").addEventListener("click", () => { if(st.month > 0){ st.month = Math.min(st.month,MONTHS.length)-1; render(); } });
-  document.getElementById("next").addEventListener("click", () => { if(st.month < MONTHS.length-1){ st.month++; render(); } });
+  document.getElementById("prev").addEventListener("click", () => { if(st.month > 0){ st.month = Math.min(st.month,MONTHS.length)-1; st.sel = null; render(); } });
+  document.getElementById("next").addEventListener("click", () => { if(st.month < MONTHS.length-1){ st.month++; st.sel = null; render(); } });
   document.getElementById("seg").addEventListener("click", e => {
     const b = e.target.closest("button"); if(!b) return;
     st.view = b.dataset.v; saveState(); render();
   });
   document.getElementById("view").addEventListener("click", e => {
     const ym = e.target.closest(".ym");
-    if(ym){ st.month = Number(ym.dataset.m); st.view = "cal"; saveState(); render(); return; }
+    if(ym){ st.month = Number(ym.dataset.m); st.view = "cal"; st.sel = null; saveState(); render(); return; }
+    const yd = e.target.closest(".yday.has");
+    if(yd){ st.month = Number(yd.dataset.m); st.view = "cal"; st.sel = yd.dataset.d; saveState(); render(); window.scrollTo({top: document.getElementById("view").offsetTop - 60}); return; }
+    const md = e.target.closest(".mday[data-d]");
+    if(md){ st.sel = st.sel === md.dataset.d ? null : md.dataset.d; render(); return; }
+    if(e.target.id === "allmonth"){ st.sel = null; render(); return; }
     const b = e.target.closest(".bar,.ychip,.ydot"); if(b) openDlg(Number(b.dataset.i));
   });
   document.getElementById("dlg").addEventListener("click", e => { if(e.target.id === "dlg") e.target.close(); });
