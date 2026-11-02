@@ -749,6 +749,7 @@ def merge_agenda(na_events: list[dict], agenda: list[dict]) -> list[dict]:
             m["warn"] = warn
             NOTES.append(warn + ". Les deux dates sont affichées.")
         added.append({**ev, "warn": warn})
+        log(f"[agenda]   + {ev['s']} {'/'.join(ev['arms'])} {ev['title']}")
     log(f"[agenda] {len(added)} événement(s) ajouté(s) depuis l’agenda du site")
     return added
 
