@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendrier escrime __SEASON__ – Nouvelle-Aquitaine, Gironde et France</title>
+<meta name="description" content="Calendrier consolidé des épreuves d’escrime __SEASON__ : circuit national FFE, Nouvelle-Aquitaine, Gironde et stages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+  --bg:#F4F6FA; --surface:#FFFFFF; --surface2:#EEF1F6; --weekend:#F8FAFD;
+  --line:#CFD6E2; --text:#0F172A; --muted:#4A5668; --faint:#8D99AB;
+  --ink:#0B2545; --head:#0B2545; --btn-on:#0B2545;
+  --vac:#FDF0C4; --vac-text:#8A4B0B; --hol:#B3261E;
+  --c-epee:#1D4ED8; --t-epee:#DCE8FE;
+  --c-sabre:#C2410C; --t-sabre:#FFE8D6;
+  --c-fleuret:#BE185D; --t-fleuret:#FCE3EF;
+  --c-multi:#6D28D9; --t-multi:#EAE3FD;
+  --c-anim:#0F766E; --t-anim:#D3F3EE;
+  --lv-na:#0B2545; --lv-fr:#5B6678; --lv-st:#8A5A00; --lv-dep:#7A1F5C; --warn:#F5A524; --warn-text:#1A1405;
+  --focus:#2563EB;
+}
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]){
+  --bg:#0A1222; --surface:#101A2E; --surface2:#0C1527; --weekend:#0E1829;
+  --line:#25344E; --text:#E6EBF5; --muted:#A3B0C6; --faint:#7283A0;
+  --ink:#E6EBF5; --head:#1B3558; --btn-on:#3B64A8;
+  --vac:#3A2F0E; --vac-text:#F2C879; --hol:#F28B82;
+  --c-epee:#3F72E6; --t-epee:#14264F;
+  --c-sabre:#D4622C; --t-sabre:#3A1D0D;
+  --c-fleuret:#D03F87; --t-fleuret:#3B1128;
+  --c-multi:#8A63E8; --t-multi:#271B52;
+  --c-anim:#1F9E92; --t-anim:#0B3733;
+  --lv-na:#2B4A7A; --lv-fr:#5B6678; --lv-st:#A06A0A; --lv-dep:#9A3A7A; --warn:#F5A524; --warn-text:#1A1405;
+  --focus:#7AA7FF; color-scheme:dark;
+}
+}
+:root[data-theme="dark"]{
+  --bg:#0A1222; --surface:#101A2E; --surface2:#0C1527; --weekend:#0E1829;
+  --line:#25344E; --text:#E6EBF5; --muted:#A3B0C6; --faint:#7283A0;
+  --ink:#E6EBF5; --head:#1B3558; --btn-on:#3B64A8;
+  --vac:#3A2F0E; --vac-text:#F2C879; --hol:#F28B82;
+  --c-epee:#3F72E6; --t-epee:#14264F;
+  --c-sabre:#D4622C; --t-sabre:#3A1D0D;
+  --c-fleuret:#D03F87; --t-fleuret:#3B1128;
+  --c-multi:#8A63E8; --t-multi:#271B52;
+  --c-anim:#1F9E92; --t-anim:#0B3733;
+  --lv-na:#2B4A7A; --lv-fr:#5B6678; --lv-st:#A06A0A; --lv-dep:#9A3A7A; --warn:#F5A524; --warn-text:#1A1405;
+  --focus:#7AA7FF; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 "Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1380px;margin:0 auto;padding:18px 16px 40px}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 24px;margin-bottom:14px}
+h1{margin:0;font:700 clamp(26px,4vw,38px)/1.05 "Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;letter-spacing:-.02em;color:var(--ink)}
+.sub{color:var(--muted);font-size:13.5px;margin-top:6px}
+.count{color:var(--muted);font-size:13.5px}
+.count b{color:var(--text)}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:9px}
+.frow{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:center}
+.flabel{font-size:13px;color:var(--muted)}
+.fgroup{display:flex;flex-wrap:wrap;gap:6px}
+.cb{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;line-height:1.2}
+.cb .dot{width:9px;height:9px;border-radius:50%;background:var(--dot,var(--faint));flex:none}
+.cb[aria-pressed="true"]{background:var(--on,var(--btn-on));border-color:var(--on,var(--btn-on));color:#fff}
+.cb[aria-pressed="true"] .dot{background:#fff}
+.cb:hover{border-color:var(--faint)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.search{flex:1 1 240px;max-width:360px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 10px;font-size:14px}
+.search::placeholder{color:var(--faint)}
+.link{background:none;border:0;padding:4px 2px;color:var(--focus);cursor:pointer;font-size:13.5px;text-decoration:underline;text-underline-offset:2px}
+
+.nav{display:flex;align-items:center;gap:8px;margin:16px 0 10px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px;flex:1;scrollbar-width:thin}
+.tab{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 11px;cursor:pointer;font-size:13.5px;white-space:nowrap}
+.tab .n{margin-left:5px;font-size:11.5px;color:var(--faint)}
+.tab[aria-current="true"]{background:var(--btn-on);border-color:var(--btn-on);color:#fff}
+.tab[aria-current="true"] .n{color:#C9D3E6}
+.tab.empty{color:var(--faint)}
+
+.mhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin:6px 0 10px}
+.mtitle{display:flex;align-items:center;gap:10px}
+h2{margin:0;font:700 clamp(22px,3vw,30px)/1.1 "Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;letter-spacing:-.015em;color:var(--ink)}
+.arrow{border:1px solid var(--line);background:var(--surface);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:16px;line-height:1}
+.arrow:disabled{opacity:.35;cursor:default}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:6px 12px;cursor:pointer;font-size:13.5px}
+.seg button[aria-pressed="true"]{background:var(--btn-on);color:#fff}
+.mright{display:flex;gap:10px;align-items:center}
+
+.warnbar{background:var(--vac);color:var(--vac-text);border-radius:8px;padding:7px 11px;font-size:13px;margin-bottom:10px}
+
+.cal{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.dow,.week{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) repeat(2,minmax(0,1.9fr))}
+.dow{background:var(--head);color:#fff;font-size:12.5px;font-weight:600}
+.dow div{padding:7px 8px}
+.week{border-top:1px solid var(--line);min-height:104px}
+.day{border-left:1px solid var(--line);padding:5px 7px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:6px;background:var(--surface);min-width:0}
+.day:first-child{border-left:0}
+.day.we{background:var(--weekend)}
+.day.off{background:var(--surface2);color:var(--faint)}
+.day.vac{background-image:linear-gradient(var(--vac) 0 28px,transparent 28px)}
+.dn{font:700 15px/1 "Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;padding:2px 0}
+.day.today .dn{background:var(--btn-on);color:#fff;border-radius:999px;padding:3px 8px;margin:-2px 0 0 -3px}
+.dinfo{font-size:10.5px;line-height:1.2;text-align:right;color:var(--vac-text);margin-top:1px}
+.dinfo .hol{display:block;color:var(--hol);font-weight:600}
+.day.off .dinfo,.day.off .dinfo .hol{opacity:.6}
+.bar{display:block;text-align:left;border:0;border-left:4px solid var(--c);background:var(--t);color:var(--text);border-radius:6px;padding:3px 8px 4px;margin:2px 3px;align-self:start;cursor:pointer;font-size:12.5px;line-height:1.35;min-width:0;overflow-wrap:anywhere}
+.bar:hover{filter:brightness(.97)}
+.bar .t{font-weight:600}
+.bar .d{color:var(--muted)}
+.bar.cont{font-weight:600}
+.chip{display:inline-block;font-size:10.5px;font-weight:600;line-height:1.2;padding:1px 6px;border-radius:4px;color:#fff;background:var(--k);margin-right:4px;vertical-align:1px;white-space:nowrap}
+.k-arm{--k:var(--c)}
+.k-na{--k:var(--lv-na)} .k-fr{--k:var(--lv-fr)} .k-st{--k:var(--lv-st)} .k-dep{--k:var(--lv-dep)}
+.k-warn{--k:var(--warn);color:var(--warn-text)}
+.c-epee{--c:var(--c-epee);--t:var(--t-epee)} .c-sabre{--c:var(--c-sabre);--t:var(--t-sabre)}
+.c-fleuret{--c:var(--c-fleuret);--t:var(--t-fleuret)} .c-multi{--c:var(--c-multi);--t:var(--t-multi)}
+.c-anim{--c:var(--c-anim);--t:var(--t-anim)}
+
+.list{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.lmonth{padding:9px 12px;background:var(--surface2);font:700 16px/1.2 "Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;color:var(--ink)}
+.row{display:grid;grid-template-columns:minmax(104px,170px) 1fr;gap:6px 12px;padding:9px 12px;border-top:1px solid var(--line)}
+.lmonth+.row{border-top:0}
+.rdate{font-weight:600;font-size:13.5px}
+.rdate small{display:block;color:var(--faint);font-weight:400}
+.items{display:grid;gap:5px}
+.items .bar{margin:0}
+.empty-msg{padding:26px 16px;text-align:center;color:var(--muted)}
+
+dialog{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);padding:0;max-width:min(520px,calc(100vw - 28px));width:100%}
+dialog::backdrop{background:rgba(8,14,28,.5)}
+.dlg{padding:18px 20px 16px;border-top:5px solid var(--c)}
+.dlg h3{margin:8px 0 4px;font:700 20px/1.2 "Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;color:var(--ink)}
+.dlg dl{margin:12px 0 0;display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:14px}
+.dlg dt{color:var(--muted)}
+.dlg dd{margin:0}
+.dlg .wn{margin-top:12px;background:var(--vac);color:var(--vac-text);border-radius:8px;padding:8px 10px;font-size:13.5px}
+.dlg .close{margin-top:14px;display:flex;justify-content:flex-end}
+.dlg .close button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 14px;cursor:pointer}
+
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted);margin:12px 2px 0;align-items:center}
+.legend .chip{margin-right:3px}
+details.notes{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+details.notes summary{cursor:pointer;font-weight:600}
+details.notes h3{font-size:14.5px;margin:14px 0 4px;color:var(--ink)}
+details.notes p,details.notes li{font-size:14px;color:var(--text);max-width:80ch}
+details.notes ul{padding-left:20px;margin:4px 0}
+.src{margin-top:16px;font-size:12.5px;color:var(--muted)}
+
+.only-wide{display:inline-flex}
+.fbtn{display:none;width:100%;justify-content:space-between;align-items:center;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer;margin-bottom:8px}
+.fbtn #fsum{font-weight:400;color:var(--muted);font-size:13px}
+@media (max-width:860px){
+  .only-wide{display:none}
+  .fbtn{display:flex}
+  .row{grid-template-columns:1fr;gap:4px}
+  .rdate:empty{display:none}
+  .panel.collapsed{display:none}
+  .frow{grid-template-columns:1fr;gap:4px}
+}
+@media print{
+  :root{padding:0}
+  body{background:#fff}
+  .panel,.nav,.seg,.arrow,.legend,details.notes,.src,.tools,.mright .count,dialog{display:none!important}
+  .wrap{padding:0;max-width:none}
+  .bar{break-inside:avoid}
+  @page{size:A4 landscape;margin:10mm}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Calendrier escrime <span style="white-space:nowrap">__SEASON__</span></h1>
+      <div class="sub">Circuit national FFE, épreuves Nouvelle-Aquitaine et Gironde, stages · __PERIOD__</div>
+    </div>
+    <div class="count" id="count" aria-live="polite"></div>
+  </header>
+
+  <button class="fbtn" id="ftoggle" type="button" aria-expanded="false" aria-controls="panel"><span>Filtres</span><span id="fsum"></span></button>
+  <section class="panel collapsed" id="panel" aria-label="Filtres">
+    <div class="frow"><div class="flabel">Armes</div><div class="fgroup" id="f-arms"></div></div>
+    <div class="frow"><div class="flabel">Catégories</div><div class="fgroup" id="f-cats"></div></div>
+    <div class="frow"><div class="flabel">Sexe</div><div class="fgroup" id="f-sex"></div></div>
+    <div class="frow"><div class="flabel">Type</div><div class="fgroup" id="f-lv"></div></div>
+    <div class="tools">
+      <input class="search" id="q" type="search" placeholder="Rechercher un lieu ou une épreuve" aria-label="Rechercher un lieu ou une épreuve">
+      <button class="link" id="reset" type="button">Réinitialiser les filtres</button>
+    </div>
+  </section>
+
+  <nav class="nav" aria-label="Mois"><div class="tabs" id="tabs"></div></nav>
+
+  <div class="mhead">
+    <div class="mtitle">
+      <button class="arrow" id="prev" type="button" aria-label="Mois précédent">‹</button>
+      <h2 id="mtitle"></h2>
+      <button class="arrow" id="next" type="button" aria-label="Mois suivant">›</button>
+    </div>
+    <div class="mright">
+      <span class="seg only-wide" id="seg">
+        <button type="button" data-v="cal" aria-pressed="true">Calendrier</button>
+        <button type="button" data-v="list" aria-pressed="false">Liste</button>
+      </span>
+      <button class="link only-wide" id="print" type="button">Imprimer</button>
+    </div>
+  </div>
+
+  <div id="warn"></div>
+  <div id="view"></div>
+
+  <div class="legend" aria-label="Légende">
+    <span><span class="chip k-arm c-epee">Épée</span><span class="chip k-arm c-sabre">Sabre</span><span class="chip k-arm c-fleuret">Fleuret</span><span class="chip k-arm c-multi">Plusieurs armes</span><span class="chip k-arm c-anim">Animateur / éducateur</span></span>
+    <span><span class="chip k-na">NA</span> épreuve Nouvelle-Aquitaine</span>
+    <span><span class="chip k-dep">Gironde</span> épreuve départementale</span>
+    <span><span class="chip k-fr">France</span> circuit national (grille FFE)</span>
+    <span><span class="chip k-st">Stage</span></span>
+    <span>Fond jaune : week-end de vacances scolaires</span>
+  </div>
+
+  <details class="notes">
+    <summary>Notes, sources et points à vérifier</summary>
+__NOTES__
+  </details>
+  <div class="src">__FOOTER__</div>
+</div>
+
+<dialog id="dlg" aria-label="Détail de l’événement"></dialog>
+
+<script>
+"use strict";
+const DATA = __DATA__;
+const MONTHS = DATA.months;
+const MN = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+const MS = ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."];
+const DOW = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+const DS = ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."];
+const ARMS = [
+  {k:"EPEE",l:"Épée",c:"var(--c-epee)"},{k:"SABRE",l:"Sabre",c:"var(--c-sabre)"},
+  {k:"FLEURET",l:"Fleuret",c:"var(--c-fleuret)"},{k:"ANIM",l:"Animateur / éducateur",c:"var(--c-anim)"}];
+const ARML = {EPEE:"Épée",SABRE:"Sabre",FLEURET:"Fleuret",ANIM:"Animateur / éducateur"};
+const ARM_ORDER = ["EPEE","SABRE","FLEURET","ANIM"];
+const CATG = [{k:"M13",l:"M13 / M15"},{k:"JEU",l:"M17 / M20"},{k:"SEN",l:"Seniors"},{k:"VET",l:"Vétérans"}];
+const GROUP = {M13:"M13",M17:"JEU",M20:"JEU",SEN:"SEN",VET:"VET"};
+const CATLAB = {M13:"M13/M15",M17:"M17",M20:"M20",SEN:"Seniors",VET:"Vétérans"};
+const CAT_ORDER = ["M13","M17","M20","SEN","VET"];
+const LV = [{k:"DEP",l:"Épreuves Gironde"},{k:"NA",l:"Épreuves NA"},{k:"FR",l:"Épreuves France"},{k:"ST",l:"Stages"}];
+const LVCHIP = {DEP:"Gironde",NA:"NA",FR:"France",ST:"Stage"};
+const SEX = [{k:"D",l:"Dames"},{k:"H",l:"Hommes"}];
+
+const DEFAULTS = () => ({
+  arms:["EPEE","SABRE","ANIM"], cats:["M13","JEU","SEN","VET"], sex:["D","H"], lv:["DEP","NA","FR","ST"], q:""
+});
+const st = {arms:null,cats:null,sex:null,lv:null,q:"",month:0,view:"cal"};
+const SKEY = "escrime-filtres-" + DATA.season;
+
+function loadState(){
+  let s = DEFAULTS();
+  try{
+    const raw = localStorage.getItem(SKEY);
+    if(raw){
+      const o = JSON.parse(raw);
+      for(const k of ["arms","cats","sex","lv"]) if(Array.isArray(o[k])) s[k] = o[k];
+      if(typeof o.q === "string") s.q = o.q;
+      if(o.view === "list" || o.view === "cal") st.view = o.view;
+    }
+  }catch(e){}
+  applyFilters(s);
+}
+function applyFilters(s){
+  st.arms = new Set(s.arms); st.cats = new Set(s.cats); st.sex = new Set(s.sex); st.lv = new Set(s.lv); st.q = s.q;
+}
+function saveState(){
+  try{
+    localStorage.setItem(SKEY, JSON.stringify({
+      arms:[...st.arms],cats:[...st.cats],sex:[...st.sex],lv:[...st.lv],q:st.q,view:st.view}));
+  }catch(e){}
+}
+
+/* ---------- utilitaires ---------- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const pd = iso => { const [y,m,d] = iso.split("-").map(Number); return new Date(y,m-1,d); };
+const iso = dt => dt.getFullYear()+"-"+String(dt.getMonth()+1).padStart(2,"0")+"-"+String(dt.getDate()).padStart(2,"0");
+const addDays = (dt,n) => new Date(dt.getFullYear(),dt.getMonth(),dt.getDate()+n);
+const mondayIdx = dt => (dt.getDay()+6)%7;
+const dayDiff = (a,b) => Math.round((b-a)/86400000);
+function rangeText(s,e){
+  const a = pd(s), b = pd(e);
+  if(s === e) return DS[a.getDay()]+" "+a.getDate()+" "+MS[a.getMonth()];
+  const left = DS[a.getDay()]+" "+a.getDate()+(a.getMonth()===b.getMonth()?"":" "+MS[a.getMonth()]);
+  return left+" – "+DS[b.getDay()]+" "+b.getDate()+" "+MS[b.getMonth()];
+}
+const todayIso = iso(new Date());
+const cap = s => s.charAt(0).toUpperCase()+s.slice(1);
+
+/* ---------- filtrage et fusion ---------- */
+function compute(){
+  const map = new Map();
+  const q = norm(st.q.trim());
+  for(const ev of DATA.events){
+    if(!st.lv.has(ev.lv)) continue;
+    const arms = ev.arms.filter(a => st.arms.has(a));
+    if(!arms.length) continue;
+    let catDisp;
+    if(ev.arms[0] === "ANIM"){
+      catDisp = "";
+    }else{
+      const vis = CAT_ORDER.filter(k => {
+        const g = ev.cats[k];
+        return g && st.cats.has(GROUP[k]) && ((g.includes("D") && st.sex.has("D")) || (g.includes("H") && st.sex.has("H")));
+      });
+      if(!vis.length) continue;
+      catDisp = ev.catText || vis.map(k => CATLAB[k] + (ev.cats[k]==="DH" ? "" : ev.cats[k]==="D" ? " (D)" : " (H)")).join(", ");
+    }
+    if(q && !norm(ev.title+" "+catDisp+" "+ev.detail).includes(q)) continue;
+    const key = [ev.s,ev.e,ev.title,ev.lv,catDisp,ev.detail,ev.warn||""].join("|");
+    let it = map.get(key);
+    if(!it){ it = {s:ev.s,e:ev.e,lv:ev.lv,title:ev.title,cat:catDisp,detail:ev.detail,warn:ev.warn,url:ev.url||null,arms:new Set(),src:new Set()}; map.set(key,it); }
+    if(!it.url && ev.url) it.url = ev.url;
+    arms.forEach(a => it.arms.add(a));
+    it.src.add(ev.src);
+  }
+  const out = [...map.values()].map(it => ({...it, arms:ARM_ORDER.filter(a => it.arms.has(a)), src:[...it.src]}));
+  out.sort((a,b) => a.s.localeCompare(b.s) || (a.lv==="ST")-(b.lv==="ST") || a.title.localeCompare(b.title,"fr"));
+  return out;
+}
+
+/* ---------- rendu des éléments ---------- */
+const colorClass = it => it.arms.length > 1 ? "c-multi" : "c-"+it.arms[0].toLowerCase();
+function chipsHTML(it){
+  const arm = '<span class="chip k-arm">'+esc(it.arms.map(a => ARML[a]).join(" + "))+'</span>';
+  const lv = '<span class="chip k-'+it.lv.toLowerCase()+'">'+LVCHIP[it.lv]+'</span>';
+  const w = it.warn ? '<span class="chip k-warn">À confirmer</span>' : "";
+  if(it.arms[0] === "ANIM") return '<span class="chip k-st">Stage</span>'+w;
+  return (it.lv === "ST" ? lv+arm : arm+lv) + w;
+}
+function textHTML(it){
+  const d = [it.cat, it.detail].filter(Boolean).join(" · ");
+  return '<span class="t">'+esc(it.title)+'</span>'+(d ? ' <span class="d">'+esc(d)+'</span>' : "");
+}
+function barHTML(it, idx, cont, style){
+  const inner = cont
+    ? '<span class="t">'+esc(it.title.split(" – ")[0])+' (suite)</span>'
+    : chipsHTML(it)+textHTML(it);
+  return '<button type="button" class="bar '+colorClass(it)+(cont?" cont":"")+'" data-i="'+idx+'" style="'+style+'">'+inner+'</button>';
+}
+
+let CUR = [];   // éléments visibles (fusionnés)
+
+function monthWeeks(y,m){
+  const first = new Date(y,m-1,1), last = new Date(y,m,0);
+  let d = addDays(first,-mondayIdx(first));
+  const end = addDays(last,6-mondayIdx(last));
+  const weeks = [];
+  while(d <= end){ weeks.push(d); d = addDays(d,7); }
+  return weeks;
+}
+
+function renderCal(items,y,m){
+  const weeks = monthWeeks(y,m);
+  let html = '<div class="cal"><div class="dow">'+DOW.map(d => "<div>"+d+"</div>").join("")+"</div>";
+  for(const ws of weeks){
+    const we = addDays(ws,6), wsI = iso(ws), weI = iso(we);
+    const segs = [];
+    items.forEach((it,idx) => {
+      if(it.e < wsI || it.s > weI) return;
+      const s = it.s < wsI ? ws : pd(it.s);
+      const e = it.e > weI ? we : pd(it.e);
+      segs.push({idx,it,cs:dayDiff(ws,s),ce:dayDiff(ws,e),cont:it.s < wsI});
+    });
+    segs.sort((a,b) => a.cs-b.cs || (b.ce-b.cs)-(a.ce-a.cs) || (a.it.lv==="NA"?0:1)-(b.it.lv==="NA"?0:1));
+    const lanes = [];
+    for(const sg of segs){
+      let placed = false;
+      for(let li=0; li<lanes.length; li++){
+        if(lanes[li].every(o => o.ce < sg.cs || o.cs > sg.ce)){ lanes[li].push(sg); sg.lane = li; placed = true; break; }
+      }
+      if(!placed){ sg.lane = lanes.length; lanes.push([sg]); }
+    }
+    const L = lanes.length;
+    html += '<div class="week" style="grid-template-rows:28px repeat('+L+',auto) 1fr">';
+    for(let i=0;i<7;i++){
+      const d = addDays(ws,i), di = iso(d);
+      const cls = ["day"];
+      if(i>=5) cls.push("we");
+      if(d.getMonth() !== m-1) cls.push("off");
+      if(DATA.vac[di]) cls.push("vac");
+      if(di === todayIso) cls.push("today");
+      const label = d.getDate()===1 ? d.getDate()+" "+MS[d.getMonth()] : String(d.getDate());
+      const info = (DATA.hol[di] ? '<span class="hol">'+esc(DATA.hol[di])+'</span>' : "") + (DATA.vac[di] ? "vacances "+esc(DATA.vac[di]) : "");
+      html += '<div class="'+cls.join(" ")+'" style="grid-column:'+(i+1)+';grid-row:1 / span '+(L+2)+'"><span class="dn">'+label+'</span><span class="dinfo">'+info+'</span></div>';
+    }
+    for(const sg of segs){
+      html += barHTML(sg.it, sg.idx, sg.cont, "grid-column:"+(sg.cs+1)+" / "+(sg.ce+2)+";grid-row:"+(sg.lane+2));
+    }
+    html += "</div>";
+  }
+  html += "</div>";
+  return html;
+}
+
+function renderList(items, allSeason, y, m){
+  const list = allSeason ? items : items.filter(it => {
+    const p = it.s.slice(0,7); return p === y+"-"+String(m).padStart(2,"0");
+  });
+  if(!list.length) return '<div class="list"><div class="empty-msg">Aucun événement avec ces filtres. Élargissez la sélection ou réinitialisez les filtres.</div></div>';
+  let html = '<div class="list">', lastMonth = "", lastKey = "";
+  list.forEach(it => {
+    const idx = items.indexOf(it);
+    const mk = it.s.slice(0,7);
+    if(allSeason && mk !== lastMonth){
+      const [yy,mm] = mk.split("-").map(Number);
+      html += '<div class="lmonth">'+cap(MN[mm-1])+" "+yy+"</div>"; lastMonth = mk; lastKey = "";
+    }
+    const key = it.s+"|"+it.e;
+    html += '<div class="row"><div class="rdate">'+(key !== lastKey ? esc(rangeText(it.s,it.e)) : "")+'</div><div class="items">'+barHTML(it, idx, false, "")+"</div></div>";
+    lastKey = key;
+  });
+  return html+"</div>";
+}
+
+/* ---------- interface ---------- */
+function btn(group, el, list, set, extra){
+  el.innerHTML = list.map(o =>
+    '<button type="button" class="cb" data-k="'+o.k+'" aria-pressed="'+set.has(o.k)+'"'+
+    (o.c ? ' style="--dot:'+o.c+';--on:'+o.c+'"' : "")+'>'+(o.c ? '<span class="dot"></span>' : "")+esc(o.l)+"</button>").join("");
+}
+function renderFilters(){
+  btn("arms", document.getElementById("f-arms"), ARMS, st.arms);
+  btn("cats", document.getElementById("f-cats"), CATG, st.cats);
+  btn("sex", document.getElementById("f-sex"), SEX, st.sex);
+  btn("lv", document.getElementById("f-lv"), LV, st.lv);
+  document.getElementById("q").value = st.q;
+}
+const isNarrow = () => window.matchMedia("(max-width: 860px)").matches;
+
+function filterSummary(){
+  const arms = ARMS.filter(a => a.k !== "ANIM" && st.arms.has(a.k)).map(a => a.l);
+  const other = (st.cats.size < 4 ? 1 : 0) + (st.sex.size < 2 ? 1 : 0) + (st.lv.size < LV.length ? 1 : 0) + (st.q.trim() ? 1 : 0);
+  return (arms.join(", ") || "aucune arme") + (other ? " + " + other + " filtre" + (other > 1 ? "s" : "") : "");
+}
+function render(){
+  CUR = compute();
+  document.getElementById("fsum").textContent = filterSummary();
+  const [y,m] = st.month < MONTHS.length ? MONTHS[st.month] : [0,0];
+  const allSeason = st.month === MONTHS.length;
+  // onglets
+  const counts = MONTHS.map(([yy,mm]) => CUR.filter(it => it.s.slice(0,7) === yy+"-"+String(mm).padStart(2,"0")).length);
+  document.getElementById("tabs").innerHTML = MONTHS.map(([yy,mm],i) =>
+    '<button type="button" class="tab'+(counts[i]?"":" empty")+'" data-m="'+i+'"'+(i===st.month?' aria-current="true"':"")+'>'+
+    MS[mm-1].replace(/^./,c=>c.toUpperCase())+" "+yy+'<span class="n">'+counts[i]+"</span></button>").join("") +
+    '<button type="button" class="tab" data-m="'+MONTHS.length+'"'+(allSeason?' aria-current="true"':"")+'>Toute la saison<span class="n">'+CUR.length+"</span></button>";
+  document.getElementById("mtitle").textContent = allSeason ? "Toute la saison" : cap(MN[m-1])+" "+y;
+  document.getElementById("prev").disabled = st.month <= 0 || allSeason && false;
+  document.getElementById("next").disabled = st.month >= MONTHS.length-1;
+  document.getElementById("count").innerHTML = "<b>"+CUR.length+"</b> événement"+(CUR.length>1?"s":"")+" affiché"+(CUR.length>1?"s":"");
+  document.querySelectorAll("#seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === st.view)));
+  // contenu
+  const asList = allSeason || st.view === "list" || isNarrow();
+  document.getElementById("view").innerHTML = asList ? renderList(CUR, allSeason, y, m) : renderCal(CUR, y, m);
+  // à confirmer : uniquement pour la période affichée
+  const ym = y+"-"+String(m).padStart(2,"0");
+  let inView;
+  if(allSeason) inView = () => true;
+  else if(asList) inView = it => it.s.slice(0,7) === ym;
+  else { const wk = monthWeeks(y,m), a = iso(wk[0]), b = iso(addDays(wk[wk.length-1],6)); inView = it => it.e >= a && it.s <= b; }
+  const ws = new Set(); CUR.forEach(it => { if(it.warn && inView(it)) ws.add(it.warn); });
+  document.getElementById("warn").innerHTML = ws.size ? '<div class="warnbar"><b>À confirmer :</b> '+[...ws].map(esc).join(" ; ")+"</div>" : "";
+}
+
+function openDlg(i){
+  const it = CUR[i]; if(!it) return;
+  const dlg = document.getElementById("dlg");
+  const lvName = {DEP:"Épreuve départementale (Gironde)",NA:"Épreuve Nouvelle-Aquitaine",FR:"Circuit national (grille FFE)",ST:"Stage"}[it.lv];
+  dlg.innerHTML = '<div class="dlg '+colorClass(it)+'">'+chipsHTML(it)+
+    '<h3>'+esc(it.title)+'</h3><dl>'+
+    '<dt>Dates</dt><dd>'+esc(rangeText(it.s,it.e))+"</dd>"+
+    '<dt>Type</dt><dd>'+esc(lvName)+"</dd>"+
+    '<dt>Armes</dt><dd>'+esc(it.arms.map(a => ARML[a]).join(", "))+"</dd>"+
+    (it.cat ? '<dt>Catégories</dt><dd>'+esc(it.cat)+"</dd>" : "")+
+    (it.detail ? '<dt>Détail</dt><dd>'+esc(it.detail)+"</dd>" : "")+
+    '<dt>Source</dt><dd>'+esc(it.src.join(", "))+"</dd>"+
+    (it.url ? '<dt>Lien</dt><dd><a href="'+esc(it.url)+'" target="_blank" rel="noopener">Voir la fiche de l’épreuve</a></dd>' : "")+"</dl>"+
+    (it.warn ? '<div class="wn"><b>À confirmer :</b> '+esc(it.warn)+"</div>" : "")+
+    '<div class="close"><button type="button" id="dclose">Fermer</button></div></div>';
+  if(typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open","");
+  document.getElementById("dclose").addEventListener("click", () => dlg.close());
+}
+
+function toggle(set,k){ set.has(k) ? set.delete(k) : set.add(k); }
+function init(){
+  loadState();
+  // mois initial : mois courant s’il est dans la saison
+  const now = new Date(), key = now.getFullYear()*100+now.getMonth()+1;
+  const idx = MONTHS.findIndex(([y,m]) => y*100+m === key);
+  const lastKey = MONTHS[MONTHS.length-1][0]*100+MONTHS[MONTHS.length-1][1];
+  st.month = idx >= 0 ? idx : (key > lastKey ? MONTHS.length-1 : 0);
+  renderFilters(); render();
+
+  const bind = (id,set) => document.getElementById(id).addEventListener("click", e => {
+    const b = e.target.closest(".cb"); if(!b) return;
+    toggle(set, b.dataset.k); saveState(); renderFilters(); render();
+  });
+  bind("f-arms", st.arms); bind("f-cats", st.cats); bind("f-sex", st.sex); bind("f-lv", st.lv);
+  document.getElementById("q").addEventListener("input", e => { st.q = e.target.value; saveState(); render(); });
+  document.getElementById("reset").addEventListener("click", () => { applyFilters(DEFAULTS()); saveState(); renderFilters(); render(); });
+  document.getElementById("tabs").addEventListener("click", e => {
+    const t = e.target.closest(".tab"); if(!t) return;
+    st.month = Number(t.dataset.m); render();
+  });
+  document.getElementById("prev").addEventListener("click", () => { if(st.month > 0){ st.month = Math.min(st.month,MONTHS.length)-1; render(); } });
+  document.getElementById("next").addEventListener("click", () => { if(st.month < MONTHS.length-1){ st.month++; render(); } });
+  document.getElementById("seg").addEventListener("click", e => {
+    const b = e.target.closest("button"); if(!b) return;
+    st.view = b.dataset.v; saveState(); render();
+  });
+  document.getElementById("view").addEventListener("click", e => {
+    const b = e.target.closest(".bar"); if(b) openDlg(Number(b.dataset.i));
+  });
+  document.getElementById("dlg").addEventListener("click", e => { if(e.target.id === "dlg") e.target.close(); });
+  document.getElementById("ftoggle").addEventListener("click", e => {
+    const p = document.getElementById("panel"), open = p.classList.toggle("collapsed") === false;
+    e.currentTarget.setAttribute("aria-expanded", String(open));
+  });
+  document.getElementById("print").addEventListener("click", () => { try{ window.print(); }catch(err){} });
+  window.matchMedia("(max-width: 860px)").addEventListener("change", render);
+}
+init();
+</script>
+</body>
+</html>
