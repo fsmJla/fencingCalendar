@@ -1,0 +1,4827 @@
+[
+ {
+  "id": 1960,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1960",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1960"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 13:39:18",
+  "date_utc": "2026-07-30 11:39:18",
+  "modified": "2026-08-21 11:49:04",
+  "modified_utc": "2026-08-21 09:49:04",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-1-regionale-epee/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1960",
+  "title": "Epée &#8211; M15, M17, M20, Sénior &#8211; Epreuve 1 régionale (Bayonne)",
+  "description": "<p><a href=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/07/ER-1-BAYONNE-EPEE-2627-09-26.pdf\" target=\"_blank\" rel=\"noopener\">  <img loading=\"lazy\" decoding=\"async\" class=\"alignnone wp-image-2129 \" src=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png\" alt=\"\" width=\"183\" height=\"47\" srcset=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png 300w, https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route.png 318w\" sizes=\"auto, (max-width: 183px) 100vw, 183px\" /></a></p>",
+  "excerpt": "",
+  "slug": "epreuve-1-regionale-epee",
+  "image": false,
+  "all_day": true,
+  "start_date": "2026-09-26 00:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "09",
+   "day": "26",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-09-27 23:59:59",
+  "end_date_details": {
+   "year": "2026",
+   "month": "09",
+   "day": "27",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2026-09-25 22:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "09",
+   "day": "25",
+   "hour": "22",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-09-27 21:59:59",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "09",
+   "day": "27",
+   "hour": "21",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CEST",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": false,
+  "show_map_link": false,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [
+   {
+    "id": 1966,
+    "author": "1",
+    "status": "publish",
+    "date": "2026-07-30 13:39:18",
+    "date_utc": "2026-07-30 11:39:18",
+    "modified": "2026-07-30 13:39:18",
+    "modified_utc": "2026-07-30 11:39:18",
+    "url": "https://www.escrime-nouvelle-aquitaine.fr/organisateur/aviron-bayonnais-2/",
+    "organizer": "Aviron Bayonnais",
+    "slug": "aviron-bayonnais-2",
+    "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1966",
+    "global_id_lineage": [
+     "www.escrime-nouvelle-aquitaine.fr?id=1966"
+    ]
+   }
+  ],
+  "custom_fields": []
+ },
+ {
+  "id": 1970,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1970",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1970"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 13:53:03",
+  "date_utc": "2026-07-30 11:53:03",
+  "modified": "2026-09-07 12:17:08",
+  "modified_utc": "2026-09-07 10:17:08",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-1-fleuret-poitiers/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1970",
+  "title": "Fleuret &#8211; M13, M15, M17, M20, sénior &#8211; Epreuve régionale 1 (Poitiers)",
+  "description": "<p><a href=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/09/ER-1-POITIERS-FLEURET-26-et-27-09-26.pdf\" target=\"_blank\" rel=\"noopener\"><img loading=\"lazy\" decoding=\"async\" class=\"alignnone size-medium wp-image-2129\" src=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png\" alt=\"\" width=\"300\" height=\"77\" srcset=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png 300w, https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route.png 318w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /></a></p>",
+  "excerpt": "",
+  "slug": "epreuve-regionale-1-fleuret-poitiers",
+  "image": false,
+  "all_day": true,
+  "start_date": "2026-09-26 00:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "09",
+   "day": "26",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-09-27 23:59:59",
+  "end_date_details": {
+   "year": "2026",
+   "month": "09",
+   "day": "27",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2026-09-25 22:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "09",
+   "day": "25",
+   "hour": "22",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-09-27 21:59:59",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "09",
+   "day": "27",
+   "hour": "21",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CEST",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2010,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2010",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2010"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 15:03:33",
+  "date_utc": "2026-07-30 13:03:33",
+  "modified": "2026-09-13 00:51:33",
+  "modified_utc": "2026-09-12 22:51:33",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-1-sabre-merignac/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2010",
+  "title": "Sabre &#8211; M13, M15, M17, M20, sénior &#8211; Epreuve régionale 1 (Mérignac)",
+  "description": "<p><a href=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/09/ER-1-MERIGNAC-SABRE-3-et-4-octobre-26.pdf\" target=\"_blank\" rel=\"noopener\"><img loading=\"lazy\" decoding=\"async\" class=\"alignnone size-medium wp-image-2129\" src=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png\" alt=\"\" width=\"300\" height=\"77\" srcset=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png 300w, https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route.png 318w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /></a></p>",
+  "excerpt": "",
+  "slug": "epreuve-regionale-1-sabre-merignac",
+  "image": false,
+  "all_day": true,
+  "start_date": "2026-10-03 00:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "03",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-10-04 23:59:59",
+  "end_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "04",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2026-10-02 22:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "02",
+   "hour": "22",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-10-04 21:59:59",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "04",
+   "hour": "21",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CEST",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Sabre",
+    "slug": "sabre",
+    "term_group": 0,
+    "term_taxonomy_id": 55,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 6,
+    "filter": "raw",
+    "id": 55,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/55",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1990,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1990",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1990"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:19:01",
+  "date_utc": "2026-07-30 12:19:01",
+  "modified": "2026-10-12 17:22:32",
+  "modified_utc": "2026-10-12 15:22:32",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/open-de-dax/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1990",
+  "title": "Epée &#8211; M13, M15 &#8211; Fencin&rsquo;land challenge (Dax)",
+  "description": "<p><a href=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/09/Note-ORGANISATION-Fencin-Landes-Challenge-2026.pdf\" target=\"_blank\" rel=\"noopener\"><img loading=\"lazy\" decoding=\"async\" class=\"alignnone size-medium wp-image-2129\" src=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png\" alt=\"\" width=\"300\" height=\"77\" srcset=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png 300w, https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route.png 318w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /></a></p>",
+  "excerpt": "",
+  "slug": "open-de-dax",
+  "image": false,
+  "all_day": true,
+  "start_date": "2026-10-24 00:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "24",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-10-25 23:59:59",
+  "end_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "25",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2026-10-23 22:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "23",
+   "hour": "22",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-10-25 22:59:59",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "25",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CEST",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2252,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2252",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2252"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-09-17 00:06:38",
+  "date_utc": "2026-09-16 22:06:38",
+  "modified": "2026-09-17 00:07:38",
+  "modified_utc": "2026-09-16 22:07:38",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epee-stage-regional-a-dax/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2252",
+  "title": "Epée &#8211; Stage régional à Dax",
+  "description": "",
+  "excerpt": "",
+  "slug": "epee-stage-regional-a-dax",
+  "image": false,
+  "all_day": false,
+  "start_date": "2026-10-25 18:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "25",
+   "hour": "18",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-10-28 16:00:00",
+  "end_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "28",
+   "hour": "16",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_start_date": "2026-10-25 17:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "25",
+   "hour": "17",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-10-28 15:00:00",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "28",
+   "hour": "15",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2254,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2254",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2254"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-09-17 00:10:11",
+  "date_utc": "2026-09-16 22:10:11",
+  "modified": "2026-09-17 00:11:10",
+  "modified_utc": "2026-09-16 22:11:10",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/fleuret-stage-regional/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2254",
+  "title": "Fleuret &#8211; stage régional",
+  "description": "",
+  "excerpt": "",
+  "slug": "fleuret-stage-regional",
+  "image": false,
+  "all_day": false,
+  "start_date": "2026-10-26 10:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "26",
+   "hour": "10",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-10-31 16:00:00",
+  "end_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "31",
+   "hour": "16",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_start_date": "2026-10-26 09:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "26",
+   "hour": "09",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-10-31 15:00:00",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "10",
+   "day": "31",
+   "hour": "15",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1993,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1993",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1993"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:38:57",
+  "date_utc": "2026-07-30 12:38:57",
+  "modified": "2026-10-20 17:30:42",
+  "modified_utc": "2026-10-20 15:30:42",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-1-epee-gradignan/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1993",
+  "title": "Epée &#8211; M13, Vétéran &#8211; Epreuve régionale 1 (Gradignan)",
+  "description": "<p><a href=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/10/ER1_TALENCE-EPEE-M13-Veterans-15-nov-26.pdf\" target=\"_blank\" rel=\"noopener\"><img loading=\"lazy\" decoding=\"async\" class=\"alignnone size-medium wp-image-2129\" src=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png\" alt=\"\" width=\"300\" height=\"77\" srcset=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png 300w, https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route.png 318w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /></a></p>",
+  "excerpt": "",
+  "slug": "epreuve-regionale-1-epee-gradignan",
+  "image": false,
+  "all_day": true,
+  "start_date": "2026-11-14 00:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "11",
+   "day": "14",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-11-15 23:59:59",
+  "end_date_details": {
+   "year": "2026",
+   "month": "11",
+   "day": "15",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2026-11-13 23:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "11",
+   "day": "13",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-11-15 22:59:59",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "11",
+   "day": "15",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Vétéran",
+    "slug": "veteran",
+    "term_group": 0,
+    "term_taxonomy_id": 9,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 5,
+    "filter": "raw",
+    "id": 9,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/9",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1995,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1995",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1995"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:40:43",
+  "date_utc": "2026-07-30 12:40:43",
+  "modified": "2026-07-31 09:23:53",
+  "modified_utc": "2026-07-31 07:23:53",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-2-epee-et-1-8-finale-h2036-bordeaux-bastide/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1995",
+  "title": "Epée &#8211; M15, M17, M20, Sénior &#8211; Epreuve régionale 2 et 1/8 finale H2036 (Bordeaux Bastide)",
+  "description": "",
+  "excerpt": "",
+  "slug": "epreuve-regionale-2-epee-et-1-8-finale-h2036-bordeaux-bastide",
+  "image": false,
+  "all_day": true,
+  "start_date": "2026-11-28 00:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "11",
+   "day": "28",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-11-29 23:59:59",
+  "end_date_details": {
+   "year": "2026",
+   "month": "11",
+   "day": "29",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2026-11-27 23:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "11",
+   "day": "27",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-11-29 22:59:59",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "11",
+   "day": "29",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2012,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2012",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2012"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 15:05:15",
+  "date_utc": "2026-07-30 13:05:15",
+  "modified": "2026-07-31 09:16:16",
+  "modified_utc": "2026-07-31 07:16:16",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/1-8-h2036-sabre-cam/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2012",
+  "title": "Sabre -1/8 H2036 (Bordeaux CAM)",
+  "description": "",
+  "excerpt": "",
+  "slug": "1-8-h2036-sabre-cam",
+  "image": false,
+  "all_day": true,
+  "start_date": "2026-12-05 00:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "05",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-12-06 23:59:59",
+  "end_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "06",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2026-12-04 23:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "04",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-12-06 22:59:59",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "06",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Sabre",
+    "slug": "sabre",
+    "term_group": 0,
+    "term_taxonomy_id": 55,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 6,
+    "filter": "raw",
+    "id": 55,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/55",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2318,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2318",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2318"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-10-12 17:29:09",
+  "date_utc": "2026-10-12 15:29:09",
+  "modified": "2026-10-12 17:29:09",
+  "modified_utc": "2026-10-12 15:29:09",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/sabre-laser-epreuve-regionale-kata-pessac/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2318",
+  "title": "Sabre Laser &#8211; Epreuve régionale Kata &#8211; Pessac",
+  "description": "",
+  "excerpt": "",
+  "slug": "sabre-laser-epreuve-regionale-kata-pessac",
+  "image": false,
+  "all_day": true,
+  "start_date": "2026-12-05 00:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "05",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-12-06 23:59:59",
+  "end_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "06",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2026-12-04 23:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "04",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-12-06 22:59:59",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "06",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Laser",
+    "slug": "laser",
+    "term_group": 0,
+    "term_taxonomy_id": 56,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 4,
+    "filter": "raw",
+    "id": 56,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/56",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [],
+  "venue": {
+   "id": 2319,
+   "author": "1",
+   "status": "publish",
+   "date": "2026-10-12 17:29:09",
+   "date_utc": "2026-10-12 15:29:09",
+   "modified": "2026-10-12 17:29:09",
+   "modified_utc": "2026-10-12 15:29:09",
+   "url": "https://www.escrime-nouvelle-aquitaine.fr/lieu/pessac/",
+   "venue": "Pessac",
+   "slug": "pessac",
+   "show_map": true,
+   "show_map_link": true,
+   "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2319",
+   "global_id_lineage": [
+    "www.escrime-nouvelle-aquitaine.fr?id=2319"
+   ]
+  },
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1972,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1972",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1972"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 13:54:55",
+  "date_utc": "2026-07-30 11:54:55",
+  "modified": "2026-10-12 17:40:01",
+  "modified_utc": "2026-10-12 15:40:01",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-2-fleuret-et-1-8-h2036/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1972",
+  "title": "Fleuret &#8211; M15, M17, M20, Sénior &#8211; Epreuve régionale 2 et 1/8 H2036 (La Rochelle)",
+  "description": "<p><a href=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/07/ER-2-La-Rochelle-FLEURET.pdf\" target=\"_blank\" rel=\"noopener\"><img loading=\"lazy\" decoding=\"async\" class=\"alignnone size-medium wp-image-2129\" src=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png\" alt=\"\" width=\"300\" height=\"77\" srcset=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png 300w, https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route.png 318w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /></a></p>\n<p>&nbsp;</p>",
+  "excerpt": "",
+  "slug": "epreuve-regionale-2-fleuret-et-1-8-h2036",
+  "image": false,
+  "all_day": true,
+  "start_date": "2026-12-12 00:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "12",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-12-13 23:59:59",
+  "end_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "13",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2026-12-11 23:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "11",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-12-13 22:59:59",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "13",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1997,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1997",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1997"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:42:51",
+  "date_utc": "2026-07-30 12:42:51",
+  "modified": "2026-07-31 09:15:03",
+  "modified_utc": "2026-07-31 07:15:03",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-2-epee-perigueux/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1997",
+  "title": "Epée &#8211; M13, Vétéran &#8211; Epreuve régionale 2 (Périgueux)",
+  "description": "",
+  "excerpt": "",
+  "slug": "epreuve-regionale-2-epee-perigueux",
+  "image": false,
+  "all_day": true,
+  "start_date": "2026-12-12 00:00:00",
+  "start_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "12",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2026-12-13 23:59:59",
+  "end_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "13",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2026-12-11 23:00:00",
+  "utc_start_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "11",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2026-12-13 22:59:59",
+  "utc_end_date_details": {
+   "year": "2026",
+   "month": "12",
+   "day": "13",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Vétéran",
+    "slug": "veteran",
+    "term_group": 0,
+    "term_taxonomy_id": 9,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 5,
+    "filter": "raw",
+    "id": 9,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/9",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1976,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1976",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1976"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 13:57:30",
+  "date_utc": "2026-07-30 11:57:30",
+  "modified": "2026-09-07 12:15:18",
+  "modified_utc": "2026-09-07 10:15:18",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-3-fleuret-chatellerault/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1976",
+  "title": "Fleuret &#8211; M13, M15, M17, M20, Sénior &#8211; Epreuve régionale 3 (Châtellerault)",
+  "description": "",
+  "excerpt": "",
+  "slug": "epreuve-regionale-3-fleuret-chatellerault",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-01-09 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "09",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-01-10 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "10",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-01-08 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "08",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-01-10 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "10",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1999,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1999",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1999"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:44:15",
+  "date_utc": "2026-07-30 12:44:15",
+  "modified": "2026-09-04 12:28:23",
+  "modified_utc": "2026-09-04 10:28:23",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-3-epee/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1999",
+  "title": "Epée &#8211; M17, M20, Sénior &#8211; Epreuve régionale 3 avec zone occitanie &#8211; Ramonville",
+  "description": "",
+  "excerpt": "",
+  "slug": "epreuve-regionale-3-epee",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-01-09 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "09",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-01-10 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "10",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-01-08 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "08",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-01-10 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "10",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1978,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1978",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1978"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:00:15",
+  "date_utc": "2026-07-30 12:00:15",
+  "modified": "2026-07-31 09:05:30",
+  "modified_utc": "2026-07-31 07:05:30",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/1-4-finale-h2036/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1978",
+  "title": "Epée &#8211; M15 &#8211; 1/4 finale H2036 (Villeneuve sur Lot)",
+  "description": "",
+  "excerpt": "",
+  "slug": "1-4-finale-h2036",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-01-17 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "17",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-01-17 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "17",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-01-16 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "16",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-01-17 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "17",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2054,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2054",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2054"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-31 09:06:51",
+  "date_utc": "2026-07-31 07:06:51",
+  "modified": "2026-07-31 09:06:51",
+  "modified_utc": "2026-07-31 07:06:51",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/fleuret-m15-1-4-de-finale-h2036-villeneuve-sur-lot/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2054",
+  "title": "Fleuret &#8211; M15 &#8211; 1/4 de finale H2036 (Villeneuve sur Lot)",
+  "description": "",
+  "excerpt": "",
+  "slug": "fleuret-m15-1-4-de-finale-h2036-villeneuve-sur-lot",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-01-17 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "17",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-01-17 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "17",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-01-16 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "16",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-01-17 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "17",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2014,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2014",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2014"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 15:06:26",
+  "date_utc": "2026-07-30 13:06:26",
+  "modified": "2026-09-07 12:14:53",
+  "modified_utc": "2026-09-07 10:14:53",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-2-sabre-pau/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2014",
+  "title": "Sabre &#8211; M13, M15, M20, Sénior &#8211; Epreuve régionale 2 (Pau)",
+  "description": "",
+  "excerpt": "",
+  "slug": "epreuve-regionale-2-sabre-pau",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-01-23 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "23",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-01-24 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "24",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-01-22 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "22",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-01-24 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "24",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Sabre",
+    "slug": "sabre",
+    "term_group": 0,
+    "term_taxonomy_id": 55,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 6,
+    "filter": "raw",
+    "id": 55,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/55",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2001,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2001",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2001"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:56:08",
+  "date_utc": "2026-07-30 12:56:08",
+  "modified": "2026-07-31 08:53:58",
+  "modified_utc": "2026-07-31 06:53:58",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/championnats-de-ligue-equipe-epee-libourne/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2001",
+  "title": "Epée &#8211; M15, M17, M20, Sénior &#8211; Championnats de Ligue équipe (Libourne)",
+  "description": "",
+  "excerpt": "",
+  "slug": "championnats-de-ligue-equipe-epee-libourne",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-01-30 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "30",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-01-31 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "31",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-01-29 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "29",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-01-31 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "01",
+   "day": "31",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2004,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2004",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2004"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:58:49",
+  "date_utc": "2026-07-30 12:58:49",
+  "modified": "2026-07-31 08:53:07",
+  "modified_utc": "2026-07-31 06:53:07",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/championnats-de-ligue-epee-indiv-equipe-limoges/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2004",
+  "title": "Epée &#8211; M13, Vétéran &#8211; Championnats de ligue individuel et équipe (Limoges)",
+  "description": "",
+  "excerpt": "",
+  "slug": "championnats-de-ligue-epee-indiv-equipe-limoges",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-02-06 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "06",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-02-07 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "07",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-02-05 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "05",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-02-07 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "07",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Vétéran",
+    "slug": "veteran",
+    "term_group": 0,
+    "term_taxonomy_id": 9,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 5,
+    "filter": "raw",
+    "id": 9,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/9",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2016,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2016",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2016"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 15:07:43",
+  "date_utc": "2026-07-30 13:07:43",
+  "modified": "2026-09-07 12:13:56",
+  "modified_utc": "2026-09-07 10:13:56",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-3-sabre-la-rochelle/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2016",
+  "title": "Sabre &#8211; M13, M15, M17, M20, S Epreuve régionale 3 (La Rochelle)",
+  "description": "",
+  "excerpt": "",
+  "slug": "epreuve-regionale-3-sabre-la-rochelle",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-02-06 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "06",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-02-07 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "07",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-02-05 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "05",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-02-07 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "07",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Sabre",
+    "slug": "sabre",
+    "term_group": 0,
+    "term_taxonomy_id": 55,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 6,
+    "filter": "raw",
+    "id": 55,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/55",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2256,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2256",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2256"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-09-17 00:12:55",
+  "date_utc": "2026-09-16 22:12:55",
+  "modified": "2026-10-12 17:35:31",
+  "modified_utc": "2026-10-12 15:35:31",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/fleuret-stage-regional-2/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2256",
+  "title": "Fleuret &#8211; stage régional (Limoges)",
+  "description": "",
+  "excerpt": "",
+  "slug": "fleuret-stage-regional-2",
+  "image": false,
+  "all_day": false,
+  "start_date": "2027-02-15 10:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "15",
+   "hour": "10",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-02-18 16:00:00",
+  "end_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "18",
+   "hour": "16",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_start_date": "2027-02-15 09:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "15",
+   "hour": "09",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-02-18 15:00:00",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "02",
+   "day": "18",
+   "hour": "15",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1980,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1980",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1980"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:02:59",
+  "date_utc": "2026-07-30 12:02:59",
+  "modified": "2026-09-07 12:12:41",
+  "modified_utc": "2026-09-07 10:12:41",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/championnats-de-ligue-individuel-mont-de-marsan/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1980",
+  "title": "Fleuret &#8211; M13, M15, M17, M20, Sénior &#8211; Championnats de Ligue individuel (Mont de Marsan)",
+  "description": "",
+  "excerpt": "",
+  "slug": "championnats-de-ligue-individuel-mont-de-marsan",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-03-06 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "06",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-03-07 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "07",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-03-05 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "05",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-03-07 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "07",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2006,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2006",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2006"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 15:00:39",
+  "date_utc": "2026-07-30 13:00:39",
+  "modified": "2026-07-31 08:51:34",
+  "modified_utc": "2026-07-31 06:51:34",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/championnats-de-ligue-epee-individuel/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2006",
+  "title": "Epée &#8211;  M15, M17, M20, Sénior &#8211; Championnats de ligue individuel (Boulazac)",
+  "description": "",
+  "excerpt": "",
+  "slug": "championnats-de-ligue-epee-individuel",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-03-06 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "06",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-03-07 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "07",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-03-05 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "05",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-03-07 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "07",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2018,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2018",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2018"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 15:09:19",
+  "date_utc": "2026-07-30 13:09:19",
+  "modified": "2026-07-31 08:51:18",
+  "modified_utc": "2026-07-31 06:51:18",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/championnats-de-ligue-sabre-indiv-et-equipe/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2018",
+  "title": "Sabre &#8211; Championnats de Ligue individuel et équipe (Pessac)",
+  "description": "",
+  "excerpt": "",
+  "slug": "championnats-de-ligue-sabre-indiv-et-equipe",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-03-06 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "06",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-03-07 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "07",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-03-05 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "05",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-03-07 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "07",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Sabre",
+    "slug": "sabre",
+    "term_group": 0,
+    "term_taxonomy_id": 55,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 6,
+    "filter": "raw",
+    "id": 55,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/55",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2162,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2162",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2162"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-09-01 09:54:03",
+  "date_utc": "2026-09-01 07:54:03",
+  "modified": "2026-09-01 09:54:03",
+  "modified_utc": "2026-09-01 07:54:03",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/sabre-laser-championnat-nouvelle-aquitaine-pessac/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2162",
+  "title": "Sabre Laser &#8211; Championnat Nouvelle-Aquitaine (Pessac)",
+  "description": "",
+  "excerpt": "",
+  "slug": "sabre-laser-championnat-nouvelle-aquitaine-pessac",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-03-06 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "06",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-03-07 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "07",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-03-05 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "05",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-03-07 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "07",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Laser",
+    "slug": "laser",
+    "term_group": 0,
+    "term_taxonomy_id": 56,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 4,
+    "filter": "raw",
+    "id": 56,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/56",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1982,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1982",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1982"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:04:13",
+  "date_utc": "2026-07-30 12:04:13",
+  "modified": "2026-07-31 08:50:51",
+  "modified_utc": "2026-07-31 06:50:51",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/championnat-de-ligue-par-equipe-bordeaux-bec/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1982",
+  "title": "Fleuret &#8211; M13, M15, M17, M20, sénior &#8211; Championnat de Ligue par équipe (Bordeaux BEC)",
+  "description": "",
+  "excerpt": "",
+  "slug": "championnat-de-ligue-par-equipe-bordeaux-bec",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-03-20 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "20",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-03-21 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "21",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-03-19 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "19",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-03-21 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "21",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2321,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2321",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2321"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-10-12 17:31:41",
+  "date_utc": "2026-10-12 15:31:41",
+  "modified": "2026-10-12 17:35:10",
+  "modified_utc": "2026-10-12 15:35:10",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/sabre-laser-championnat-nouvelle-aquitaine-kata-et-choregraphie/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2321",
+  "title": "Sabre Laser &#8211; Championnat Nouvelle Aquitaine &#8211; Kata et Chorégraphie (Pessac)",
+  "description": "",
+  "excerpt": "",
+  "slug": "sabre-laser-championnat-nouvelle-aquitaine-kata-et-choregraphie",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-03-27 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "27",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-03-27 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "27",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-03-26 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "26",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-03-27 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "27",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Laser",
+    "slug": "laser",
+    "term_group": 0,
+    "term_taxonomy_id": 56,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 4,
+    "filter": "raw",
+    "id": 56,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/56",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2325,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2325",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2325"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-10-12 17:34:23",
+  "date_utc": "2026-10-12 15:34:23",
+  "modified": "2026-10-12 17:34:23",
+  "modified_utc": "2026-10-12 15:34:23",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/escrime-artistique-championnat-nouvelle-aquitaine-pessac/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2325",
+  "title": "Escrime Artistique &#8211; Championnat Nouvelle-Aquitaine (Pessac)",
+  "description": "",
+  "excerpt": "",
+  "slug": "escrime-artistique-championnat-nouvelle-aquitaine-pessac",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-03-27 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "27",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-03-27 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "27",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-03-26 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "26",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-03-27 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "27",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Artistique",
+    "slug": "artistique",
+    "term_group": 0,
+    "term_taxonomy_id": 58,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 1,
+    "filter": "raw",
+    "id": 58,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/58",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2323,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2323",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2323"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-10-12 17:32:48",
+  "date_utc": "2026-10-12 15:32:48",
+  "modified": "2026-10-12 17:34:51",
+  "modified_utc": "2026-10-12 15:34:51",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/sabre-laser-championnat-nouvelle-aquitaine-combat-pessac/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2323",
+  "title": "Sabre Laser &#8211; Championnat Nouvelle-Aquitaine &#8211; Combat (Pessac)",
+  "description": "",
+  "excerpt": "",
+  "slug": "sabre-laser-championnat-nouvelle-aquitaine-combat-pessac",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-03-28 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "28",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-03-28 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "28",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-03-27 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "27",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-03-28 21:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "28",
+   "hour": "21",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Laser",
+    "slug": "laser",
+    "term_group": 0,
+    "term_taxonomy_id": 56,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 4,
+    "filter": "raw",
+    "id": 56,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/56",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1984,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1984",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1984"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:09:59",
+  "date_utc": "2026-07-30 12:09:59",
+  "modified": "2026-09-07 12:11:58",
+  "modified_utc": "2026-09-07 10:11:58",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-4-angouleme/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1984",
+  "title": "Fleuret &#8211; M13, M15, M17, M20, Sénior &#8211; Epreuve régionale 4 (Angoulême)",
+  "description": "",
+  "excerpt": "",
+  "slug": "epreuve-regionale-4-angouleme",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-04-10 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "04",
+   "day": "10",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-04-11 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "04",
+   "day": "11",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-04-09 22:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "04",
+   "day": "09",
+   "hour": "22",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-04-11 21:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "04",
+   "day": "11",
+   "hour": "21",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CEST",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2258,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2258",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2258"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-09-17 00:14:28",
+  "date_utc": "2026-09-16 22:14:28",
+  "modified": "2026-10-12 17:36:02",
+  "modified_utc": "2026-10-12 15:36:02",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/fleuret-stage-regional-3/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2258",
+  "title": "Fleuret &#8211; stage régional (Limoges)",
+  "description": "",
+  "excerpt": "",
+  "slug": "fleuret-stage-regional-3",
+  "image": false,
+  "all_day": false,
+  "start_date": "2027-04-19 10:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "04",
+   "day": "19",
+   "hour": "10",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-04-23 16:00:00",
+  "end_date_details": {
+   "year": "2027",
+   "month": "04",
+   "day": "23",
+   "hour": "16",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_start_date": "2027-04-19 08:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "04",
+   "day": "19",
+   "hour": "08",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-04-23 14:00:00",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "04",
+   "day": "23",
+   "hour": "14",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CEST",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2008,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2008",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2008"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 15:02:03",
+  "date_utc": "2026-07-30 13:02:03",
+  "modified": "2026-07-31 08:50:21",
+  "modified_utc": "2026-07-31 06:50:21",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-3-epee-anglet/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2008",
+  "title": "Epée &#8211; M13, Vétéran &#8211; Epreuve régionale 3 (Anglet)",
+  "description": "",
+  "excerpt": "",
+  "slug": "epreuve-regionale-3-epee-anglet",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-05-15 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "15",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-05-16 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "16",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-05-14 22:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "14",
+   "hour": "22",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-05-16 21:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "16",
+   "hour": "21",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CEST",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Vétéran",
+    "slug": "veteran",
+    "term_group": 0,
+    "term_taxonomy_id": 9,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 5,
+    "filter": "raw",
+    "id": 9,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/9",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 1986,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1986",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=1986"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:11:28",
+  "date_utc": "2026-07-30 12:11:28",
+  "modified": "2026-07-31 08:50:07",
+  "modified_utc": "2026-07-31 06:50:07",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/coupe-de-nouvelle-aquitaine-boulazac/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1986",
+  "title": "Epée &#8211; M13 &#8211; Coupe de Nouvelle-Aquitaine (Boulazac)",
+  "description": "",
+  "excerpt": "",
+  "slug": "coupe-de-nouvelle-aquitaine-boulazac",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-05-22 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "22",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-05-23 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "23",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-05-21 22:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "21",
+   "hour": "22",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-05-23 21:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "23",
+   "hour": "21",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CEST",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2022,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2022",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2022"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-31 08:40:47",
+  "date_utc": "2026-07-31 06:40:47",
+  "modified": "2026-07-31 08:49:55",
+  "modified_utc": "2026-07-31 06:49:55",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/fleuret-m13-coupe-de-nouvelle-aquitaine-boulazac/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2022",
+  "title": "Fleuret &#8211; M13 &#8211; Coupe de Nouvelle Aquitaine (Boulazac)",
+  "description": "",
+  "excerpt": "",
+  "slug": "fleuret-m13-coupe-de-nouvelle-aquitaine-boulazac",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-05-22 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "22",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-05-23 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "23",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-05-21 22:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "21",
+   "hour": "22",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-05-23 21:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "23",
+   "hour": "21",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CEST",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Fleuret",
+    "slug": "fleuret",
+    "term_group": 0,
+    "term_taxonomy_id": 54,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 11,
+    "filter": "raw",
+    "id": 54,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/54",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2024,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2024",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2024"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-31 08:41:59",
+  "date_utc": "2026-07-31 06:41:59",
+  "modified": "2026-07-31 08:49:42",
+  "modified_utc": "2026-07-31 06:49:42",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/sabre-m13-coupe-de-nouvelle-aquitaine-boulazac/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2024",
+  "title": "Sabre &#8211; M13 &#8211; Coupe de Nouvelle Aquitaine (Boulazac)",
+  "description": "",
+  "excerpt": "",
+  "slug": "sabre-m13-coupe-de-nouvelle-aquitaine-boulazac",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-05-22 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "22",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-05-23 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "23",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-05-21 22:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "21",
+   "hour": "22",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-05-23 21:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "05",
+   "day": "23",
+   "hour": "21",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CEST",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Sabre",
+    "slug": "sabre",
+    "term_group": 0,
+    "term_taxonomy_id": 55,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 6,
+    "filter": "raw",
+    "id": 55,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/55",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
+   {
+    "name": "M13",
+    "slug": "m13",
+    "term_group": 0,
+    "term_taxonomy_id": 50,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 22,
+    "filter": "raw",
+    "id": 50,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/50",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ }
+]
