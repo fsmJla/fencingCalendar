@@ -7,8 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          curl -sSL -A "Mozilla/5.0" -o p.html -w "HTTP %{http_code} %{size_download} octets\n" https://www.ffescrime.fr/calendrier/
-          echo "== liens ajax/api/json =="; grep -oiE "(admin-ajax[^\"' ]*|wp-json[^\"' ]*|[^\"' ]*\.json[^\"' ]*|action=[a-z_]+)" p.html | sort -u | head -30
-          echo "== lignes contenant Mérignac / Départemental =="; grep -iE "rignac|partemental" p.html | head -10 | cut -c1-600
-          echo "== en savoir =="; grep -iE "savoir" p.html | head -5 | cut -c1-600
-          echo "== debut du body =="; sed -e 's/<script[^>]*>.*<\/script>//g' p.html | tr -s ' \n' | head -c 3000
+          curl -sSL -A "Mozilla/5.0" -o p.html https://www.ffescrime.fr/calendrier/
+          python3 - <<'PY'
+          import re
+          h=open("p.html",encoding="utf-8").read()
+          print("taille",len(h),"| nb 'en savoir':",h.count("en savoir"))
+          i=h.find("MÉRIGNAC"); i = i if i>=0 else h.lower().find("mérignac")
+          print("idx merignac",i)
+          j=h.find("en savoir")
+          def clean(s): return re.sub(r"[ \t]+"," ",re.sub(r"\n\s*\n+","\n",s))
+          print("=== autour du 1er 'en savoir' ===")
+          print(clean(h[max(0,j-2500):j+300]))
+          if i>=0:
+              print("=== autour de MERIGNAC ===")
+              print(clean(h[max(0,i-1500):i+2500]))
+          print("=== pagination / formulaire ===")
+          for m in re.finditer(r"(paged|page=|pagination|data-[a-z-]*(url|page|total)[a-z-]*=\"[^\"]*\")",h):
+              print(h[max(0,m.start()-60):m.end()+80].replace("\n"," "));
+              break
+          PY
