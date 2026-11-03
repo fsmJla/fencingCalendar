@@ -2,7 +2,7 @@
 
 Une page HTML statique, aux couleurs du SPUC Escrime (Pessac), qui regroupe, pour la saison en cours, le circuit national FFE, les épreuves de la ligue Nouvelle-Aquitaine, les épreuves de Gironde et les stages. On peut filtrer par arme, catégorie, sexe et type d’épreuve, et afficher la saison en vue « Mensuel » (un mois en calendrier), « Liste » ou « Annuel » (toute la saison sur une page, un mois par colonne). Le jour courant est entouré en rouge. Un bouton « Sombre » / « Clair » dans l’en-tête change le thème (par défaut, celui de l’appareil ; le choix est mémorisé dans le navigateur).
 
-La page est régénérée **chaque jour à 5 h UTC** (6 h ou 7 h en France) par GitHub Actions et publiée sur GitHub Pages.
+La page est régénérée **chaque jour à 6 h 52 UTC** (7 h 52 ou 8 h 52 en France) par GitHub Actions et publiée sur GitHub Pages.
 
 ## Comment ça marche
 
