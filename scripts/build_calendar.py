@@ -1023,9 +1023,9 @@ def fetch_club(cfg: dict, offline: bool) -> list[dict]:
 # Événements manuels (Gironde, corrections)
 # --------------------------------------------------------------------------
 
-def load_manual(path: Path) -> tuple[list[dict], list[dict]]:
+def load_manual(path: Path) -> tuple[list[dict], list[dict], list[dict]]:
     if not path.exists():
-        return [], []
+        return [], [], []
     j = json.loads(path.read_text(encoding="utf-8"))
     evs = []
     for ev in j.get("evenements", []):
@@ -1047,7 +1047,37 @@ def load_manual(path: Path) -> tuple[list[dict], list[dict]]:
                     "title": title, "catText": cat_text, "detail": ev.get("detail", ""),
                     "warn": ev.get("a_confirmer") or None, "src": ev.get("source", "Saisie manuelle"),
                     "url": ev.get("lien")})
-    return evs, j.get("masquer", [])
+    return evs, j.get("masquer", []), j.get("corrections", [])
+
+
+def apply_corrections(events: list[dict], rules: list[dict]) -> list[dict]:
+    """Précise un événement généré (catégories, sexe, lien, détail, mention « à confirmer »)
+    sans le recréer : repéré par sa date de début et/ou un morceau de son titre."""
+    for r in rules:
+        if not (r.get("debut") or r.get("titre_contient")):
+            log(f"[corrections] règle ignorée (ni date ni titre) : {r}")
+            continue
+        hit = 0
+        for ev in events:
+            if r.get("debut") and ev["s"] != r["debut"]:
+                continue
+            if r.get("titre_contient") and norm(r["titre_contient"]) not in norm(ev["title"]):
+                continue
+            hit += 1
+            if r.get("categories") and ev["arms"][0] not in ("ANIM", "SPUC"):
+                cats, text = parse_categories(" ".join(r["categories"]) if isinstance(r["categories"], list) else r["categories"])
+                sexe = {"dames": "D", "hommes": "H"}.get(norm(r.get("sexe", "")), "DH")
+                ev["cats"], ev["catText"] = {k: sexe for k in cats}, text
+            if r.get("lien"):
+                ev["url"] = r["lien"]
+            if "detail" in r:
+                ev["detail"] = r["detail"]
+            if "a_confirmer" in r:
+                ev["warn"] = r["a_confirmer"] or None
+        log(f"[corrections] {hit} événement(s) pour {r.get('debut') or ''} {r.get('titre_contient') or ''}".rstrip())
+        if not hit:
+            NOTES.append(f"Correction manuelle sans effet (événement introuvable) : {r.get('debut') or ''} {r.get('titre_contient') or ''}".strip() + ".")
+    return events
 
 
 def apply_hide(events: list[dict], rules: list[dict]) -> list[dict]:
@@ -1123,9 +1153,10 @@ def build(offline: bool, out: Path) -> None:
     events += merge_agenda(events, agenda)
     events += fetch_gironde(cfg, start_year, offline)
     events += fetch_club(cfg, offline)
-    manual, hide = load_manual(ROOT / "data" / "evenements_manuels.json")
+    manual, hide, corrections = load_manual(ROOT / "data" / "evenements_manuels.json")
     events += manual
     events = apply_hide(events, hide)
+    events = apply_corrections(events, corrections)
     events = [e for e in events if season_bounds[0] <= dt.date.fromisoformat(e["s"]) <= season_bounds[1]]
     if not events:
         raise SystemExit("Aucun événement : génération annulée pour ne pas publier une page vide.")
