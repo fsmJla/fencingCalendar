@@ -9,20 +9,20 @@ jobs:
       - run: |
           curl -sSL -A "Mozilla/5.0" -o p.html https://www.ffescrime.fr/calendrier/
           python3 - <<'PY'
-          import re
+          import re,base64,urllib.request
           h=open("p.html",encoding="utf-8").read()
-          print("taille",len(h),"| nb 'en savoir':",h.count("en savoir"))
-          i=h.find("MÉRIGNAC"); i = i if i>=0 else h.lower().find("mérignac")
-          print("idx merignac",i)
-          j=h.find("en savoir")
+          i=h.find("MÉRIGNAC")
+          m=re.findall(r'/competition/([A-Za-z0-9+/=]+)',h[i-300:i+300])[0]
+          print("id",m,"->",base64.b64decode(m).decode())
+          req=urllib.request.Request("https://www.ffescrime.fr/competition/"+m,headers={"User-Agent":"Mozilla/5.0"})
+          d=urllib.request.urlopen(req).read().decode()
+          print("taille detail",len(d))
           def clean(s): return re.sub(r"[ \t]+"," ",re.sub(r"\n\s*\n+","\n",s))
-          print("=== autour du 1er 'en savoir' ===")
-          print(clean(h[max(0,j-2500):j+300]))
-          if i>=0:
-              print("=== autour de MERIGNAC ===")
-              print(clean(h[max(0,i-1500):i+2500]))
-          print("=== pagination / formulaire ===")
-          for m in re.finditer(r"(paged|page=|pagination|data-[a-z-]*(url|page|total)[a-z-]*=\"[^\"]*\")",h):
-              print(h[max(0,m.start()-60):m.end()+80].replace("\n"," "));
-              break
+          print("=== liens pdf/documents ===")
+          for x in sorted(set(re.findall(r'href="([^"]*(?:\.pdf|upload|document|organisation|roadmap|feuille)[^"]*)"',d,re.I))): print(x)
+          k=d.lower().find("organisation")
+          print("=== autour de 'organisation' ===")
+          print(clean(d[max(0,k-1500):k+1500]) if k>=0 else "absent")
+          t=re.sub(r"<script.*?</script>|<style.*?</style>","",d,flags=re.S)
+          t=re.sub(r"<[^>]+>"," ",t); print("=== texte ==="); print(clean(t)[:3500])
           PY
