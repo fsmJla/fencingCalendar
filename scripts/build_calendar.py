@@ -184,14 +184,14 @@ CAT_HUMAN = {"M9": "M9", "M11": "M11", "M13": "M13", "M15": "M15", "M17": "M17",
 def cat_tokens(text: str) -> list[str]:
     n = norm(text)
     toks = []
-    for m in re.finditer(r"m\s?(9|11|13|15|17|20|23)\b|senior|veteran|cadet|junior|minime|benjamin", n):
+    for m in re.finditer(r"m\s?(9|11|13|15|17|20|23)\b|senior|veteran|\\bv[1-4]\\b|cadet|junior|minime|benjamin", n):
         t = m.group(0)
         if t.startswith("m"):
             num = m.group(1)
             toks.append("M20" if num == "23" else "M" + num)
         elif t.startswith("senior"):
             toks.append("SEN")
-        elif t.startswith("veteran"):
+        elif t.startswith("veteran") or re.fullmatch(r"v[1-4]", t):
             toks.append("VET")
         elif t == "cadet":
             toks.append("M17")
@@ -1023,9 +1023,113 @@ def fetch_club(cfg: dict, offline: bool) -> list[dict]:
 # Événements manuels (Gironde, corrections)
 # --------------------------------------------------------------------------
 
-def load_manual(path: Path) -> tuple[list[dict], list[dict]]:
+# --------------------------------------------------------------------------
+# Calendrier public de la FFE : catégories précises + « note d'organisation »
+# --------------------------------------------------------------------------
+
+FFE_BASE = "https://www.ffescrime.fr"
+FFE_LETTER = {"E": "EPEE", "F": "FLEURET", "S": "SABRE"}
+NOTE_RE = re.compile(r'href="(https://dirigeant\.escrime-ffe\.fr/engagement/telecharger/[^"]+)"[^>]*>\s*Note d(?:&#0?39;|\')organisation', re.I)
+
+
+def parse_ffe_calendar(body: str) -> list[dict]:
+    """Lignes de https://www.ffescrime.fr/calendrier/ : titre, ville, dates, armes, catégories, lien."""
+    rows = []
+    for blk in body.split('<div class="section__table-row">')[1:]:
+        blk = blk.split("<!-- /.section__table-row -->")[0]
+        m = re.search(r'href="(/competition/([A-Za-z0-9+/=]+))"', blk)
+        if not m:
+            continue
+        try:
+            parts = base64.b64decode(m.group(2)).decode("utf-8").split("-separator-")
+            d1, d2 = parts[3], parts[4]
+            s = dt.date(2000 + int(d1[4:6]), int(d1[2:4]), int(d1[0:2]))
+            e = dt.date(2000 + int(d2[4:6]), int(d2[2:4]), int(d2[0:2]))
+        except Exception:  # noqa: BLE001
+            continue
+        texts = [clean(re.sub(r"<[^>]+>", " ", t)) for t in re.findall(r"<li>(.*?)</li>", blk, re.S)]
+        texts = [t for t in texts if t]
+        letters = re.findall(r'<span>([A-Z])</span>', blk)
+        cats = next((t for t in texts if re.search(r"\bM\d+\b|SENIOR|VETERAN", t, re.I)), "")
+        rows.append({"s": iso(s), "e": iso(e), "title": texts[0] if texts else "", "city": texts[1] if len(texts) > 1 else "",
+                     "arms": [FFE_LETTER[l] for l in letters if l in FFE_LETTER], "cats": cats,
+                     "url": FFE_BASE + m.group(1)})
+    return list({r["url"]: r for r in rows}.values())
+
+
+def enrich_from_ffe(events: list[dict], cfg: dict, offline: bool) -> list[dict]:
+    """Rapproche nos épreuves départementales / régionales des lignes du calendrier FFE (même date, même arme,
+    ville citée dans notre titre) pour préciser les catégories et lier la note d'organisation."""
+    url = cfg.get("ffe_calendar_page")
+    if not url:
+        return events
+    cache = SOURCES / "calendrier-ffe.json"
+    rows = None
+    if not offline:
+        try:
+            rows = parse_ffe_calendar(http_get(url, timeout=60).decode("utf-8", "replace"))
+            if rows:
+                cache.write_text(json.dumps(rows, ensure_ascii=False), encoding="utf-8")
+        except Exception as e:  # noqa: BLE001
+            log(f"[ffe-public] page inaccessible ({e})")
+    if not rows and cache.exists():
+        rows = json.loads(cache.read_text(encoding="utf-8"))
+        log("[ffe-public] copie locale utilisée")
+    if not rows:
+        NOTES.append("Calendrier public de la FFE inaccessible : catégories précises et notes d’organisation non mises à jour.")
+        return events
+    log(f"[ffe-public] {len(rows)} épreuves lues")
+    by_date: dict[str, list[dict]] = {}
+    for r in rows:
+        by_date.setdefault(r["s"], []).append(r)
+    details: dict[str, str] = {}
+
+    def detail(u: str) -> str:
+        if u not in details:
+            try:
+                details[u] = http_get(u, timeout=30, tries=2).decode("utf-8", "replace")
+            except Exception as e:  # noqa: BLE001
+                log(f"[ffe-public]   fiche illisible {u} ({e})")
+                details[u] = ""
+        return details[u]
+
+    # mot présent dans l'adresse des listes d'engagés de la fiche (…/engages/123-epreuve-departementale-gironde-sabre)
+    scope = {"DEP": ("partemental", "gironde"), "NA": ("gional", "aquitaine")}
+    done = unmatched = 0
+    for ev in events:
+        if ev["lv"] not in scope or ev["arms"][0] in ("ANIM", "SPUC"):
+            continue
+        t = norm(ev["title"])
+        same = [r for r in by_date.get(ev["s"], []) if set(r["arms"]) & set(ev["arms"])]
+        hits = [r for r in same if len(norm(r["city"])) > 2 and norm(r["city"]) in t]
+        if not hits and not offline:
+            word, zone = scope[ev["lv"]]
+            cands = [r for r in same if word in norm(r["title"])]
+            if 0 < len(cands) <= 25:
+                hits = [r for r in cands if re.search(r"/engages/[^\"]*" + zone, detail(r["url"]), re.I)]
+        if not hits:
+            unmatched += 1
+            log(f"[ffe-public]   sans correspondance : {ev['s']} {ev['arms']} {ev['title']}")
+            continue
+        r = hits[0]
+        if ev["lv"] == "DEP":
+            cats, text = parse_categories(", ".join(h["cats"] for h in hits if h["cats"]))
+            if cats:
+                ev["cats"], ev["catText"] = cats, text
+        ev["ffe"] = r["url"]
+        if not offline:
+            m = NOTE_RE.search(detail(r["url"]) or "")
+            if m:
+                ev["note"] = html.unescape(m.group(1))
+        done += 1
+        log(f"[ffe-public]   {ev['s']} {ev['title']} → {'; '.join(h['cats'] for h in hits) or '?'} note={'oui' if ev.get('note') else 'non'}")
+    log(f"[ffe-public] {done} épreuves enrichies, {unmatched} sans correspondance")
+    return events
+
+
+def load_manual(path: Path) -> tuple[list[dict], list[dict], list[dict]]:
     if not path.exists():
-        return [], []
+        return [], [], []
     j = json.loads(path.read_text(encoding="utf-8"))
     evs = []
     for ev in j.get("evenements", []):
@@ -1047,7 +1151,39 @@ def load_manual(path: Path) -> tuple[list[dict], list[dict]]:
                     "title": title, "catText": cat_text, "detail": ev.get("detail", ""),
                     "warn": ev.get("a_confirmer") or None, "src": ev.get("source", "Saisie manuelle"),
                     "url": ev.get("lien")})
-    return evs, j.get("masquer", [])
+    return evs, j.get("masquer", []), j.get("corrections", [])
+
+
+def apply_corrections(events: list[dict], rules: list[dict]) -> list[dict]:
+    """Précise un événement généré (catégories, sexe, lien, détail, mention « à confirmer »)
+    sans le recréer : repéré par sa date de début et/ou un morceau de son titre."""
+    for r in rules:
+        if not (r.get("debut") or r.get("titre_contient")):
+            log(f"[corrections] règle ignorée (ni date ni titre) : {r}")
+            continue
+        hit = 0
+        for ev in events:
+            if r.get("debut") and ev["s"] != r["debut"]:
+                continue
+            if r.get("titre_contient") and norm(r["titre_contient"]) not in norm(ev["title"]):
+                continue
+            hit += 1
+            if r.get("categories") and ev["arms"][0] not in ("ANIM", "SPUC"):
+                cats, text = parse_categories(" ".join(r["categories"]) if isinstance(r["categories"], list) else r["categories"])
+                sexe = {"dames": "D", "hommes": "H"}.get(norm(r.get("sexe", "")), "DH")
+                ev["cats"], ev["catText"] = {k: sexe for k in cats}, text
+            if r.get("lien"):
+                ev["url"] = r["lien"]
+            if r.get("note"):
+                ev["note"] = r["note"]
+            if "detail" in r:
+                ev["detail"] = r["detail"]
+            if "a_confirmer" in r:
+                ev["warn"] = r["a_confirmer"] or None
+        log(f"[corrections] {hit} événement(s) pour {r.get('debut') or ''} {r.get('titre_contient') or ''}".rstrip())
+        if not hit:
+            NOTES.append(f"Correction manuelle sans effet (événement introuvable) : {r.get('debut') or ''} {r.get('titre_contient') or ''}".strip() + ".")
+    return events
 
 
 def apply_hide(events: list[dict], rules: list[dict]) -> list[dict]:
@@ -1123,9 +1259,11 @@ def build(offline: bool, out: Path) -> None:
     events += merge_agenda(events, agenda)
     events += fetch_gironde(cfg, start_year, offline)
     events += fetch_club(cfg, offline)
-    manual, hide = load_manual(ROOT / "data" / "evenements_manuels.json")
+    manual, hide, corrections = load_manual(ROOT / "data" / "evenements_manuels.json")
     events += manual
+    events = enrich_from_ffe(events, cfg, offline)
     events = apply_hide(events, hide)
+    events = apply_corrections(events, corrections)
     events = [e for e in events if season_bounds[0] <= dt.date.fromisoformat(e["s"]) <= season_bounds[1]]
     if not events:
         raise SystemExit("Aucun événement : génération annulée pour ne pas publier une page vide.")
@@ -1137,6 +1275,8 @@ def build(offline: bool, out: Path) -> None:
     for i, e in enumerate(events):
         e["id"] = i
         e.setdefault("url", None)
+        e.setdefault("note", None)
+        e.setdefault("ffe", None)
 
     first = min(dt.date.fromisoformat(e["s"]) for e in events)
     last = max(dt.date.fromisoformat(e["s"]) for e in events)
