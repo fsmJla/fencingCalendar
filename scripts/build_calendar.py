@@ -1118,24 +1118,51 @@ def enrich_from_ffe(events: list[dict], cfg: dict, offline: bool) -> list[dict]:
     by_date: dict[str, list[dict]] = {}
     for r in rows:
         by_date.setdefault(r["s"], []).append(r)
-    details: dict[str, str] = {}
+    fiches = SOURCES / "ffe-fiches.json"   # mémoire entre deux générations : évite de relire des fiches déjà connues
+    try:
+        memo = json.loads(fiches.read_text(encoding="utf-8")) if fiches.exists() else {}
+    except Exception:  # noqa: BLE001
+        memo = {}
+    zones: dict[str, bool] = memo.setdefault("zones", {})
+    notes: dict[str, str] = memo.setdefault("notes", {})
+    details: dict[str, str | None] = {}
     t0 = time.monotonic()
 
-    def detail(u: str) -> str:
-        if u not in details and time.monotonic() - t0 > FFE_BUDGET:
-            details[u] = ""  # budget de temps épuisé : on garde ce qui est déjà trouvé
+    def detail(u: str) -> str | None:
+        """Texte de la fiche, ou None si illisible ou si le temps imparti est écoulé."""
         if u not in details:
-            try:
-                details[u] = http_get(u, timeout=30, tries=2).decode("utf-8", "replace")
-            except Exception as e:  # noqa: BLE001
-                log(f"[ffe-public]   fiche illisible {u} ({e})")
-                details[u] = ""
+            if offline or time.monotonic() - t0 > FFE_BUDGET:
+                details[u] = None
+            else:
+                try:
+                    details[u] = http_get(u, timeout=30, tries=2).decode("utf-8", "replace")
+                except Exception as e:  # noqa: BLE001
+                    log(f"[ffe-public]   fiche illisible {u} ({e})")
+                    details[u] = None
         return details[u]
+
+    def in_zone(u: str, zone: str) -> bool:
+        k = f"{u}|{zone}"
+        if k not in zones:
+            d = detail(u)
+            if d is None:
+                return False
+            zones[k] = bool(re.search(r"/engages/[^\"]*" + zone, d, re.I))
+        return zones[k]
+
+    def note_of(u: str) -> str | None:
+        if notes.get(u):
+            return notes[u]
+        m = NOTE_RE.search(detail(u) or "")
+        if m:
+            notes[u] = html.unescape(m.group(1))
+        return notes.get(u)
 
     # mot présent dans l'adresse des listes d'engagés de la fiche (…/engages/123-epreuve-departementale-gironde-sabre)
     scope = {"DEP": ("partemental", "gironde"), "NA": ("gional", "aquitaine")}
     done = unmatched = 0
-    for ev in events:
+    # les épreuves de Gironde d'abord : si le temps vient à manquer, ce sont les dernières à en pâtir
+    for ev in sorted(events, key=lambda e: e["lv"] != "DEP"):
         if ev["lv"] not in scope or ev["arms"][0] in ("ANIM", "SPUC") or ev.get("note"):
             continue  # feuille de route déjà trouvée sur le site de la ligue : inutile de chercher à la FFE
         t = norm(ev["title"])
@@ -1145,7 +1172,7 @@ def enrich_from_ffe(events: list[dict], cfg: dict, offline: bool) -> list[dict]:
             word, zone = scope[ev["lv"]]
             cands = [r for r in same if word in norm(r["title"])]
             if 0 < len(cands) <= 25:
-                hits = [r for r in cands if re.search(r"/engages/[^\"]*" + zone, detail(r["url"]), re.I)]
+                hits = [r for r in cands if in_zone(r["url"], zone)]
         if not hits:
             unmatched += 1
             log(f"[ffe-public]   sans correspondance : {ev['s']} {ev['arms']} {ev['title']}")
@@ -1156,12 +1183,15 @@ def enrich_from_ffe(events: list[dict], cfg: dict, offline: bool) -> list[dict]:
             if cats:
                 ev["cats"], ev["catText"] = cats, text
         ev["ffe"] = r["url"]
-        if not offline:
-            m = NOTE_RE.search(detail(r["url"]) or "")
-            if m:
-                ev["note"] = html.unescape(m.group(1))
+        n = note_of(r["url"])
+        if n:
+            ev["note"] = n
         done += 1
         log(f"[ffe-public]   {ev['s']} {ev['title']} → {'; '.join(h['cats'] for h in hits) or '?'} note={'oui' if ev.get('note') else 'non'}")
+    if not offline:
+        fiches.write_text(json.dumps(memo, ensure_ascii=False, indent=0, sort_keys=True), encoding="utf-8")
+    if time.monotonic() - t0 > FFE_BUDGET:
+        log("[ffe-public] temps imparti dépassé : les fiches restantes seront lues à la prochaine génération")
     log(f"[ffe-public] {done} épreuves enrichies, {unmatched} sans correspondance")
     return events
 
