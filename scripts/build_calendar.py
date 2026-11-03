@@ -1057,6 +1057,40 @@ def parse_ffe_calendar(body: str) -> list[dict]:
     return list({r["url"]: r for r in rows}.values())
 
 
+PDF_RE = re.compile(r'<a\s[^>]*href="([^"]+\.pdf)"[^>]*>(.*?)</a>', re.I | re.S)
+
+
+def find_roadmap_pdf(body: str, base: str) -> str | None:
+    """Lien PDF de la feuille de route sur une page d'épreuve de la ligue (bouton « télécharger la feuille de route »)."""
+    links = [(urljoin(base, html.unescape(u)), inner) for u, inner in PDF_RE.findall(body)]
+    for u, inner in links:
+        if re.search(r"feuille|route|organisation", norm(inner + " " + u).replace("-", " ")):
+            return u
+    return links[0][0] if links else None
+
+
+def enrich_from_ligue(events: list[dict], offline: bool) -> list[dict]:
+    """Feuilles de route publiées sur la page de l'épreuve du site de la ligue Nouvelle-Aquitaine."""
+    if offline:
+        return events
+    pages: dict[str, str | None] = {}
+    for ev in events:
+        u = ev.get("url") or ""
+        if "escrime-nouvelle-aquitaine.fr/event/" not in u or ev.get("note"):
+            continue
+        if u not in pages:
+            try:
+                pages[u] = find_roadmap_pdf(http_get(u, timeout=30, tries=2).decode("utf-8", "replace"), u)
+            except Exception as e:  # noqa: BLE001
+                log(f"[ligue-pdf]   page illisible {u} ({e})")
+                pages[u] = None
+        if pages[u]:
+            ev["note"] = pages[u]
+            log(f"[ligue-pdf]   {ev['s']} {ev['title']} → {pages[u]}")
+    log(f"[ligue-pdf] {sum(1 for v in pages.values() if v)} feuille(s) de route sur {len(pages)} page(s) d'épreuve")
+    return events
+
+
 def enrich_from_ffe(events: list[dict], cfg: dict, offline: bool) -> list[dict]:
     """Rapproche nos épreuves départementales / régionales des lignes du calendrier FFE (même date, même arme,
     ville citée dans notre titre) pour préciser les catégories et lier la note d'organisation."""
@@ -1097,8 +1131,8 @@ def enrich_from_ffe(events: list[dict], cfg: dict, offline: bool) -> list[dict]:
     scope = {"DEP": ("partemental", "gironde"), "NA": ("gional", "aquitaine")}
     done = unmatched = 0
     for ev in events:
-        if ev["lv"] not in scope or ev["arms"][0] in ("ANIM", "SPUC"):
-            continue
+        if ev["lv"] not in scope or ev["arms"][0] in ("ANIM", "SPUC") or ev.get("note"):
+            continue  # feuille de route déjà trouvée sur le site de la ligue : inutile de chercher à la FFE
         t = norm(ev["title"])
         same = [r for r in by_date.get(ev["s"], []) if set(r["arms"]) & set(ev["arms"])]
         hits = [r for r in same if len(norm(r["city"])) > 2 and norm(r["city"]) in t]
@@ -1261,6 +1295,7 @@ def build(offline: bool, out: Path) -> None:
     events += fetch_club(cfg, offline)
     manual, hide, corrections = load_manual(ROOT / "data" / "evenements_manuels.json")
     events += manual
+    events = enrich_from_ligue(events, offline)
     events = enrich_from_ffe(events, cfg, offline)
     events = apply_hide(events, hide)
     events = apply_corrections(events, corrections)
