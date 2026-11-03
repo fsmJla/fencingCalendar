@@ -1,0 +1,14 @@
+name: Sonde FFE (temporaire)
+on:
+  pull_request:
+    paths: [".github/workflows/sonde-ffe.yml"]
+jobs:
+  sonde:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -sSL -A "Mozilla/5.0" -o p.html -w "HTTP %{http_code} %{size_download} octets\n" https://www.ffescrime.fr/calendrier/
+          echo "== liens ajax/api/json =="; grep -oiE "(admin-ajax[^\"' ]*|wp-json[^\"' ]*|[^\"' ]*\.json[^\"' ]*|action=[a-z_]+)" p.html | sort -u | head -30
+          echo "== lignes contenant Mérignac / Départemental =="; grep -iE "rignac|partemental" p.html | head -10 | cut -c1-600
+          echo "== en savoir =="; grep -iE "savoir" p.html | head -5 | cut -c1-600
+          echo "== debut du body =="; sed -e 's/<script[^>]*>.*<\/script>//g' p.html | tr -s ' \n' | head -c 3000
