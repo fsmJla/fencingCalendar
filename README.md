@@ -28,6 +28,12 @@ Ne sont pas repris : escrime artistique, para-escrime et circuits internationaux
 
 Les rencontres départementales sont lues automatiquement sur la page du comité, <https://cdescrime33.fr/calendrier/> (réglage `gironde_page` dans `config.json`). Cette page est un simple texte mis en forme : le script repère les titres de section (« Rencontres départementales d’épée », etc.), puis chaque date et le lieu écrit à côté ou juste en dessous. « 23 ou 30 janvier » est placé au 23 avec la mention « À confirmer ». Les rencontres sont ouvertes à toutes les catégories, de M9 à vétérans. Si le comité change la mise en page et qu’aucune date n’est plus reconnue, les points à vérifier de la page le signalent.
 
+## Événements du club (SPUC)
+
+Les événements du club (soirée d’accueil, portes ouvertes, stage d’automne…) sont lus dans le Google Sheet du club, onglet « calendrier général » (réglage `club_sheet_csv` dans `config.json`, adresse « publier sur le web » au format CSV). Le script lit la grille « un mois par colonne » : chaque case de texte est un événement, et les jours consécutifs portant le même texte forment un seul événement sur plusieurs jours. Une heure écrite dans la case (« 19h: AG du club », « 10h - 12h ») va dans le détail. Ils apparaissent sous le bouton « Évènement SPUC » du filtre « Armes » et ne dépendent pas du filtre « Type » ni des catégories.
+
+Si le Google Sheet est inaccessible, la dernière copie de `data/sources/calendrier-club.csv` est utilisée. Pour lire un autre onglet, ajouter `&gid=` suivi de son numéro à l’adresse CSV.
+
 ## Ajouter ou corriger une épreuve à la main
 
 Pour une épreuve absente de toutes les sources, éditer `data/evenements_manuels.json` (directement sur GitHub, bouton ✏️) :

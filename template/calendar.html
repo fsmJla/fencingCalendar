@@ -28,6 +28,7 @@ try{var t=localStorage.getItem("calendrier-theme");if(t==="dark"||t==="light")do
   --c-multi:#334155; --t-multi:#E2E8F0;
   --c-anim:#0F766E; --t-anim:#D3F3EE;
   --c-laser:#0E7490; --t-laser:#D5F1F8;
+  --c-spuc:#8800B8; --t-spuc:#F1DDF9;
   --lv-na:#4A0A6B; --lv-fr:#5B6678; --lv-st:#8A5A00; --lv-dep:#7A1F5C; --warn:#F5A524; --warn-text:#1A1405;
   --focus:#8800B8; --today:#E11D48;
 }
@@ -43,6 +44,7 @@ try{var t=localStorage.getItem("calendrier-theme");if(t==="dark"||t==="light")do
   --c-multi:#64748B; --t-multi:#1E293B;
   --c-anim:#1F9E92; --t-anim:#0B3733;
   --c-laser:#1B9AB8; --t-laser:#0A3240;
+  --c-spuc:#B25BE6; --t-spuc:#2E1646;
   --lv-na:#5E2A80; --lv-fr:#5B6678; --lv-st:#A06A0A; --lv-dep:#9A3A7A; --warn:#F5A524; --warn-text:#1A1405;
   --focus:#C38AF0; --today:#FB7185; color-scheme:dark;
 }
@@ -58,6 +60,7 @@ try{var t=localStorage.getItem("calendrier-theme");if(t==="dark"||t==="light")do
   --c-multi:#64748B; --t-multi:#1E293B;
   --c-anim:#1F9E92; --t-anim:#0B3733;
   --c-laser:#1B9AB8; --t-laser:#0A3240;
+  --c-spuc:#B25BE6; --t-spuc:#2E1646;
   --lv-na:#5E2A80; --lv-fr:#5B6678; --lv-st:#A06A0A; --lv-dep:#9A3A7A; --warn:#F5A524; --warn-text:#1A1405;
   --focus:#C38AF0; --today:#FB7185; color-scheme:dark;
 }
@@ -171,7 +174,7 @@ td.yd.we .ydn{color:var(--text);font-weight:600}
 .k-warn{--k:var(--warn);color:var(--warn-text)}
 .c-epee{--c:var(--c-epee);--t:var(--t-epee)} .c-sabre{--c:var(--c-sabre);--t:var(--t-sabre)}
 .c-fleuret{--c:var(--c-fleuret);--t:var(--t-fleuret)} .c-multi{--c:var(--c-multi);--t:var(--t-multi)}
-.c-anim{--c:var(--c-anim);--t:var(--t-anim)} .c-laser{--c:var(--c-laser);--t:var(--t-laser)}
+.c-spuc{--c:var(--c-spuc);--t:var(--t-spuc)} .c-anim{--c:var(--c-anim);--t:var(--t-anim)} .c-laser{--c:var(--c-laser);--t:var(--t-laser)}
 
 .list{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
 .lmonth{padding:9px 12px;background:var(--surface2);font:700 16px/1.2 "Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;color:var(--ink)}
@@ -327,7 +330,7 @@ details.notes ul{padding-left:20px;margin:4px 0}
   <div id="view"></div>
 
   <div class="legend" aria-label="Légende">
-    <span><span class="chip k-arm c-epee">Épée</span><span class="chip k-arm c-sabre">Sabre</span><span class="chip k-arm c-fleuret">Fleuret</span><span class="chip k-arm c-laser">Sabre laser</span><span class="chip k-arm c-multi">Plusieurs armes</span><span class="chip k-arm c-anim">Animateur / éducateur</span></span>
+    <span><span class="chip k-arm c-epee">Épée</span><span class="chip k-arm c-sabre">Sabre</span><span class="chip k-arm c-fleuret">Fleuret</span><span class="chip k-arm c-laser">Sabre laser</span><span class="chip k-arm c-multi">Plusieurs armes</span><span class="chip k-arm c-anim">Animateur / éducateur</span><span class="chip k-arm c-spuc">Évènement SPUC</span></span>
     <span><span class="chip k-na">NA</span> épreuve Nouvelle-Aquitaine</span>
     <span><span class="chip k-dep">Gironde</span> épreuve départementale</span>
     <span><span class="chip k-fr">France</span> circuit national (grille FFE)</span>
@@ -355,9 +358,10 @@ const DS = ["dim.","lun.","mar.","mer.","jeu.","ven.","sam."];
 const ARMS = [
   {k:"EPEE",l:"Épée",c:"var(--c-epee)"},{k:"SABRE",l:"Sabre",c:"var(--c-sabre)"},
   {k:"FLEURET",l:"Fleuret",c:"var(--c-fleuret)"},{k:"LASER",l:"Sabre laser",c:"var(--c-laser)"},
-  {k:"ANIM",l:"Animateur / éducateur",c:"var(--c-anim)"}];
-const ARML = {EPEE:"Épée",SABRE:"Sabre",FLEURET:"Fleuret",LASER:"Sabre laser",ANIM:"Animateur / éducateur"};
-const ARM_ORDER = ["EPEE","SABRE","FLEURET","LASER","ANIM"];
+  {k:"ANIM",l:"Animateur / éducateur",c:"var(--c-anim)"},
+  {k:"SPUC",l:"Évènement SPUC",c:"var(--c-spuc)"}];
+const ARML = {EPEE:"Épée",SABRE:"Sabre",FLEURET:"Fleuret",LASER:"Sabre laser",ANIM:"Animateur / éducateur",SPUC:"Évènement SPUC"};
+const ARM_ORDER = ["EPEE","SABRE","FLEURET","LASER","ANIM","SPUC"];
 const CATG = [{k:"M9",l:"M9"},{k:"M11",l:"M11"},{k:"M13",l:"M13 / M15"},{k:"JEU",l:"M17 / M20"},{k:"SEN",l:"Seniors"},{k:"VET",l:"Vétérans"}];
 const GROUP = {M9:"M9",M11:"M11",M13:"M13",M17:"JEU",M20:"JEU",SEN:"SEN",VET:"VET"};
 const CATLAB = {M9:"M9",M11:"M11",M13:"M13/M15",M17:"M17",M20:"M20",SEN:"Seniors",VET:"Vétérans"};
@@ -367,10 +371,10 @@ const LVCHIP = {DEP:"Gironde",NA:"NA",FR:"France",ST:"Stage"};
 const SEX = [{k:"D",l:"Dames"},{k:"H",l:"Hommes"}];
 
 const DEFAULTS = () => ({
-  arms:["EPEE","SABRE","LASER","ANIM"], cats:["M9","M11","M13","JEU","SEN","VET"], sex:["D","H"], lv:["DEP","NA","FR","ST"], q:""
+  arms:["EPEE","SABRE","LASER","ANIM","SPUC"], cats:["M9","M11","M13","JEU","SEN","VET"], sex:["D","H"], lv:["DEP","NA","FR","ST"], q:""
 });
 const st = {arms:null,cats:null,sex:null,lv:null,q:"",month:0,view:"cal",sel:null};  // sel : jour choisi (vue mobile)
-const SKEY = "escrime-filtres-" + DATA.season;
+const SKEY = "escrime-filtres-v2-" + DATA.season;
 
 function loadState(){
   let s = DEFAULTS();
@@ -417,11 +421,12 @@ function compute(){
   const map = new Map();
   const q = norm(st.q.trim());
   for(const ev of DATA.events){
-    if(!st.lv.has(ev.lv)) continue;
+    const club = ev.arms[0] === "SPUC";   // événements du club : seul le filtre « Armes » les concerne
+    if(!club && !st.lv.has(ev.lv)) continue;
     const arms = ev.arms.filter(a => st.arms.has(a));
     if(!arms.length) continue;
     let catDisp;
-    if(ev.arms[0] === "ANIM"){
+    if(ev.arms[0] === "ANIM" || club){
       catDisp = "";
     }else{
       const vis = CAT_ORDER.filter(k => {
@@ -451,6 +456,7 @@ function chipsHTML(it){
   const lv = '<span class="chip k-'+it.lv.toLowerCase()+'">'+LVCHIP[it.lv]+'</span>';
   const w = it.warn ? '<span class="chip k-warn">À confirmer</span>' : "";
   if(it.arms[0] === "ANIM") return '<span class="chip k-st">Stage</span>'+w;
+  if(it.arms[0] === "SPUC") return arm+w;
   return (it.lv === "ST" ? lv+arm : arm+lv) + w;
 }
 function textHTML(it){
@@ -519,7 +525,7 @@ function renderCal(items,y,m){
 }
 
 const DL = ["L","M","M","J","V","S","D"];
-const LVSHORT = {DEP:"33",NA:"NA",FR:"FR",ST:"Stage"};  // « 33 » : Gironde
+const LVSHORT = {DEP:"33",NA:"NA",FR:"FR",ST:"Stage",CLUB:"SPUC"};  // « 33 » : Gironde
 function renderYear(items){
   const byDay = new Map();
   items.forEach((it,idx) => {
@@ -670,7 +676,7 @@ function renderFilters(){
 const isNarrow = () => window.matchMedia("(max-width: 860px)").matches;
 
 function filterSummary(){
-  const arms = ARMS.filter(a => a.k !== "ANIM" && st.arms.has(a.k)).map(a => a.l);
+  const arms = ARMS.filter(a => a.k !== "ANIM" && a.k !== "SPUC" && st.arms.has(a.k)).map(a => a.l);
   const other = (st.cats.size < CATG.length ? 1 : 0) + (st.sex.size < 2 ? 1 : 0) + (st.lv.size < LV.length ? 1 : 0) + (st.q.trim() ? 1 : 0);
   return (arms.join(", ") || "aucune arme") + (other ? " + " + other + " filtre" + (other > 1 ? "s" : "") : "");
 }
@@ -729,7 +735,7 @@ function zipStore(files){
 }
 const xe = v => String(v).replace(/[&<>"\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c] || ""));
 function exportXlsx(){
-  const LVN = {DEP:"Gironde",NA:"Nouvelle Aquitaine",FR:"France",ST:"Stage"};
+  const LVN = {DEP:"Gironde",NA:"Nouvelle Aquitaine",FR:"France",ST:"Stage",CLUB:"SPUC"};
   const head = ["Début","Fin","Épreuve","Type","Armes","Catégories","Détail","À confirmer","Source","Lien"];
   const colL = i => String.fromCharCode(65+i);
   const serial = d => Math.round((Date.UTC(+d.slice(0,4), +d.slice(5,7)-1, +d.slice(8,10)) - Date.UTC(1899,11,30)) / 86400000);
@@ -775,12 +781,12 @@ function exportXlsx(){
 function openDlg(i){
   const it = CUR[i]; if(!it) return;
   const dlg = document.getElementById("dlg");
-  const lvName = {DEP:"Épreuve départementale (Gironde)",NA:"Épreuve Nouvelle-Aquitaine",FR:"Circuit national (grille FFE)",ST:"Stage"}[it.lv];
+  const lvName = {DEP:"Épreuve départementale (Gironde)",NA:"Épreuve Nouvelle-Aquitaine",FR:"Circuit national (grille FFE)",ST:"Stage",CLUB:"Évènement du club (SPUC)"}[it.lv];
   dlg.innerHTML = '<div class="dlg '+colorClass(it)+'">'+chipsHTML(it)+
     '<h3>'+esc(it.title)+'</h3><dl>'+
     '<dt>Dates</dt><dd>'+esc(rangeText(it.s,it.e))+"</dd>"+
     '<dt>Type</dt><dd>'+esc(lvName)+"</dd>"+
-    '<dt>Armes</dt><dd>'+esc(it.arms.map(a => ARML[a]).join(", "))+"</dd>"+
+    (it.arms[0] === "SPUC" ? "" : '<dt>Armes</dt><dd>'+esc(it.arms.map(a => ARML[a]).join(", "))+"</dd>")+
     (it.cat ? '<dt>Catégories</dt><dd>'+esc(it.cat)+"</dd>" : "")+
     (it.detail ? '<dt>Détail</dt><dd>'+esc(it.detail)+"</dd>" : "")+
     '<dt>Source</dt><dd>'+esc(it.src.join(", "))+"</dd>"+

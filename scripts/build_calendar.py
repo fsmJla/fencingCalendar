@@ -17,9 +17,11 @@ Usage : python scripts/build_calendar.py [--offline] [--out dist/index.html]
 from __future__ import annotations
 
 import argparse
+import csv
 import base64
 import datetime as dt
 import html
+import io
 import json
 import re
 import sys
@@ -936,6 +938,88 @@ def fetch_gironde(cfg: dict, start_year: int, offline: bool) -> list[dict]:
 
 
 # --------------------------------------------------------------------------
+# Événements du club (SPUC Escrime) : onglet « calendrier général » du Google Sheet
+# --------------------------------------------------------------------------
+
+CLUB_SRC = "Calendrier du club (SPUC Escrime)"
+
+
+def parse_club_cell(text: str) -> tuple[str, str]:
+    """Titre et détail (horaires, précisions) d'une case du calendrier du club."""
+    lines = [l.strip() for l in text.replace("\r", "").split("\n") if l.strip()]
+    if not lines:
+        return "", ""
+    time_txt = None
+    m = re.match(r"^(\d{1,2}\s*h\s*\d{0,2})\s*[:\-–]\s*(.+)$", lines[0], re.I)
+    if m:
+        time_txt, lines[0] = m.group(1), m.group(2)
+    return lines[0], " · ".join(([time_txt] if time_txt else []) + lines[1:])
+
+
+def parse_club_csv(body: str) -> list[dict]:
+    """Grille « un mois par paire de colonnes » : jour (« L 1 ») puis texte de la case.
+    Les jours consécutifs portant le même texte forment un seul événement."""
+    rows = list(csv.reader(io.StringIO(body.lstrip("\ufeff"), newline="")))
+    if not rows:
+        return []
+    cols = []  # (colonne des jours, mois, année)
+    for c, label in enumerate(rows[0]):
+        m = re.match(r"^([a-z]+)\s+(\d{2})$", norm(label))
+        if m and m.group(1) in MONTHS_FR:
+            cols.append((c, MONTHS_FR[m.group(1)], 2000 + int(m.group(2))))
+    events = []
+    for c, month, year in cols:
+        days = []
+        for r in rows[1:]:
+            lab = r[c].strip() if c < len(r) else ""
+            txt = r[c + 1].strip() if c + 1 < len(r) else ""
+            m = re.match(r"^[LMJVSD]\s+(\d{1,2})$", lab)
+            if not (m and txt):
+                continue
+            try:
+                days.append((dt.date(year, month, int(m.group(1))), txt))
+            except ValueError:
+                continue
+        i = 0
+        while i < len(days):
+            j = i
+            while j + 1 < len(days) and days[j + 1][1] == days[i][1] and days[j + 1][0] == days[j][0] + dt.timedelta(days=1):
+                j += 1
+            title, detail = parse_club_cell(days[i][1])
+            if title:
+                events.append({"s": iso(days[i][0]), "e": iso(days[j][0]), "lv": "CLUB", "arms": ["SPUC"], "cats": {},
+                               "title": title, "catText": "", "detail": detail, "warn": None, "src": CLUB_SRC, "url": None})
+            i = j + 1
+    return events
+
+
+def fetch_club(cfg: dict, offline: bool) -> list[dict]:
+    url = cfg.get("club_sheet_csv")
+    if not url:
+        return []
+    cache = SOURCES / "calendrier-club.csv"
+    evs: list[dict] = []
+    if not offline:
+        try:
+            body = http_get(url).decode("utf-8", "replace")
+            evs = parse_club_csv(body)
+            if evs:
+                cache.write_text(body, encoding="utf-8")
+            else:
+                log("[club] aucun événement reconnu dans le fichier téléchargé ; copie locale utilisée si présente")
+        except Exception as e:  # noqa: BLE001
+            log(f"[club] feuille inaccessible ({e}) ; copie locale utilisée si présente")
+    if not evs and cache.exists():
+        evs = parse_club_csv(cache.read_text(encoding="utf-8"))
+    for ev in evs:
+        log(f"[club]   {ev['s']} → {ev['e']} {ev['title']}" + (f" ({ev['detail']})" if ev["detail"] else ""))
+    log(f"[club] {len(evs)} événements du club")
+    if not evs:
+        NOTES.append("Événements du club : aucun événement lu dans le Google Sheet, la mise en page a peut-être changé.")
+    return evs
+
+
+# --------------------------------------------------------------------------
 # Événements manuels (Gironde, corrections)
 # --------------------------------------------------------------------------
 
@@ -1038,6 +1122,7 @@ def build(offline: bool, out: Path) -> None:
     agenda = fetch_tec_events(cfg, season_bounds, offline)
     events += merge_agenda(events, agenda)
     events += fetch_gironde(cfg, start_year, offline)
+    events += fetch_club(cfg, offline)
     manual, hide = load_manual(ROOT / "data" / "evenements_manuels.json")
     events += manual
     events = apply_hide(events, hide)
@@ -1095,9 +1180,10 @@ def render_notes(cfg: dict, src_names: list[str]) -> str:
         "    <h3>Ce que contient ce calendrier</h3>\n    <ul>",
         li([
             "<b>Sources :</b> " + ", ".join(f"« {esc(n)} »" for n in src_names) +
-            f", l’<a href=\"{esc(cfg['pages'][0])}\">agenda du site de la ligue</a> et le <a href=\"{esc(cfg.get('gironde_page') or '')}\">calendrier du comité de Gironde</a>. La page est régénérée chaque semaine.",
+            f", l’<a href=\"{esc(cfg['pages'][0])}\">agenda du site de la ligue</a> le <a href=\"{esc(cfg.get('gironde_page') or '')}\">calendrier du comité de Gironde</a> et le calendrier du club (Google Sheet, onglet « calendrier général »). La page est régénérée chaque jour.",
             "<b>Épreuves NA :</b> dates, catégories, format et lieu proposé viennent du calendrier régional. Les cases régionales de la grille FFE (« ER », « Formation »…) ne sont pas reprises pour éviter les doublons.",
             "<b>Sabre laser :</b> épreuves du calendrier NA et de l’agenda du site, avec leur propre bouton dans « Armes ».",
+            "<b>Évènement SPUC :</b> événements du club (soirée d’accueil, portes ouvertes, stages du club…), lus dans le Google Sheet du club ; ils ont leur propre bouton dans « Armes ».",
             "<b>Non repris :</b> escrime artistique, para-escrime et circuits internationaux (FIE, EFC, championnats du monde et d’Europe).",
             "<b>Filtres :</b> « M13 / M15 » et « M17 / M20 » regroupent deux catégories. Les événements réservés à un sexe sont suivis de (D) ou (H). Vos filtres sont mémorisés dans votre navigateur.",
         ]),
