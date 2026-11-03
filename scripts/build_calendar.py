@@ -25,6 +25,7 @@ import io
 import json
 import re
 import sys
+import time
 import unicodedata
 from collections import OrderedDict
 from io import BytesIO
@@ -1028,6 +1029,7 @@ def fetch_club(cfg: dict, offline: bool) -> list[dict]:
 # --------------------------------------------------------------------------
 
 FFE_BASE = "https://www.ffescrime.fr"
+FFE_BUDGET = 480  # secondes max passées à lire les fiches du site de la FFE
 FFE_LETTER = {"E": "EPEE", "F": "FLEURET", "S": "SABRE"}
 NOTE_RE = re.compile(r'href="(https://dirigeant\.escrime-ffe\.fr/engagement/telecharger/[^"]+)"[^>]*>\s*Note d(?:&#0?39;|\')organisation', re.I)
 
@@ -1117,8 +1119,11 @@ def enrich_from_ffe(events: list[dict], cfg: dict, offline: bool) -> list[dict]:
     for r in rows:
         by_date.setdefault(r["s"], []).append(r)
     details: dict[str, str] = {}
+    t0 = time.monotonic()
 
     def detail(u: str) -> str:
+        if u not in details and time.monotonic() - t0 > FFE_BUDGET:
+            details[u] = ""  # budget de temps épuisé : on garde ce qui est déjà trouvé
         if u not in details:
             try:
                 details[u] = http_get(u, timeout=30, tries=2).decode("utf-8", "replace")
