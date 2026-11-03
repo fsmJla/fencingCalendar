@@ -2,7 +2,7 @@ name: Calendrier escrime
 
 on:
   schedule:
-    - cron: "0 5 * * *"   # chaque jour à 5 h UTC (6 h/7 h en France)
+    - cron: "52 7 * * *"   # chaque jour à 7 h 52 UTC (8 h 52 en France en hiver, 9 h 52 en été)
   workflow_dispatch:       # bouton « Run workflow » pour régénérer à la demande
   push:
     branches: [main]
