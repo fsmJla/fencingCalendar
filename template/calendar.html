@@ -733,12 +733,28 @@ function exportXlsx(){
   const head = ["Début","Fin","Épreuve","Type","Armes","Catégories","Détail","À confirmer","Source","Lien"];
   const colL = i => String.fromCharCode(65+i);
   const serial = d => Math.round((Date.UTC(+d.slice(0,4), +d.slice(5,7)-1, +d.slice(8,10)) - Date.UTC(1899,11,30)) / 86400000);
-  const str = (r,i,v) => v ? '<c r="'+colL(i)+r+'" t="inlineStr"'+(r===1?' s="1"':"")+'><is><t xml:space="preserve">'+xe(v)+"</t></is></c>" : "";
-  let rows = '<row r="1">'+head.map((h,i) => str(1,i,h)).join("")+"</row>";
+  const str = (r,i,v,sty) => v ? '<c r="'+colL(i)+r+'" t="inlineStr"'+(sty ? ' s="'+sty+'"' : "")+'><is><t xml:space="preserve">'+xe(v)+"</t></is></c>" : "";
+  // rappel des filtres en tête de fichier
+  const sel = (list, set, all) => list.length === set.size && list.every(o => set.has(o.k)) ? (all || "toutes") : (list.filter(o => set.has(o.k)).map(o => o.l).join(", ") || "aucune");
+  const now = new Date(), pad = n => String(n).padStart(2,"0");
+  const meta = [
+    ["Calendrier Saison "+DATA.season+" - SPUC Escrime", 3],
+    ["Exporté le "+pad(now.getDate())+"/"+pad(now.getMonth()+1)+"/"+now.getFullYear()+" à "+pad(now.getHours())+":"+pad(now.getMinutes()), 0],
+    ["Filtres appliqués", 3],
+    ["Armes : "+sel(ARMS, st.arms), 0],
+    ["Catégories : "+sel(CATG, st.cats), 0],
+    ["Sexe : "+sel(SEX, st.sex, "tous"), 0],
+    ["Type : "+sel(LV, st.lv, "tous"), 0],
+    ["Recherche : "+(st.q.trim() || "aucune"), 0],
+    [CUR.length+" événement"+(CUR.length>1?"s":"")+" exporté"+(CUR.length>1?"s":""), 3],
+  ];
+  const H = meta.length + 2;   // ligne des titres de colonnes
+  let rows = meta.map(([t,sty],i) => '<row r="'+(i+1)+'">'+str(i+1,0,t,sty)+"</row>").join("") +
+    '<row r="'+H+'">'+head.map((h,i) => str(H,i,h,1)).join("")+"</row>";
   CUR.forEach((it,k) => {
-    const r = k+2;
+    const r = k+H+1;
     rows += '<row r="'+r+'"><c r="A'+r+'" s="2"><v>'+serial(it.s)+'</v></c><c r="B'+r+'" s="2"><v>'+serial(it.e)+"</v></c>"+
-      [it.title, LVN[it.lv], it.arms.map(a => ARML[a]).join(", "), it.cat, it.detail, it.warn, it.src.join(", "), it.url].map((v,i) => str(r,i+2,v)).join("")+"</row>";
+      [it.title, LVN[it.lv], it.arms.map(a => ARML[a]).join(", "), it.cat, it.detail, it.warn, it.src.join(", "), it.url].map((v,i) => str(r,i+2,v,0)).join("")+"</row>";
   });
   const W = [12,12,48,18,22,24,30,40,28,40];
   const X = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n', NS = 'http://schemas.openxmlformats.org/';
@@ -747,8 +763,8 @@ function exportXlsx(){
     ["_rels/.rels", X+'<Relationships xmlns="'+NS+'package/2006/relationships"><Relationship Id="rId1" Type="'+NS+'officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'],
     ["xl/workbook.xml", X+'<workbook xmlns="'+NS+'spreadsheetml/2006/main" xmlns:r="'+NS+'officeDocument/2006/relationships"><sheets><sheet name="Calendrier" sheetId="1" r:id="rId1"/></sheets></workbook>'],
     ["xl/_rels/workbook.xml.rels", X+'<Relationships xmlns="'+NS+'package/2006/relationships"><Relationship Id="rId1" Type="'+NS+'officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="'+NS+'officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'],
-    ["xl/styles.xml", X+'<styleSheet xmlns="'+NS+'spreadsheetml/2006/main"><numFmts count="1"><numFmt numFmtId="164" formatCode="dd/mm/yyyy"/></numFmts><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><color rgb="FFFFFFFF"/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF8800B8"/></patternFill></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="3"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1"/><xf numFmtId="164" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>'],
-    ["xl/worksheets/sheet1.xml", X+'<worksheet xmlns="'+NS+'spreadsheetml/2006/main"><dimension ref="A1:J'+(CUR.length+1)+'"/><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>'+W.map((w,i) => '<col min="'+(i+1)+'" max="'+(i+1)+'" width="'+w+'" customWidth="1"/>').join("")+'</cols><sheetData>'+rows+'</sheetData><autoFilter ref="A1:J'+(CUR.length+1)+'"/></worksheet>'],
+    ["xl/styles.xml", X+'<styleSheet xmlns="'+NS+'spreadsheetml/2006/main"><numFmts count="1"><numFmt numFmtId="164" formatCode="dd/mm/yyyy"/></numFmts><fonts count="3"><font><sz val="11"/><name val="Calibri"/></font><font><b/><color rgb="FFFFFFFF"/><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF8800B8"/></patternFill></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="4"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1"/><xf numFmtId="164" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/><xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>'],
+    ["xl/worksheets/sheet1.xml", X+'<worksheet xmlns="'+NS+'spreadsheetml/2006/main"><dimension ref="A1:J'+(CUR.length+H)+'"/><sheetViews><sheetView workbookViewId="0"><pane ySplit="'+H+'" topLeftCell="A'+(H+1)+'" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>'+W.map((w,i) => '<col min="'+(i+1)+'" max="'+(i+1)+'" width="'+w+'" customWidth="1"/>').join("")+'</cols><sheetData>'+rows+'</sheetData><autoFilter ref="A'+H+':J'+(CUR.length+H)+'"/></worksheet>'],
   ];
   const a = document.createElement("a"), url = URL.createObjectURL(zipStore(files));
   a.href = url; a.download = "calendrier-escrime-"+DATA.season+".xlsx";
