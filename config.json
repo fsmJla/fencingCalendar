@@ -6,5 +6,6 @@
   "excel_urls": [],
   "events_api": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events",
   "gironde_page": "https://cdescrime33.fr/calendrier/",
-  "club_sheet_csv": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSaeRQvJUQ8cA8WEDsypn5Iy9tg_2oB6waPIw2VB9mDdaD6nN6Ont6Uo5AY1F2m9O22-urGlY_J5KHe/pub?output=csv"
+  "club_sheet_csv": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSaeRQvJUQ8cA8WEDsypn5Iy9tg_2oB6waPIw2VB9mDdaD6nN6Ont6Uo5AY1F2m9O22-urGlY_J5KHe/pub?output=csv",
+  "ffe_calendar_page": "https://www.ffescrime.fr/calendrier/"
 }

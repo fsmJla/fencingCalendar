@@ -439,8 +439,10 @@ function compute(){
     if(q && !norm(ev.title+" "+catDisp+" "+ev.detail).includes(q)) continue;
     const key = [ev.s,ev.e,ev.title,ev.lv,catDisp,ev.detail,ev.warn||""].join("|");
     let it = map.get(key);
-    if(!it){ it = {s:ev.s,e:ev.e,lv:ev.lv,title:ev.title,cat:catDisp,detail:ev.detail,warn:ev.warn,url:ev.url||null,arms:new Set(),src:new Set()}; map.set(key,it); }
+    if(!it){ it = {s:ev.s,e:ev.e,lv:ev.lv,title:ev.title,cat:catDisp,detail:ev.detail,warn:ev.warn,url:ev.url||null,note:ev.note||null,ffe:ev.ffe||null,arms:new Set(),src:new Set()}; map.set(key,it); }
     if(!it.url && ev.url) it.url = ev.url;
+    if(!it.note && ev.note) it.note = ev.note;
+    if(!it.ffe && ev.ffe) it.ffe = ev.ffe;
     arms.forEach(a => it.arms.add(a));
     it.src.add(ev.src);
   }
@@ -790,6 +792,8 @@ function openDlg(i){
     (it.cat ? '<dt>Catégories</dt><dd>'+esc(it.cat)+"</dd>" : "")+
     (it.detail ? '<dt>Détail</dt><dd>'+esc(it.detail)+"</dd>" : "")+
     '<dt>Source</dt><dd>'+esc(it.src.join(", "))+"</dd>"+
+    (it.note ? '<dt>Note d’organisation</dt><dd><a href="'+esc(it.note)+'" target="_blank" rel="noopener">Télécharger la note d’organisation</a></dd>' : "")+
+    (it.ffe ? '<dt>Fiche FFE</dt><dd><a href="'+esc(it.ffe)+'" target="_blank" rel="noopener">Voir la fiche sur ffescrime.fr</a></dd>' : "")+
     (it.url ? '<dt>Lien</dt><dd><a href="'+esc(it.url)+'" target="_blank" rel="noopener">Voir la fiche de l’épreuve</a></dd>' : "")+"</dl>"+
     (it.warn ? '<div class="wn"><b>À confirmer :</b> '+esc(it.warn)+"</div>" : "")+
     '<div class="close"><button type="button" id="dclose">Fermer</button></div></div>';

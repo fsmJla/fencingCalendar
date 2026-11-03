@@ -2,11 +2,5 @@
   "_aide": "Épreuves à ajouter à la main (en plus des sources automatiques, dont le calendrier de Gironde), ou corrections. niveau : gironde | region | france | stage. armes : epee, sabre, fleuret, animateur. categories : texte libre, ex. 'M11 M13' ou 'M15 à Seniors'. sexe : dames | hommes | (vide = mixte). 'masquer' retire des événements générés (par date de début et/ou morceau de titre). 'corrections' précise un événement généré sans le recréer : debut (date) et/ou titre_contient pour le repérer, puis categories, sexe, lien, detail, a_confirmer.",
   "evenements": [],
   "masquer": [],
-  "corrections": [
-    {
-      "debut": "2026-11-07",
-      "titre_contient": "Mérignac",
-      "categories": "M9 à M15"
-    }
-  ]
+  "corrections": []
 }
