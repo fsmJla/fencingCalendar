@@ -167,6 +167,10 @@ td.yd.we .ydn{color:var(--text);font-weight:600}
 .bar:hover{filter:brightness(.97)}
 .bar .t{font-weight:600}
 .bar .d{color:var(--muted)}
+.pdf{display:inline-flex;align-items:center;vertical-align:-3px;margin-left:5px;padding:0 3px;border-radius:4px;cursor:pointer;color:#D32F2F;line-height:1}
+.pdf:hover{background:rgba(211,47,47,.15)}
+.pdf svg{width:16px;height:16px;display:block}
+@media print{.pdf{display:none}}
 .bar.cont{font-weight:600}
 .chip{display:inline-block;font-size:10.5px;font-weight:600;line-height:1.2;padding:1px 6px;border-radius:4px;color:#fff;background:var(--k);margin-right:4px;vertical-align:1px;white-space:nowrap}
 .k-arm{--k:var(--c)}
@@ -461,9 +465,13 @@ function chipsHTML(it){
   if(it.arms[0] === "SPUC") return arm+w;
   return (it.lv === "ST" ? lv+arm : arm+lv) + w;
 }
+const PDF_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path fill="#fff" fill-opacity=".35" d="M14 2l6 6h-4a2 2 0 0 1-2-2z"/><text x="12" y="18" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#fff">PDF</text></svg>';
+function pdfIcon(it){
+  return it.note ? '<span class="pdf" data-note="'+esc(it.note)+'" title="Note d’organisation (PDF)" aria-label="Télécharger la note d’organisation">'+PDF_SVG+"</span>" : "";
+}
 function textHTML(it){
   const d = [it.cat, it.detail].filter(Boolean).join(" · ");
-  return '<span class="t">'+esc(it.title)+'</span>'+(d ? ' <span class="d">'+esc(d)+'</span>' : "");
+  return '<span class="t">'+esc(it.title)+'</span>'+pdfIcon(it)+(d ? ' <span class="d">'+esc(d)+'</span>' : "");
 }
 function barHTML(it, idx, cont, style){
   const inner = cont
@@ -836,6 +844,8 @@ function init(){
     const md = e.target.closest(".mday[data-d]");
     if(md){ st.sel = st.sel === md.dataset.d ? null : md.dataset.d; render(); return; }
     if(e.target.id === "allmonth"){ st.sel = null; render(); return; }
+    const pd = e.target.closest(".pdf[data-note]");
+    if(pd){ e.preventDefault(); window.open(pd.dataset.note, "_blank", "noopener"); return; }
     const b = e.target.closest(".bar,.ychip,.ydot"); if(b) openDlg(Number(b.dataset.i));
   });
   document.getElementById("dlg").addEventListener("click", e => { if(e.target.id === "dlg") e.target.close(); });
