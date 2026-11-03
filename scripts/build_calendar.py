@@ -184,14 +184,14 @@ CAT_HUMAN = {"M9": "M9", "M11": "M11", "M13": "M13", "M15": "M15", "M17": "M17",
 def cat_tokens(text: str) -> list[str]:
     n = norm(text)
     toks = []
-    for m in re.finditer(r"m\s?(9|11|13|15|17|20|23)\b|senior|veteran|cadet|junior|minime|benjamin", n):
+    for m in re.finditer(r"m\s?(9|11|13|15|17|20|23)\b|senior|veteran|\\bv[1-4]\\b|cadet|junior|minime|benjamin", n):
         t = m.group(0)
         if t.startswith("m"):
             num = m.group(1)
             toks.append("M20" if num == "23" else "M" + num)
         elif t.startswith("senior"):
             toks.append("SEN")
-        elif t.startswith("veteran"):
+        elif t.startswith("veteran") or re.fullmatch(r"v[1-4]", t):
             toks.append("VET")
         elif t == "cadet":
             toks.append("M17")
@@ -1082,32 +1082,47 @@ def enrich_from_ffe(events: list[dict], cfg: dict, offline: bool) -> list[dict]:
     by_date: dict[str, list[dict]] = {}
     for r in rows:
         by_date.setdefault(r["s"], []).append(r)
+    details: dict[str, str] = {}
+
+    def detail(u: str) -> str:
+        if u not in details:
+            try:
+                details[u] = http_get(u, timeout=30, tries=2).decode("utf-8", "replace")
+            except Exception as e:  # noqa: BLE001
+                log(f"[ffe-public]   fiche illisible {u} ({e})")
+                details[u] = ""
+        return details[u]
+
+    # mot présent dans l'adresse des listes d'engagés de la fiche (…/engages/123-epreuve-departementale-gironde-sabre)
+    scope = {"DEP": ("partemental", "gironde"), "NA": ("gional", "aquitaine")}
     done = unmatched = 0
     for ev in events:
-        if ev["lv"] not in ("DEP", "NA") or ev["arms"][0] in ("ANIM", "SPUC"):
+        if ev["lv"] not in scope or ev["arms"][0] in ("ANIM", "SPUC"):
             continue
         t = norm(ev["title"])
-        hits = [r for r in by_date.get(ev["s"], [])
-                if set(r["arms"]) & set(ev["arms"]) and len(norm(r["city"])) > 2 and norm(r["city"]) in t]
-        if len(hits) != 1:
+        same = [r for r in by_date.get(ev["s"], []) if set(r["arms"]) & set(ev["arms"])]
+        hits = [r for r in same if len(norm(r["city"])) > 2 and norm(r["city"]) in t]
+        if not hits and not offline:
+            word, zone = scope[ev["lv"]]
+            cands = [r for r in same if word in norm(r["title"])]
+            if 0 < len(cands) <= 25:
+                hits = [r for r in cands if re.search(r"/engages/[^\"]*" + zone, detail(r["url"]), re.I)]
+        if not hits:
             unmatched += 1
-            log(f"[ffe-public]   sans correspondance : {ev['s']} {ev['arms']} {ev['title']} ({len(hits)} candidats)")
+            log(f"[ffe-public]   sans correspondance : {ev['s']} {ev['arms']} {ev['title']}")
             continue
         r = hits[0]
-        if ev["lv"] == "DEP" and r["cats"]:
-            cats, text = parse_categories(r["cats"])
+        if ev["lv"] == "DEP":
+            cats, text = parse_categories(", ".join(h["cats"] for h in hits if h["cats"]))
             if cats:
                 ev["cats"], ev["catText"] = cats, text
         ev["ffe"] = r["url"]
         if not offline:
-            try:
-                m = NOTE_RE.search(http_get(r["url"], timeout=30, tries=2).decode("utf-8", "replace"))
-                if m:
-                    ev["note"] = html.unescape(m.group(1))
-            except Exception as e:  # noqa: BLE001
-                log(f"[ffe-public]   fiche illisible {r['url']} ({e})")
+            m = NOTE_RE.search(detail(r["url"]) or "")
+            if m:
+                ev["note"] = html.unescape(m.group(1))
         done += 1
-        log(f"[ffe-public]   {ev['s']} {ev['title']} → {r['cats'] or '?'} note={'oui' if ev.get('note') else 'non'}")
+        log(f"[ffe-public]   {ev['s']} {ev['title']} → {'; '.join(h['cats'] for h in hits) or '?'} note={'oui' if ev.get('note') else 'non'}")
     log(f"[ffe-public] {done} épreuves enrichies, {unmatched} sans correspondance")
     return events
 
