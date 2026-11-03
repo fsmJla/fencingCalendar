@@ -1123,8 +1123,10 @@ def enrich_from_ffe(events: list[dict], cfg: dict, offline: bool) -> list[dict]:
         memo = json.loads(fiches.read_text(encoding="utf-8")) if fiches.exists() else {}
     except Exception:  # noqa: BLE001
         memo = {}
+    today = dt.date.today()
     zones: dict[str, bool] = memo.setdefault("zones", {})
     notes: dict[str, str] = memo.setdefault("notes", {})
+    seen: dict[str, str] = memo.setdefault("vues", {})   # fiche lue sans note : on ne la relit pas avant 3 jours
     details: dict[str, str | None] = {}
     t0 = time.monotonic()
 
@@ -1153,22 +1155,31 @@ def enrich_from_ffe(events: list[dict], cfg: dict, offline: bool) -> list[dict]:
     def note_of(u: str) -> str | None:
         if notes.get(u):
             return notes[u]
-        m = NOTE_RE.search(detail(u) or "")
+        if u in seen and (today - dt.date.fromisoformat(seen[u])).days < 3:
+            return None
+        d = detail(u)
+        m = NOTE_RE.search(d or "")
         if m:
             notes[u] = html.unescape(m.group(1))
+            seen.pop(u, None)
+        elif d is not None:
+            seen[u] = iso(today)
         return notes.get(u)
 
     # mot présent dans l'adresse des listes d'engagés de la fiche (…/engages/123-epreuve-departementale-gironde-sabre)
-    scope = {"DEP": ("partemental", "gironde"), "NA": ("gional", "aquitaine")}
+    # FR : épreuves du circuit national, rapprochées par la seule ville (pas de zone à vérifier)
+    scope = {"DEP": ("partemental", "gironde"), "NA": ("gional", "aquitaine"), "FR": None}
     done = unmatched = 0
     # les épreuves de Gironde d'abord : si le temps vient à manquer, ce sont les dernières à en pâtir
-    for ev in sorted(events, key=lambda e: e["lv"] != "DEP"):
+    for ev in sorted(events, key=lambda e: {"DEP": 0, "NA": 1}.get(e["lv"], 2)):
         if ev["lv"] not in scope or ev["arms"][0] in ("ANIM", "SPUC") or ev.get("note"):
             continue  # feuille de route déjà trouvée sur le site de la ligue : inutile de chercher à la FFE
+        if dt.date.fromisoformat(ev["e"]) < today:
+            continue  # épreuve passée
         t = norm(ev["title"])
         same = [r for r in by_date.get(ev["s"], []) if set(r["arms"]) & set(ev["arms"])]
         hits = [r for r in same if len(norm(r["city"])) > 2 and norm(r["city"]) in t]
-        if not hits and not offline:
+        if not hits and not offline and scope[ev["lv"]]:
             word, zone = scope[ev["lv"]]
             cands = [r for r in same if word in norm(r["title"])]
             if 0 < len(cands) <= 25:
