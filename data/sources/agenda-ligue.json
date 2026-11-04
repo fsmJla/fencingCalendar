@@ -1075,12 +1075,12 @@
   "status": "publish",
   "date": "2026-07-30 14:40:43",
   "date_utc": "2026-07-30 12:40:43",
-  "modified": "2026-07-31 09:23:53",
-  "modified_utc": "2026-07-31 07:23:53",
+  "modified": "2026-11-04 14:33:48",
+  "modified_utc": "2026-11-04 13:33:48",
   "url": "https://www.escrime-nouvelle-aquitaine.fr/event/epreuve-regionale-2-epee-et-1-8-finale-h2036-bordeaux-bastide/",
   "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/1995",
   "title": "Epée &#8211; M15, M17, M20, Sénior &#8211; Epreuve régionale 2 et 1/8 finale H2036 (Bordeaux Bastide)",
-  "description": "",
+  "description": "<p><a href=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/11/8eme-H2036-et-ER-2-epee-28-et-29-nov-Bordeaux-bastide.pdf\" target=\"_blank\" rel=\"noopener\"><img loading=\"lazy\" decoding=\"async\" class=\"alignnone size-medium wp-image-2129\" src=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png\" alt=\"\" width=\"300\" height=\"77\" srcset=\"https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route-300x77.png 300w, https://www.escrime-nouvelle-aquitaine.fr/wp-content/uploads/2026/08/bouton-telecharger-la-feuille-de-route.png 318w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /></a></p>",
   "excerpt": "",
   "slug": "epreuve-regionale-2-epee-et-1-8-finale-h2036-bordeaux-bastide",
   "image": false,
@@ -2464,165 +2464,6 @@
   "custom_fields": []
  },
  {
-  "id": 2001,
-  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2001",
-  "global_id_lineage": [
-   "www.escrime-nouvelle-aquitaine.fr?id=2001"
-  ],
-  "author": "1",
-  "status": "publish",
-  "date": "2026-07-30 14:56:08",
-  "date_utc": "2026-07-30 12:56:08",
-  "modified": "2026-07-31 08:53:58",
-  "modified_utc": "2026-07-31 06:53:58",
-  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/championnats-de-ligue-equipe-epee-libourne/",
-  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2001",
-  "title": "Epée &#8211; M15, M17, M20, Sénior &#8211; Championnats de Ligue équipe (Libourne)",
-  "description": "",
-  "excerpt": "",
-  "slug": "championnats-de-ligue-equipe-epee-libourne",
-  "image": false,
-  "all_day": true,
-  "start_date": "2027-01-30 00:00:00",
-  "start_date_details": {
-   "year": "2027",
-   "month": "01",
-   "day": "30",
-   "hour": "00",
-   "minutes": "00",
-   "seconds": "00"
-  },
-  "end_date": "2027-01-31 23:59:59",
-  "end_date_details": {
-   "year": "2027",
-   "month": "01",
-   "day": "31",
-   "hour": "23",
-   "minutes": "59",
-   "seconds": "59"
-  },
-  "utc_start_date": "2027-01-29 23:00:00",
-  "utc_start_date_details": {
-   "year": "2027",
-   "month": "01",
-   "day": "29",
-   "hour": "23",
-   "minutes": "00",
-   "seconds": "00"
-  },
-  "utc_end_date": "2027-01-31 22:59:59",
-  "utc_end_date_details": {
-   "year": "2027",
-   "month": "01",
-   "day": "31",
-   "hour": "22",
-   "minutes": "59",
-   "seconds": "59"
-  },
-  "timezone": "Europe/Paris",
-  "timezone_abbr": "CET",
-  "cost": "",
-  "cost_details": {
-   "currency_symbol": "$",
-   "currency_code": "USD",
-   "currency_position": "prefix",
-   "values": []
-  },
-  "website": "",
-  "show_map": true,
-  "show_map_link": true,
-  "hide_from_listings": false,
-  "sticky": false,
-  "featured": false,
-  "categories": [
-   {
-    "name": "Epée",
-    "slug": "epee",
-    "term_group": 0,
-    "term_taxonomy_id": 53,
-    "taxonomy": "tribe_events_cat",
-    "description": "",
-    "parent": 0,
-    "count": 14,
-    "filter": "raw",
-    "id": 53,
-    "urls": {
-     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
-     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
-    }
-   }
-  ],
-  "tags": [
-   {
-    "name": "M15",
-    "slug": "m15",
-    "term_group": 0,
-    "term_taxonomy_id": 49,
-    "taxonomy": "post_tag",
-    "description": "",
-    "parent": 0,
-    "count": 21,
-    "filter": "raw",
-    "id": 49,
-    "urls": {
-     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
-     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
-    }
-   },
-   {
-    "name": "M17",
-    "slug": "m17",
-    "term_group": 0,
-    "term_taxonomy_id": 51,
-    "taxonomy": "post_tag",
-    "description": "",
-    "parent": 0,
-    "count": 18,
-    "filter": "raw",
-    "id": 51,
-    "urls": {
-     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
-     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
-    }
-   },
-   {
-    "name": "M20",
-    "slug": "m20",
-    "term_group": 0,
-    "term_taxonomy_id": 52,
-    "taxonomy": "post_tag",
-    "description": "",
-    "parent": 0,
-    "count": 14,
-    "filter": "raw",
-    "id": 52,
-    "urls": {
-     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
-     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
-    }
-   },
-   {
-    "name": "Sénior",
-    "slug": "senior",
-    "term_group": 0,
-    "term_taxonomy_id": 10,
-    "taxonomy": "post_tag",
-    "description": "",
-    "parent": 0,
-    "count": 14,
-    "filter": "raw",
-    "id": 10,
-    "urls": {
-     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
-     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
-    }
-   }
-  ],
-  "venue": [],
-  "organizer": [],
-  "custom_fields": []
- },
- {
   "id": 2004,
   "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2004",
   "global_id_lineage": [
@@ -3695,6 +3536,165 @@
      "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
     }
    },
+   {
+    "name": "M15",
+    "slug": "m15",
+    "term_group": 0,
+    "term_taxonomy_id": 49,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 21,
+    "filter": "raw",
+    "id": 49,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/49",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M17",
+    "slug": "m17",
+    "term_group": 0,
+    "term_taxonomy_id": 51,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 18,
+    "filter": "raw",
+    "id": 51,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/51",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "M20",
+    "slug": "m20",
+    "term_group": 0,
+    "term_taxonomy_id": 52,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 52,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/52",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   },
+   {
+    "name": "Sénior",
+    "slug": "senior",
+    "term_group": 0,
+    "term_taxonomy_id": 10,
+    "taxonomy": "post_tag",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 10,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags/10",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/tags"
+    }
+   }
+  ],
+  "venue": [],
+  "organizer": [],
+  "custom_fields": []
+ },
+ {
+  "id": 2001,
+  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2001",
+  "global_id_lineage": [
+   "www.escrime-nouvelle-aquitaine.fr?id=2001"
+  ],
+  "author": "1",
+  "status": "publish",
+  "date": "2026-07-30 14:56:08",
+  "date_utc": "2026-07-30 12:56:08",
+  "modified": "2026-11-04 14:17:47",
+  "modified_utc": "2026-11-04 13:17:47",
+  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/championnats-de-ligue-equipe-epee-libourne/",
+  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2001",
+  "title": "Epée &#8211; M15, M17, M20, Sénior &#8211; Championnats de Ligue équipe (Angoulême)",
+  "description": "",
+  "excerpt": "",
+  "slug": "championnats-de-ligue-equipe-epee-libourne",
+  "image": false,
+  "all_day": true,
+  "start_date": "2027-03-20 00:00:00",
+  "start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "20",
+   "hour": "00",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "end_date": "2027-03-21 23:59:59",
+  "end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "21",
+   "hour": "23",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "utc_start_date": "2027-03-19 23:00:00",
+  "utc_start_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "19",
+   "hour": "23",
+   "minutes": "00",
+   "seconds": "00"
+  },
+  "utc_end_date": "2027-03-21 22:59:59",
+  "utc_end_date_details": {
+   "year": "2027",
+   "month": "03",
+   "day": "21",
+   "hour": "22",
+   "minutes": "59",
+   "seconds": "59"
+  },
+  "timezone": "Europe/Paris",
+  "timezone_abbr": "CET",
+  "cost": "",
+  "cost_details": {
+   "currency_symbol": "$",
+   "currency_code": "USD",
+   "currency_position": "prefix",
+   "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+   {
+    "name": "Epée",
+    "slug": "epee",
+    "term_group": 0,
+    "term_taxonomy_id": 53,
+    "taxonomy": "tribe_events_cat",
+    "description": "",
+    "parent": 0,
+    "count": 14,
+    "filter": "raw",
+    "id": 53,
+    "urls": {
+     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/53",
+     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
+    }
+   }
+  ],
+  "tags": [
    {
     "name": "M15",
     "slug": "m15",
