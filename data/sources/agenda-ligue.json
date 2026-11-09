@@ -1336,117 +1336,6 @@
   "custom_fields": []
  },
  {
-  "id": 2318,
-  "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2318",
-  "global_id_lineage": [
-   "www.escrime-nouvelle-aquitaine.fr?id=2318"
-  ],
-  "author": "1",
-  "status": "publish",
-  "date": "2026-10-12 17:29:09",
-  "date_utc": "2026-10-12 15:29:09",
-  "modified": "2026-10-12 17:29:09",
-  "modified_utc": "2026-10-12 15:29:09",
-  "url": "https://www.escrime-nouvelle-aquitaine.fr/event/sabre-laser-epreuve-regionale-kata-pessac/",
-  "rest_url": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/events/2318",
-  "title": "Sabre Laser &#8211; Epreuve régionale Kata &#8211; Pessac",
-  "description": "",
-  "excerpt": "",
-  "slug": "sabre-laser-epreuve-regionale-kata-pessac",
-  "image": false,
-  "all_day": true,
-  "start_date": "2026-12-05 00:00:00",
-  "start_date_details": {
-   "year": "2026",
-   "month": "12",
-   "day": "05",
-   "hour": "00",
-   "minutes": "00",
-   "seconds": "00"
-  },
-  "end_date": "2026-12-06 23:59:59",
-  "end_date_details": {
-   "year": "2026",
-   "month": "12",
-   "day": "06",
-   "hour": "23",
-   "minutes": "59",
-   "seconds": "59"
-  },
-  "utc_start_date": "2026-12-04 23:00:00",
-  "utc_start_date_details": {
-   "year": "2026",
-   "month": "12",
-   "day": "04",
-   "hour": "23",
-   "minutes": "00",
-   "seconds": "00"
-  },
-  "utc_end_date": "2026-12-06 22:59:59",
-  "utc_end_date_details": {
-   "year": "2026",
-   "month": "12",
-   "day": "06",
-   "hour": "22",
-   "minutes": "59",
-   "seconds": "59"
-  },
-  "timezone": "Europe/Paris",
-  "timezone_abbr": "CET",
-  "cost": "",
-  "cost_details": {
-   "currency_symbol": "$",
-   "currency_code": "USD",
-   "currency_position": "prefix",
-   "values": []
-  },
-  "website": "",
-  "show_map": true,
-  "show_map_link": true,
-  "hide_from_listings": false,
-  "sticky": false,
-  "featured": false,
-  "categories": [
-   {
-    "name": "Laser",
-    "slug": "laser",
-    "term_group": 0,
-    "term_taxonomy_id": 56,
-    "taxonomy": "tribe_events_cat",
-    "description": "",
-    "parent": 0,
-    "count": 4,
-    "filter": "raw",
-    "id": 56,
-    "urls": {
-     "self": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories/56",
-     "collection": "https://www.escrime-nouvelle-aquitaine.fr/wp-json/tribe/events/v1/categories"
-    }
-   }
-  ],
-  "tags": [],
-  "venue": {
-   "id": 2319,
-   "author": "1",
-   "status": "publish",
-   "date": "2026-10-12 17:29:09",
-   "date_utc": "2026-10-12 15:29:09",
-   "modified": "2026-10-12 17:29:09",
-   "modified_utc": "2026-10-12 15:29:09",
-   "url": "https://www.escrime-nouvelle-aquitaine.fr/lieu/pessac/",
-   "venue": "Pessac",
-   "slug": "pessac",
-   "show_map": true,
-   "show_map_link": true,
-   "global_id": "www.escrime-nouvelle-aquitaine.fr?id=2319",
-   "global_id_lineage": [
-    "www.escrime-nouvelle-aquitaine.fr?id=2319"
-   ]
-  },
-  "organizer": [],
-  "custom_fields": []
- },
- {
   "id": 1972,
   "global_id": "www.escrime-nouvelle-aquitaine.fr?id=1972",
   "global_id_lineage": [
@@ -3416,7 +3305,7 @@
     "taxonomy": "tribe_events_cat",
     "description": "",
     "parent": 0,
-    "count": 4,
+    "count": 3,
     "filter": "raw",
     "id": 56,
     "urls": {
@@ -3844,7 +3733,7 @@
     "taxonomy": "tribe_events_cat",
     "description": "",
     "parent": 0,
-    "count": 4,
+    "count": 3,
     "filter": "raw",
     "id": 56,
     "urls": {
@@ -4032,7 +3921,7 @@
     "taxonomy": "tribe_events_cat",
     "description": "",
     "parent": 0,
-    "count": 4,
+    "count": 3,
     "filter": "raw",
     "id": 56,
     "urls": {
